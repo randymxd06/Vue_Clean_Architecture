@@ -3,7 +3,9 @@ import type { TodoRepository } from "@/domain/repositories/TodoRepository";
 
 export class GetTodoById {
 
-    constructor(private readonly todoRepo: TodoRepository) {}
+    constructor(
+        private readonly todoRepo: TodoRepository
+    ) {}
 
     execute(id: string): Promise<Todo> {
         return this.todoRepo.getTodoById(id);
