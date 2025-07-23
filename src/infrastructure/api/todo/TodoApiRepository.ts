@@ -9,14 +9,8 @@ export class TodoApiRepository implements TodoRepository {
         return fetch(this.baseUrl).then(res => res.json());
     }
 
-    getTodoById(id: string): Promise<Todo | null> {
-        return fetch(`${this.baseUrl}/${id}`)
-            .then(res => {
-                if (res.status === 404) {
-                    return null;
-                }
-                return res.json();
-            });
+    async getTodoById(id: string): Promise<Todo> {
+        return fetch(`${this.baseUrl}/${id}`).then(res => res.json());
     }
 
     async createTodo(todo: Omit<Todo, 'id'>): Promise<Todo> {
@@ -35,8 +29,11 @@ export class TodoApiRepository implements TodoRepository {
         }).then(res => res.json());
     }
 
-    async deleteTodo(id: string): Promise<void> {
-        await fetch(`${this.baseUrl}/${id}`, { method: 'DELETE' });
+    async deleteTodo(id: string): Promise<Todo> {
+        return fetch(`${this.baseUrl}/${id}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+        }).then(res => res.json());
     }
 
 }
