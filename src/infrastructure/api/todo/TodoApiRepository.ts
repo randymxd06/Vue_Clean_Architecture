@@ -1,39 +1,33 @@
 import type { Todo } from '@/domain/entities/Todo';
 import type { TodoRepository } from '@/domain/repositories/TodoRepository';
+import type { HttpClient } from '@/infrastructure/http/HttpClient';
 
 export class TodoApiRepository implements TodoRepository {
 
-    private readonly baseUrl = 'http://localhost:3000/api/v1/';
+    private readonly baseUrl = 'http://localhost:3000/api/v1/todos';
 
-    async getTodos(): Promise<Todo[]> {
-        return fetch(this.baseUrl).then(res => res.json());
+    constructor(
+        private readonly http: HttpClient
+    ) {}
+
+    getTodos(): Promise<Todo[]> {
+        return this.http.get<Todo[]>(this.baseUrl);
     }
 
-    async getTodoById(id: string): Promise<Todo> {
-        return fetch(`${this.baseUrl}/${id}`).then(res => res.json());
+    getTodoById(id: string): Promise<Todo> {
+        return this.http.get<Todo>(`${this.baseUrl}/${id}`);
     }
 
-    async createTodo(todo: Omit<Todo, 'id'>): Promise<Todo> {
-        return fetch(this.baseUrl, {
-            method: 'POST',
-            body: JSON.stringify(todo),
-            headers: { 'Content-Type': 'application/json' },
-        }).then(res => res.json());
+    createTodo(todo: Omit<Todo, 'id'>): Promise<Todo> {
+        return this.http.post<Todo>(this.baseUrl, todo);
     }
 
-    async updateTodo(todo: Todo): Promise<Todo> {
-        return fetch(`${this.baseUrl}/${todo.id}`, {
-            method: 'PUT',
-            body: JSON.stringify(todo),
-            headers: { 'Content-Type': 'application/json' },
-        }).then(res => res.json());
+    updateTodo(todo: Todo): Promise<Todo> {
+        return this.http.put<Todo>(`${this.baseUrl}/${todo.id}`, todo);
     }
 
-    async deleteTodo(id: string): Promise<Todo> {
-        return fetch(`${this.baseUrl}/${id}`, {
-            method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' },
-        }).then(res => res.json());
+    deleteTodo(id: string): Promise<Todo> {
+        return this.http.delete<Todo>(`${this.baseUrl}/${id}`);
     }
 
 }
