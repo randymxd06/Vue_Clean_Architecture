@@ -48,14 +48,13 @@ src/
 │   │   └── Todo.ts                     # Defines Todo structure (id, title, completed, etc.)
 │   ├── repositories/                   # Repository interfaces (abstractions)
 │   │   └── TodoRepository.ts           # Defines CRUD operations for todos (create, read, update, delete)
-│   ├── services/                       # Business logic services
-│   │   └── TodoService.ts              # Orchestrates todo operations (validation, business rules)
 │   └── use-cases/                      # Application use cases
-│       ├── todos/                      # Todos use cases
-│       │    ├── CreateTodo.ts          # Handles todo creation logic
-│       │    ├── UpdateTodo.ts          # Manages todo updates
-│       │    └── ToggleTodoComplete.ts  # Handles completion state changes
-│       └── users/                      # Users use cases
+│       └── todos/                      # Todos use cases
+│            ├── CreateTodo.ts          # Handles todo creatation logic
+│            ├── DeleteTodo.ts          # Handles all deletion logic.
+│            ├── GetTodoById.ts         # Handles all the logic of obtaining by ID
+│            ├── GetTodos.ts            # Handles all the logic of obtaining all records
+│            └── UpdateTodo.ts          # Manages todo updates
 │
 ├── infrastructure/                     # Infrastructure Layer (implementation details)
 │   ├── api/                            # API communication

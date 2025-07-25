@@ -1,12 +1,12 @@
 import type { Todo } from "@/domain/entities/Todo";
-import type { TodoService } from "@/domain/services/TodoService";
+import type { TodoRepository } from "@/domain/repositories/TodoRepository";
 
 export class UpdateTodo {
 
-    constructor(private readonly todoService: TodoService) { }
+    constructor(private readonly todoRepository: TodoRepository) { }
 
     execute(todo: Todo): Promise<Todo> {
-        return this.todoService.updateTodo(todo);
+        return this.todoRepository.updateTodo(todo);
     }
     
 }
