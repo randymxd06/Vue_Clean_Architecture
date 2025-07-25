@@ -37,3 +37,83 @@ npm run build
 ```sh
 npm run test:unit
 ```
+
+---
+
+## Directory Structure
+
+```sh
+src/
+│
+├── domain/                         # Domain Layer (Core Business Logic)
+│   ├── entities/                   # Business entities (e.g., User.ts, Product.ts)
+│   │   └── Todo.ts                 # Defines Todo structure (id, title, completed, etc.)
+│   ├── repositories/               # Repository interfaces (abstractions)
+│   │   └── TodoRepository.ts       # Defines CRUD operations for todos (create, read, update, delete)
+│   ├── services/                   # Business logic services
+│   │   └── TodoService.ts          # Orchestrates todo operations (validation, business rules)
+│   └── use-cases/                  # Application use cases
+│       ├── CreateTodo.ts           # Handles todo creation logic
+│       ├── UpdateTodo.ts           # Manages todo updates
+│       └── ToggleTodoComplete.ts   # Handles completion state changes
+│
+├── infrastructure/                 # Infrastructure Layer (implementation details)
+│   ├── api/                        # API communication
+│   │   └── axiosClient.ts          # Example: Axios HTTP client setup
+│   │   └── todoApiClient.ts        # Specific API client for todos (using Axios/Fetch)
+│   ├── repositories/               # Concrete repository implementations
+│   │   └── TodoRepositoryImpl.ts   # Implements TodoRepository using API client
+│   ├── storage/                    # Client-side storage
+│   │   └── LocalStorage.ts         # Example: LocalStorage wrapper
+│   ├── plugins/                    # Vue plugins
+│   │   └── i18n.ts                 # Example: Internationalization plugin
+│   └── services/                   # External services integration
+│       └── TodoNotification.ts     # Handles UI notifications for todo operations
+│
+├── presentation/                   # Presentation Layer (UI)
+│   ├── components/                 # Reusable UI components
+│   │   ├── ui/                     # Base UI components (buttons, inputs)
+│   │   │   ├── TodoInput.vue       # Input field for new todos
+│   │   │   ├── TodoItem.vue        # Single todo item display
+│   │   │   └── TodoList.vue        # List of todos
+│   │   └── shared/                 # App-specific shared components
+│   │       └── TodoFilter.vue      # Filtering controls
+│   ├── modules/                    # Feature modules
+│   │   ├── auth/                   # Authentication module
+│   │   │   ├── pages/              # Route-level components
+│   │   │   │   └── TodoPage.vue    # Main todo page
+│   │   │   ├── stores/
+│   │   │   │   └── useTodoStore.ts # Pinia store for todo state
+│   │   │   ├── router/
+│   │   │   │   └── index.ts        # Router configuration
+│   │   │   ├── composables/
+│   │   │   ├── assets/
+│   │   │   │   ├── styles/         # CSS/Styles
+│   │   │   │   │   └── todo.css    # Todo-specific styles
+│   │   │   │   └── icons/          # SVG/icons
+│   │   │   └── components/         # Module-specific components
+│   │   │       └── LoginForm.vue
+│   │   ├── dashboard/              # Another feature module
+│   │   └── todo/                   # Another feature module
+│   ├── stores/                     # State management
+│   │   └── useAuthStore.ts         # Example: Pinia store for auth
+│   ├── composables/                # Composition API utilities
+│   │   └── useUser.ts              # Example: User-related composable
+│   ├── router/                     # Routing configuration
+│   │   └── index.ts                # Router setup with routes
+│   ├── assets/                     # Global assets
+│   │   ├── styles/                 # Global styles
+│   │   └── images/                 # Global images
+│   └── App.vue                     # Root Vue component
+│
+├── shared/                         # Shared utilities and types
+│   ├── utils/                      # Utility functions
+│   │   └── formValidator.ts        # Example: Validation utilities
+│   │   └── dateFormatter.ts        # Date formatting utils
+│   ├── constants/                  # Application constants
+│   │   └── todo.ts                 # Todo-related constants (filter types, etc.)
+│   └── types/                      # Global TypeScript types
+│       └── todo.d.ts               # Todo-related TypeScript types
+│
+└── main.ts                         # Application entry point (Vue initialization)
+```
