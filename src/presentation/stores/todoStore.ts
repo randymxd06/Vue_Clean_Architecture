@@ -8,7 +8,7 @@ import { CreateTodo } from '@/domain/usecases/todos/CreateTodo';
 import { DeleteTodo } from '@/domain/usecases/todos/DeleteTodo';
 import { GetTodos } from '@/domain/usecases/todos/GetTodos';
 import type { Todo } from '@/domain/entities/Todo';
-import { todoRepository } from '@/infrastructure/dependency-injection/TodosDI';
+import { todoRepository } from '@/infrastructure/dependency-injection/Di';
 
 export const useTodoStore = defineStore('todo', () => {
 

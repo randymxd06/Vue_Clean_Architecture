@@ -58,16 +58,19 @@ src/
 │
 ├── infrastructure/                     # Infrastructure Layer (implementation details)
 │   ├── api/                            # API communication
-│   │   ├── axiosClient.ts              # Example: Axios HTTP client setup
-│   │   └── todoApiClient.ts            # Specific API client for todos (using Axios/Fetch)
+│   │   ├── axios/
+│   │   │   └── AxiosClient.ts          # Example: Axios HTTP client setup
+│   │   ├── fetch/
+│   │   │   └── FetchClient.ts          # Example: Fetch HTTP client setup
+│   │   └── HttpClient.ts               # Interface for all HTTP methods
+│   ├── dependency-injection/           # All dependency injections for pinia stores
+│   │   └── Di.ts                       # Implements dependency injections for pinia stores
 │   ├── repositories/                   # Concrete repository implementations
 │   │   └── TodoRepositoryImpl.ts       # Implements TodoRepository using API client
 │   ├── storage/                        # Client-side storage
 │   │   └── LocalStorage.ts             # Example: LocalStorage wrapper
-│   ├── plugins/                        # Vue plugins
-│   │   └── i18n.ts                     # Example: Internationalization plugin
-│   └── services/                       # External services integration
-│       └── TodoNotification.ts         # Handles UI notifications for todo operations
+│   └── plugins/                        # Vue plugins
+│       └── i18n.ts                     # Example: Internationalization plugin
 │
 ├── presentation/                       # Presentation Layer (UI)
 │   ├── components/                     # Reusable UI components
@@ -78,14 +81,14 @@ src/
 │   │   └── shared/                     # App-specific shared components
 │   │       └── TodoFilter.vue          # Filtering controls
 │   ├── modules/                        # Feature modules
-│   │   ├── auth/                       # Authentication module
+│   │   ├── todo/                       # Todo module
 │   │   │   ├── pages/                  # Route-level components
 │   │   │   │   └── TodoPage.vue        # Main todo page
-│   │   │   ├── stores/
+│   │   │   ├── stores/                 # Todo stores
 │   │   │   │   └── useTodoStore.ts     # Pinia store for todo state
 │   │   │   ├── router/
 │   │   │   │   └── index.ts            # Router configuration
-│   │   │   ├── composables/
+│   │   │   ├── composables/            # Todo composables
 │   │   │   ├── assets/
 │   │   │   │   ├── styles/             # CSS/Styles
 │   │   │   │   │   └── todo.css        # Todo-specific styles
@@ -93,15 +96,16 @@ src/
 │   │   │   └── components/             # Module-specific components
 │   │   │       └── LoginForm.vue
 │   │   ├── dashboard/                  # Another feature module
-│   │   └── todo/                       # Another feature module
+│   │   └── auth/                       # Another feature module
 │   ├── stores/                         # State management
-│   │   └── useAuthStore.ts             # Example: Pinia store for auth
+│   │   └── counter.ts                  # Example: Pinia store for counter
 │   ├── composables/                    # Composition API utilities
-│   │   └── useUser.ts                  # Example: User-related composable
+│   │   └── useTodo.ts                  # Example: Todo-related composable
 │   ├── router/                         # Routing configuration
 │   │   └── index.ts                    # Router setup with routes
 │   ├── assets/                         # Global assets
 │   │   ├── styles/                     # Global styles
+│   │   │   └── main.css                # Global main styles
 │   │   └── images/                     # Global images
 │   └── App.vue                         # Root Vue component
 │
