@@ -4,9 +4,9 @@ import { ref } from 'vue';
 /**=================================================
  * IMPORT THE REQUIRED USE CASES AND REPOSITORIES
 ====================================================*/
-import { GetTodos } from '@/domain/usecases/todo/getTodos';
-import { CreateTodo } from '@/domain/usecases/todo/createTodo';
-import { DeleteTodo } from '@/domain/usecases/todo/deleteTodo';
+import { GetTodos } from '@/domain/usecases/todos/getTodos';
+import { CreateTodo } from '@/domain/usecases/todos/createTodo';
+import { DeleteTodo } from '@/domain/usecases/todos/deleteTodo';
 import { FetchHttpClient } from '@/infrastructure/http/FetchHttpClient';
 import { TodoApiRepository } from '@/infrastructure/api/todo/TodoApiRepository';
 import type { Todo } from '@/domain/entities/Todo';
