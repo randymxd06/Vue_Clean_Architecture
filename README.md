@@ -1,6 +1,6 @@
 # vue-clean-architecture
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a Vue project in which I am practicing Clean Architecture. To test it, I created a simple Todo List application. It still needs improvement, but it is now ready to be used as an example for future projects.
 
 ## Recommended IDE Setup
 
@@ -37,8 +37,6 @@ npm run build
 ```sh
 npm run test:unit
 ```
-
----
 
 ## Directory Structure
 
