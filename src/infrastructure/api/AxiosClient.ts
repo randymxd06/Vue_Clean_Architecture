@@ -1,17 +1,30 @@
-import axios, { type AxiosInstance } from 'axios';
-import type { HttpClient } from '../HttpClient';
+import axios, { AxiosError, type AxiosInstance } from 'axios';
+import type { HttpClient } from './HttpClient';
+
+interface ErrorResponse {
+  message: string;
+}
 
 export class AxiosClient implements HttpClient {
 
   private readonly client: AxiosInstance;
 
   constructor() {
+
     this.client = axios.create({
-      baseURL: 'http://localhost:3000/api/v1/', // TODO: USAR VARIABLE DE ENTORNO //
+      baseURL: import.meta.env.VITE_API_BASE_URL,
       headers: {
         'Content-Type': 'application/json',
       },
     });
+
+    /**=============================================
+     * INTERCEPTOR FOR CENTRALIZED ERROR HANDLING
+    ================================================*/
+    this.client.interceptors.response.use(response => response, (error: AxiosError<ErrorResponse>) => {
+      throw new Error(error.response?.data?.message || error.message);
+    });
+
   }
 
   async get<T>(url: string): Promise<T> {
@@ -38,5 +51,5 @@ export class AxiosClient implements HttpClient {
     const res = await this.client.delete<T>(url);
     return res.data;
   }
-  
+
 }

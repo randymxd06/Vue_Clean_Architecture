@@ -29,5 +29,7 @@ coverage
 
 *.tsbuildinfo
 
+.env
+
 .scannerwork/
 sonar-project.properties
