@@ -1,14 +1,12 @@
 import type { Todo } from '@/domain/entities/Todo';
 import type { TodoRepository } from '@/domain/repositories/TodoRepository';
-import type { HttpClient } from '@/infrastructure/http/HttpClient';
+import type { HttpClient } from '../api/HttpClient';
 
-export class TodoApiRepository implements TodoRepository {
+export class TodoRepositoryImpl implements TodoRepository {
 
-    private readonly baseUrl = 'http://localhost:3000/api/v1/todos';
+    private readonly baseUrl = 'todos';
 
-    constructor(
-        private readonly http: HttpClient
-    ) {}
+    constructor(private readonly http: HttpClient) { }
 
     getTodos(): Promise<Todo[]> {
         return this.http.get<Todo[]>(this.baseUrl);

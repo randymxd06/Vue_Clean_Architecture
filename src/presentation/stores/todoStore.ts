@@ -4,20 +4,11 @@ import { ref } from 'vue';
 /**=================================================
  * IMPORT THE REQUIRED USE CASES AND REPOSITORIES
 ====================================================*/
-import { GetTodos } from '@/domain/usecases/todos/getTodos';
-import { CreateTodo } from '@/domain/usecases/todos/createTodo';
-import { DeleteTodo } from '@/domain/usecases/todos/deleteTodo';
-import { FetchHttpClient } from '@/infrastructure/http/FetchHttpClient';
-import { TodoApiRepository } from '@/infrastructure/api/todo/TodoApiRepository';
+import { CreateTodo } from '@/domain/usecases/todos/CreateTodo';
+import { DeleteTodo } from '@/domain/usecases/todos/DeleteTodo';
+import { GetTodos } from '@/domain/usecases/todos/GetTodos';
 import type { Todo } from '@/domain/entities/Todo';
-
-/**============================================================================================
- * TodoApiRepository is the repository that interacts with the API.
- * FetchHttpClient is the HTTP client used to make requests.
- * GetTodos, CreateTodo, and DeleteTodo are use cases that encapsulate the business logic.
- * This store will manage the state of todos, including loading, adding, and deleting todos.
-===============================================================================================*/
-const todoRepo = new TodoApiRepository(new FetchHttpClient());
+import { todoRepository } from '@/infrastructure/dependency-injection/TodosDI';
 
 export const useTodoStore = defineStore('todo', () => {
 
@@ -26,9 +17,9 @@ export const useTodoStore = defineStore('todo', () => {
     const loading = ref(false);
     const error = ref<string | null>(null);
 
-    const getTodosUseCase = new GetTodos(todoRepo);
-    const createTodoUseCase = new CreateTodo(todoRepo);
-    const deleteTodoUseCase = new DeleteTodo(todoRepo);
+    const getTodosUseCase = new GetTodos(todoRepository);
+    const createTodoUseCase = new CreateTodo(todoRepository);
+    const deleteTodoUseCase = new DeleteTodo(todoRepository);
 
     const loadTodos = async () => {
         loading.value = true;
@@ -71,4 +62,5 @@ export const useTodoStore = defineStore('todo', () => {
         addTodo,
         deleteTodo,
     };
+    
 });
