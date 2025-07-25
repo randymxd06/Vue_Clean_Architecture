@@ -50,10 +50,10 @@ src/
 │   │   └── TodoRepository.ts           # Defines CRUD operations for todos (create, read, update, delete)
 │   └── use-cases/                      # Application use cases
 │       └── todos/                      # Todos use cases
-│            ├── CreateTodo.ts          # Handles todo creatation logic
-│            ├── DeleteTodo.ts          # Handles all deletion logic.
-│            ├── GetTodoById.ts         # Handles all the logic of obtaining by ID
-│            ├── GetTodos.ts            # Handles all the logic of obtaining all records
+│            ├── CreateTodo.ts          # Manages todo creatation logic
+│            ├── DeleteTodo.ts          # Manages all deletion logic.
+│            ├── GetTodoById.ts         # Manages all the logic of obtaining by ID
+│            ├── GetTodos.ts            # Manages all the logic of obtaining all records
 │            └── UpdateTodo.ts          # Manages todo updates
 │
 ├── infrastructure/                     # Infrastructure Layer (implementation details)
