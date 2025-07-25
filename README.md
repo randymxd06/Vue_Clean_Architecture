@@ -58,14 +58,10 @@ src/
 │
 ├── infrastructure/                     # Infrastructure Layer (implementation details)
 │   ├── api/                            # API communication
-│   │   ├── axios/
-│   │   │   └── AxiosClient.ts          # Example: Axios HTTP client setup
-│   │   ├── fetch/
-│   │   │   └── FetchClient.ts          # Example: Fetch HTTP client setup
+│   │   ├── AxiosClient.ts              # Axios HTTP client setup
 │   │   └── HttpClient.ts               # Interface for all HTTP methods
-│   ├── dependency-injection/           # All dependency injections for pinia stores
-│   │   └── Di.ts                       # Implements dependency injections for pinia stores
 │   ├── repositories/                   # Concrete repository implementations
+│   │   ├── index.ts                    # Implements dependency injections for pinia stores
 │   │   └── TodoRepositoryImpl.ts       # Implements TodoRepository using API client
 │   ├── storage/                        # Client-side storage
 │   │   └── LocalStorage.ts             # Example: LocalStorage wrapper
@@ -85,7 +81,7 @@ src/
 │   │   │   ├── pages/                  # Route-level components
 │   │   │   │   └── TodoPage.vue        # Main todo page
 │   │   │   ├── stores/                 # Todo stores
-│   │   │   │   └── useTodoStore.ts     # Pinia store for todo state
+│   │   │   │   └── todoStore.ts        # Pinia store for todo state
 │   │   │   ├── router/
 │   │   │   │   └── index.ts            # Router configuration
 │   │   │   ├── composables/            # Todo composables

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import { useTodoStore } from '@/presentation/stores/todoStore';
+import { useTodoStore } from '../stores/todoStore';
 
 const todoStore = useTodoStore();
 
