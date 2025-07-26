@@ -22,31 +22,7 @@ Finally, the data/infrastructure layer implements those interfaces, connecting t
 
 The flow is cyclical: the view triggers events, the BLoC executes use cases, the domain obtains data from the repository, and the API responds, updating the status reflected by the view. This ensures a maintainable, scalable, and framework-agnostic architecture, with the business core completely isolated.
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-## Directory Structure
+## Directory Structure with Clean Architecture Proposal
 
 ```sh
 src/
@@ -123,4 +99,28 @@ src/
 │       └── todo.d.ts                   # Todo-related TypeScript types
 │
 └── main.ts                             # Application entry point (Vue initialization)
+```
+
+## Project Setup
+
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Type-Check, Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+```sh
+npm run test:unit
 ```
