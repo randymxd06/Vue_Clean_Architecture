@@ -12,7 +12,15 @@ The key is that internal layers (such as business rules) do not depend on extern
 
 <img width="960" height="540" alt="frontend-clean-architecture-paquetes" src="https://github.com/user-attachments/assets/527f2603-31ec-4e1a-a3f2-bca71bdf1357" />
 
+The image shows how to apply Clean Architecture in the frontend using frameworks such as React or Vue, maintaining a clear separation of responsibilities. The structure is divided into three main layers (Presentation, Domain, and Data/Infrastructure), all contained in a core called CORE, independent of the framework used.
 
+In the View layer, React or Vue consume states managed by the Presentation layer, using patterns such as BLoC (or Hooks in React and Composables in Vue) to separate the logic from the components. BLoC acts as an intermediary: it receives events from the view, processes the logic, and emits new states, keeping the interface decoupled from the business.
+
+The domain layer contains the core logic of the application through use cases, which interact with entities (pure business models) and access data through abstract interfaces. This allows the data source to be changed without affecting the logic.
+
+Finally, the data/infrastructure layer implements those interfaces, connecting to APIs or other external sources. It transforms raw data and delivers it to the domain in a usable format.
+
+The flow is cyclical: the view triggers events, the BLoC executes use cases, the domain obtains data from the repository, and the API responds, updating the status reflected by the view. This ensures a maintainable, scalable, and framework-agnostic architecture, with the business core completely isolated.
 
 ## Project Setup
 
