@@ -38,6 +38,10 @@ npm run build
 npm run test:unit
 ```
 
+## Clean Architecture In Frontend
+
+<img width="960" height="540" alt="frontend-clean-architecture-paquetes" src="https://github.com/user-attachments/assets/527f2603-31ec-4e1a-a3f2-bca71bdf1357" />
+
 ## Directory Structure
 
 ```sh
