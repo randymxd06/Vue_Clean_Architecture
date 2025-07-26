@@ -94,7 +94,7 @@ src/
 │   │   ├── dashboard/                  # Another feature module
 │   │   └── auth/                       # Another feature module
 │   ├── stores/                         # State management
-│   │   └── counter.ts                  # Example: Pinia store for counter
+│   │   └── themeStore.ts               # Example: Pinia store for themes
 │   ├── composables/                    # Composition API utilities
 │   │   └── useTodo.ts                  # Example: Todo-related composable
 │   ├── router/                         # Routing configuration
