@@ -43,7 +43,7 @@ export const useTodoStore = defineStore('todo', () => {
         const todo = await createTodoUseCase.execute({
             title: newTitle.value,
             completed: false,
-        } as Todo); // omitir id
+        } as Todo);
         todos.value.push(todo);
         newTitle.value = '';
     };
