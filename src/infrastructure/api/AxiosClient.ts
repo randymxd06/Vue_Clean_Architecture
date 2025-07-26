@@ -22,7 +22,7 @@ export class AxiosClient implements HttpClient {
      * INTERCEPTOR FOR CENTRALIZED ERROR HANDLING
     ================================================*/
     this.client.interceptors.response.use(response => response, (error: AxiosError<ErrorResponse>) => {
-      throw new Error(error.response?.data?.message || error.message);
+      throw new Error(error.response?.data?.message ?? error.message);
     });
 
   }
