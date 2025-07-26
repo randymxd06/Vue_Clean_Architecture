@@ -31,5 +31,6 @@ coverage
 
 .env
 
+.sonarlint
 .scannerwork/
 sonar-project.properties
