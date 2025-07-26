@@ -8,7 +8,7 @@ Clean Architecture in Frontend, as with VueJS, organizes code into independent l
 
 The key is that internal layers (such as business rules) do not depend on external frameworks or libraries, making the core of the application more stable and reusable. This not only improves testability but also reduces risk when changing technologies, as the core logic remains intact. In summary, Clean Architecture offers a structured approach to building more robust and adaptable frontend applications, although it requires discipline in its implementation.
 
-## Clean Architecture In Frontend
+## Explanation of How to Implement Clean Architecture in the Frontend
 
 <img width="960" height="540" alt="frontend-clean-architecture-paquetes" src="https://github.com/user-attachments/assets/527f2603-31ec-4e1a-a3f2-bca71bdf1357" />
 
