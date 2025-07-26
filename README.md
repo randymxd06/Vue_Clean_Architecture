@@ -1,6 +1,6 @@
 # Vue Clean Architecture
 
-This is a Vue project in which I am practicing Clean Architecture. To test it, I created a simple Todo List application. It still needs improvement, but it is now ready to be used as an example for future projects.
+This is a Vue.js project in which I am putting into practice the principles and best practices of “Clean Architecture” by applying various design patterns such as the Dependency Inversion Principle (DIP) from the Solid principles, the Singleton pattern, the Repository pattern, among other design patterns. I have created a simple application to handle authentication and route authorization, but applying Clean Architecture with the aim of being able to use it as an example in future projects that will be done with this software architecture.
 
 ## Project Setup
 
