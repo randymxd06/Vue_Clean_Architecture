@@ -4,12 +4,17 @@ import { ref } from 'vue';
 /**=================================================
  * IMPORT THE REQUIRED USE CASES AND REPOSITORIES
 ====================================================*/
-import { CreateTodo } from '@/domain/usecases/todos/CreateTodo';
-import { DeleteTodo } from '@/domain/usecases/todos/DeleteTodo';
-import { GetTodos } from '@/domain/usecases/todos/GetTodos';
-import { todoRepository } from '@/infrastructure/repositories';
+import { todoUseCases } from '@/infrastructure/repositories';
 import type { Todo } from '@/domain/entities/Todo';
 
+/**==========================================
+ * EXTRACT THE USE CASES FOR EASIER ACCESS
+=============================================*/
+const { getTodos, createTodo, deleteTodo: removeTodo } = todoUseCases;
+
+/**==================
+ * USE TODOS STORE
+=====================*/
 export const useTodoStore = defineStore('todo', () => {
 
     const todos = ref<Todo[]>([]);
@@ -17,14 +22,13 @@ export const useTodoStore = defineStore('todo', () => {
     const loading = ref(false);
     const error = ref<string | null>(null);
 
-    const getTodosUseCase = new GetTodos(todoRepository);
-    const createTodoUseCase = new CreateTodo(todoRepository);
-    const deleteTodoUseCase = new DeleteTodo(todoRepository);
-
+    /**======================
+     * LOAD TODOS FUNCTION
+    =========================*/
     const loadTodos = async () => {
         loading.value = true;
         try {
-            todos.value = await getTodosUseCase.execute();
+            todos.value = await getTodos.execute();
         } catch (e: unknown) {
             if (e instanceof Error) {
                 console.error('Error cargando todos:', e.message);
@@ -38,9 +42,13 @@ export const useTodoStore = defineStore('todo', () => {
         }
     };
 
+    /**=====================
+     * ADD TO DO FUNCTION
+     * @returns 
+    ========================*/
     const addTodo = async () => {
         if (!newTitle.value.trim()) return;
-        const todo = await createTodoUseCase.execute({
+        const todo = await createTodo.execute({
             title: newTitle.value,
             completed: false,
         } as Todo);
@@ -48,8 +56,12 @@ export const useTodoStore = defineStore('todo', () => {
         newTitle.value = '';
     };
 
+    /**========================
+     * DELETE TO DO FUNCTION
+     * @param {string} id 
+    ===========================*/
     const deleteTodo = async (id: string) => {
-        await deleteTodoUseCase.execute(id);
+        await removeTodo.execute(id);
         todos.value = todos.value.filter(t => t.id !== id);
     };
 
