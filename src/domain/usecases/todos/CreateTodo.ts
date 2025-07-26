@@ -5,7 +5,7 @@ export class CreateTodo {
 
     constructor(private readonly todoRepository: TodoRepository) { }
 
-    execute(todo: Todo): Promise<Todo> {
+    execute(todo: Omit<Todo, 'id'>): Promise<Todo> {
         return this.todoRepository.createTodo(todo);
     }
 
