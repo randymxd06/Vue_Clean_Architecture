@@ -2,6 +2,18 @@
 
 This is a Vue.js project in which I am putting into practice the principles and best practices of “Clean Architecture” by applying various design patterns such as the Dependency Inversion Principle (DIP) from the Solid principles, the Singleton pattern, the Repository pattern, among other design patterns. I have created a simple application to handle authentication and route authorization, but applying Clean Architecture with the aim of being able to use it as an example in future projects that will be done with this software architecture.
 
+## Why use Clean Architecture in Frontend?
+
+Clean Architecture in Frontend, as with VueJS, organizes code into independent layers (domain, application, and infrastructure) to separate business logic from the interface and external dependencies. This allows Vue components to focus solely on presentation, delegating logic to services or use cases, which facilitates maintenance, testing, and future technology migrations. Although it may add initial complexity, it is especially useful in medium to large projects, where scalability and code clarity are priorities.
+
+The key is that internal layers (such as business rules) do not depend on external frameworks or libraries, making the core of the application more stable and reusable. This not only improves testability but also reduces risk when changing technologies, as the core logic remains intact. In summary, Clean Architecture offers a structured approach to building more robust and adaptable frontend applications, although it requires discipline in its implementation.
+
+## Clean Architecture In Frontend
+
+<img width="960" height="540" alt="frontend-clean-architecture-paquetes" src="https://github.com/user-attachments/assets/527f2603-31ec-4e1a-a3f2-bca71bdf1357" />
+
+
+
 ## Project Setup
 
 ```sh
@@ -25,10 +37,6 @@ npm run build
 ```sh
 npm run test:unit
 ```
-
-## Clean Architecture In Frontend
-
-<img width="960" height="540" alt="frontend-clean-architecture-paquetes" src="https://github.com/user-attachments/assets/527f2603-31ec-4e1a-a3f2-bca71bdf1357" />
 
 ## Directory Structure
 
