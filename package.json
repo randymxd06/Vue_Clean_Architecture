@@ -9,7 +9,7 @@
 		"preview": "vite preview",
 		"test:unit": "vitest",
 		"build-only": "vite build",
-		"type-check": "tsc --noEmit",
+		"type-check": "vue-tsc --build",
 		"format": "biome format",
 		"format:fix": "biome format --write",
 		"lint": "biome lint",
