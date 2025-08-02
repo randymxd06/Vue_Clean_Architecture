@@ -8,5 +8,5 @@ jobs:
       - uses: oven-sh/setup-bun@v1
         with:
           version: latest
-      - run: pnpm install
-      - run: pnpm run lint
+      - run: bun install
+      - run: bun run lint
