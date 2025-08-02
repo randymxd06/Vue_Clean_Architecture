@@ -1,0 +1,50 @@
+name: CI Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  format:
+    name: Check Formatting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+      - run: pnpm install
+      - run: pnpm run format  # Solo verifica (sin --write)
+      # Si quieres que falle si hay cambios pendientes:
+      # run: pnpm run format:fix && git diff --exit-code
+
+  lint:
+    name: Lint Code
+    needs: format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+      - run: pnpm install
+      - run: pnpm run lint  # Solo verifica (sin --write)
+      # Alternativa para aplicar fixes y fallar si hay cambios:
+      # run: pnpm run lint:fix && git diff --exit-code
+
+  typecheck:
+    name: Type Check
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+      - run: pnpm install
+      - run: pnpm run type-check  # Usa tu script existente
+
+  test:
+    name: Run Tests
+    needs: typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+      - run: pnpm install
+      - run: pnpm run test:unit
