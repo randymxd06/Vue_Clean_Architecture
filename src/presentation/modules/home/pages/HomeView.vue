@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
-import { useTodoStore } from '../stores/todoStore';
+import { onMounted } from "vue";
+import { useTodoStore } from "../stores/todoStore";
 
 const todoStore = useTodoStore();
 
 onMounted(() => {
-  todoStore.loadTodos();
+	todoStore.loadTodos();
 });
 </script>
 
