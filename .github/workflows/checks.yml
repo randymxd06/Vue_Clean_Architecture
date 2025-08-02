@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
+        with:
+          version: 8  # Versión de pnpm
       - run: pnpm install
-      - run: pnpm run format  # Solo verifica (sin --write)
-      # Si quieres que falle si hay cambios pendientes:
-      # run: pnpm run format:fix && git diff --exit-code
+      - run: pnpm run format
 
   lint:
     name: Lint Code
@@ -24,10 +24,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - run: pnpm install
-      - run: pnpm run lint  # Solo verifica (sin --write)
-      # Alternativa para aplicar fixes y fallar si hay cambios:
-      # run: pnpm run lint:fix && git diff --exit-code
+      - run: pnpm run lint
 
   typecheck:
     name: Type Check
@@ -36,8 +36,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - run: pnpm install
-      - run: pnpm run type-check  # Usa tu script existente
+      - run: pnpm run type-check
 
   test:
     name: Run Tests
@@ -46,5 +48,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - run: pnpm install
       - run: pnpm run test:unit
