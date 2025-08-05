@@ -1,15 +1,17 @@
-import { CreateTodo } from "@/domain/usecases/todos/CreateTodo";
-import { DeleteTodo } from "@/domain/usecases/todos/DeleteTodo";
-import { GetTodos } from "@/domain/usecases/todos/GetTodos";
+import { CreateProduct } from "@/domain/usecases/todos/CreateProduct";
+import { DeleteProduct } from "@/domain/usecases/todos/DeleteProduct";
+import { GetProducts } from "@/domain/usecases/todos/GetProducts";
+import { UpdateProduct } from "@/domain/usecases/todos/UpdateProduct";
 import { AxiosClient } from "../api/AxiosClient";
-import { TodoRepositoryImpl } from "../repositories/TodoRepositoryImpl";
+import { ProductRepositoryImpl } from "../repositories/ProductRepositoryImpl";
 
 const httpClient = new AxiosClient();
 
-const todoRepository = new TodoRepositoryImpl(httpClient);
+const productRepository = new ProductRepositoryImpl(httpClient);
 
-export const todoUseCases = {
-	getTodos: new GetTodos(todoRepository),
-	createTodo: new CreateTodo(todoRepository),
-	deleteTodo: new DeleteTodo(todoRepository),
+export const productUseCases = {
+  getProducts: new GetProducts(productRepository),
+  createProduct: new CreateProduct(productRepository),
+  updateProduct: new UpdateProduct(productRepository),
+  deleteProduct: new DeleteProduct(productRepository),
 };
