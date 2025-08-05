@@ -33,16 +33,16 @@ src/
 │
 ├── domain/                             # Domain Layer (Core Business Logic)
 │   ├── entities/                       # Business entities (e.g., User.ts, Product.ts)
-│   │   └── Todo.ts                     # Defines Todo structure (id, title, completed, etc.)
+│   │   └── Product.ts                  # Defines Product structure (id, name, price, stock, etc.)
 │   ├── repositories/                   # Repository interfaces (abstractions)
-│   │   └── TodoRepository.ts           # Defines CRUD operations for todos (create, read, update, delete)
+│   │   └── ProductRepository.ts        # Defines CRUD operations for products (create, read, update, delete)
 │   └── use-cases/                      # Application use cases
-│       └── todos/                      # Todos use cases
-│            ├── CreateTodo.ts          # Manages todo creatation logic
-│            ├── DeleteTodo.ts          # Manages all deletion logic.
-│            ├── GetTodoById.ts         # Manages all the logic of obtaining by ID
-│            ├── GetTodos.ts            # Manages all the logic of obtaining all records
-│            └── UpdateTodo.ts          # Manages todo updates
+│       └── products/                   # Products use cases
+│            ├── CreateProduct.ts       # Manages product creatation logic
+│            ├── DeleteProduct.ts       # Manages all deletion logic.
+│            ├── GetProductById.ts      # Manages all the logic of obtaining by ID
+│            ├── GetProducts.ts         # Manages all the logic of obtaining all records
+│            └── UpdateProduct.ts       # Manages product updates
 │
 ├── infrastructure/                     # Infrastructure Layer (implementation details)
 │   ├── api/                            # API communication
@@ -50,7 +50,7 @@ src/
 │   │   └── HttpClient.ts               # Interface for all HTTP methods
 │   ├── repositories/                   # Concrete repository implementations
 │   │   ├── index.ts                    # Implements dependency injections for pinia stores
-│   │   └── TodoRepositoryImpl.ts       # Implements TodoRepository using API client
+│   │   └── ProductRepositoryImpl.ts    # Implements ProductRepository using API client
 │   ├── storage/                        # Client-side storage
 │   │   └── LocalStorage.ts             # Example: LocalStorage wrapper
 │   └── plugins/                        # Vue plugins
@@ -59,23 +59,23 @@ src/
 ├── presentation/                       # Presentation Layer (UI)
 │   ├── components/                     # Reusable UI components
 │   │   ├── ui/                         # Base UI components (buttons, inputs)
-│   │   │   ├── TodoInput.vue           # Input field for new todos
-│   │   │   ├── TodoItem.vue            # Single todo item display
-│   │   │   └── TodoList.vue            # List of todos
+│   │   │   ├── ProductInput.vue        # Input field for new products
+│   │   │   ├── ProductItem.vue         # Single product item display
+│   │   │   └── ProductList.vue         # List of products
 │   │   └── shared/                     # App-specific shared components
-│   │       └── TodoFilter.vue          # Filtering controls
+│   │       └── ProductFilter.vue       # Filtering controls
 │   ├── modules/                        # Feature modules
-│   │   ├── todo/                       # Todo module
+│   │   ├── product/                    # Product module
 │   │   │   ├── pages/                  # Route-level components
-│   │   │   │   └── TodoPage.vue        # Main todo page
-│   │   │   ├── stores/                 # Todo stores
-│   │   │   │   └── todoStore.ts        # Pinia store for todo state
+│   │   │   │   └── ProductPage.vue     # Main product page
+│   │   │   ├── stores/                 # Product stores
+│   │   │   │   └── productStore.ts     # Pinia store for product state
 │   │   │   ├── router/
 │   │   │   │   └── index.ts            # Router configuration
-│   │   │   ├── composables/            # Todo composables
+│   │   │   ├── composables/            # Product composables
 │   │   │   ├── assets/
 │   │   │   │   ├── styles/             # CSS/Styles
-│   │   │   │   │   └── todo.css        # Todo-specific styles
+│   │   │   │   │   └── product.css     # Product-specific styles
 │   │   │   │   └── icons/              # SVG/icons
 │   │   │   └── components/             # Module-specific components
 │   │   │       └── LoginForm.vue
@@ -84,7 +84,7 @@ src/
 │   ├── stores/                         # State management
 │   │   └── themeStore.ts               # Example: Pinia store for themes
 │   ├── composables/                    # Composition API utilities
-│   │   └── useTodo.ts                  # Example: Todo-related composable
+│   │   └── useProduct.ts               # Example: Product-related composable
 │   ├── router/                         # Routing configuration
 │   │   └── index.ts                    # Router setup with routes
 │   ├── assets/                         # Global assets
@@ -98,9 +98,9 @@ src/
 │   │   ├── formValidator.ts            # Example: Validation utilities
 │   │   └── dateFormatter.ts            # Date formatting utils
 │   ├── constants/                      # Application constants
-│   │   └── todo.ts                     # Todo-related constants (filter types, etc.)
+│   │   └── product.ts                  # Product-related constants (filter types, etc.)
 │   └── types/                          # Global TypeScript types
-│       └── todo.d.ts                   # Todo-related TypeScript types
+│       └── product.d.ts                # Product-related TypeScript types
 │
 └── main.ts                             # Application entry point (Vue initialization)
 ```
