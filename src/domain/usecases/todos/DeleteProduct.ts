@@ -2,9 +2,9 @@ import type { Product } from "@/domain/entities/Product";
 import type { ProductRepository } from "@/domain/repositories/ProductRepository";
 
 export class DeleteProduct {
-  constructor(private readonly productRepository: ProductRepository) {}
+	constructor(private readonly productRepository: ProductRepository) {}
 
-  execute(id: string): Promise<Product> {
-    return this.productRepository.deleteProduct(id);
-  }
+	execute(id: string): Promise<Product> {
+		return this.productRepository.deleteProduct(id);
+	}
 }

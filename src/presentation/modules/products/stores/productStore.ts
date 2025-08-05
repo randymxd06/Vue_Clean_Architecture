@@ -1,18 +1,22 @@
-import type { Product } from "@/domain/entities/Product";
-import { productUseCases } from "@/infrastructure/repositories";
 import { defineStore } from "pinia";
 import { ref } from "vue";
+import type { Product } from "@/domain/entities/Product";
+import { productUseCases } from "@/infrastructure/repositories";
 
 /**=================================================
  * IMPORT THE REQUIRED USE CASES AND REPOSITORIES
 ====================================================*/
-const { getProducts, createProduct, updateProduct, deleteProduct: removeProduct } = productUseCases;
+const {
+	getProducts,
+	createProduct,
+	updateProduct,
+	deleteProduct: removeProduct,
+} = productUseCases;
 
 /**====================
  * USE PRODUCT STORE
 =======================*/
 export const useProductStore = defineStore("product", () => {
-
 	const products = ref<Product[]>([]);
 	const newProduct = ref<Omit<Product, "id">>({
 		name: "",
@@ -63,7 +67,7 @@ export const useProductStore = defineStore("product", () => {
 	==============================*/
 	const updateProductItem = async (product: Product): Promise<void> => {
 		const updatedProduct = await updateProduct.execute(product);
-		const index = products.value.findIndex(p => p.id === updatedProduct.id);
+		const index = products.value.findIndex((p) => p.id === updatedProduct.id);
 		if (index !== -1) {
 			products.value[index] = updatedProduct;
 		}

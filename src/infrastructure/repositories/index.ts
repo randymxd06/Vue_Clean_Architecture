@@ -10,8 +10,8 @@ const httpClient = new AxiosClient();
 const productRepository = new ProductRepositoryImpl(httpClient);
 
 export const productUseCases = {
-  getProducts: new GetProducts(productRepository),
-  createProduct: new CreateProduct(productRepository),
-  updateProduct: new UpdateProduct(productRepository),
-  deleteProduct: new DeleteProduct(productRepository),
+	getProducts: new GetProducts(productRepository),
+	createProduct: new CreateProduct(productRepository),
+	updateProduct: new UpdateProduct(productRepository),
+	deleteProduct: new DeleteProduct(productRepository),
 };

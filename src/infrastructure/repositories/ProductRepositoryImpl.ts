@@ -5,7 +5,7 @@ import type { HttpClient } from "../api/HttpClient";
 export class ProductRepositoryImpl implements ProductRepository {
 	private readonly baseUrl = "products";
 
-	constructor(private readonly http: HttpClient) { }
+	constructor(private readonly http: HttpClient) {}
 
 	getProducts(): Promise<Product[]> {
 		return this.http.get<Product[]>(this.baseUrl);
