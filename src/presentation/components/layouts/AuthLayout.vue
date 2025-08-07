@@ -1,12 +1,12 @@
 <script>
 export default {
-    props: {
-        reverse: {
-            type: Boolean,
-            default: false
-        }
-    }
-}
+	props: {
+		reverse: {
+			type: Boolean,
+			default: false,
+		},
+	},
+};
 </script>
 
 <template>
