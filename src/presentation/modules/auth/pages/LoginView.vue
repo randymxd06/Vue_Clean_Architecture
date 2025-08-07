@@ -19,7 +19,7 @@
         <form class="space-y-4">
             <input type="email" placeholder="Email" class="w-full p-3 border rounded" />
             <input type="password" placeholder="Password" class="w-full p-3 border rounded" />
-            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 transition">
+            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 transition cursor-pointer">
                 Log in
             </button>
         </form>

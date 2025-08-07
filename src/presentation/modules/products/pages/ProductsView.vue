@@ -8,38 +8,38 @@ const isEditing = ref(false);
 const currentProductId = ref<string | null>(null);
 
 onMounted(() => {
-  productStore.loadProducts();
+	productStore.loadProducts();
 });
 
 const handleSubmit = () => {
-  if (isEditing.value && currentProductId.value) {
-    const product = {
-      ...productStore.newProduct,
-      id: currentProductId.value,
-    };
-    productStore.updateProductItem(product);
-  } else {
-    productStore.addProduct();
-  }
-  resetForm();
+	if (isEditing.value && currentProductId.value) {
+		const product = {
+			...productStore.newProduct,
+			id: currentProductId.value,
+		};
+		productStore.updateProductItem(product);
+	} else {
+		productStore.addProduct();
+	}
+	resetForm();
 };
 
 const editProduct = (product: Product) => {
-  isEditing.value = true;
-  currentProductId.value = product.id;
-  productStore.newProduct = {
-    name: product.name,
-    description: product.description,
-    price: product.price,
-    stock: product.stock,
-    category: product.category,
-  };
+	isEditing.value = true;
+	currentProductId.value = product.id;
+	productStore.newProduct = {
+		name: product.name,
+		description: product.description,
+		price: product.price,
+		stock: product.stock,
+		category: product.category,
+	};
 };
 
 const resetForm = () => {
-  isEditing.value = false;
-  currentProductId.value = null;
-  productStore.resetNewProduct();
+	isEditing.value = false;
+	currentProductId.value = null;
+	productStore.resetNewProduct();
 };
 </script>
 

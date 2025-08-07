@@ -20,7 +20,7 @@
             <input type="text" placeholder="Name" class="w-full p-3 border rounded" />
             <input type="email" placeholder="Email" class="w-full p-3 border rounded" />
             <input type="password" placeholder="Password" class="w-full p-3 border rounded" />
-            <button type="submit" class="w-full bg-green-600 text-white py-3 rounded hover:bg-green-700 transition">
+            <button type="submit" class="w-full bg-green-600 text-white py-3 rounded hover:bg-green-700 transition cursor-pointer">
                 Sign up
             </button>
         </form>
