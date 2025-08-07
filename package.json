@@ -36,6 +36,7 @@
         "jiti": "^2.4.2",
         "jsdom": "^26.1.0",
         "npm-run-all2": "^8.0.4",
+        "rolldown-vite": "^7.1.0",
         "typescript": "~5.8.0",
         "vite": "npm:rolldown-vite@latest",
         "vite-plugin-vue-devtools": "^7.7.7",

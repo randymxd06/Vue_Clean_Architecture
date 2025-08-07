@@ -1,6 +1,17 @@
 version: "3.8"
 
 services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vue-clean-architecture
+    volumes:
+      - .:/app
+    ports:
+      - 80:80
+
   sonarqube:
     image: sonarqube:latest
     depends_on:
