@@ -1,16 +1,16 @@
 {
-	"extends": "@vue/tsconfig/tsconfig.dom.json",
-	"include": ["env.d.ts", "src/**/*", "src/**/*.vue", "shims-vue.d.ts"],
-	"exclude": ["src/**/__tests__/*", "node_modules"],
-	"compilerOptions": {
-		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-		"baseUrl": ".",
-		"paths": {
-			"@/*": ["src/*"]
-		},
-		"types": ["vite/client", "vue"],
-		"moduleResolution": "node",
-		"strict": true,
-		"skipLibCheck": true
-	}
+    "extends": "@vue/tsconfig/tsconfig.dom.json",
+    "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "shims-vue.d.ts"],
+    "exclude": ["src/**/__tests__/*", "node_modules"],
+    "compilerOptions": {
+        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"]
+        },
+        "types": ["vite/client", "vue"],
+        "moduleResolution": "node",
+        "strict": true,
+        "skipLibCheck": true
+    }
 }

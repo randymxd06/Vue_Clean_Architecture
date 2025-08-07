@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const onSubmit = () => {
-	console.log("Login form submitted");
-};
+    console.log("Login form submitted")
+}
 </script>
 
 <template>
