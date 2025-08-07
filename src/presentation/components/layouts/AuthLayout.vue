@@ -9,7 +9,7 @@
         </section>
 
         <section
-            class="w-full md:w-1/2 flex items-center justify-center p-6 bg-white shadow-md rounded-l-[1.5rem]">
+            class="w-full md:w-1/2 flex items-center justify-center p-6 bg-white shadow-md rounded-t-[1.5rem] md:rounded-l-[1.5rem] md:rounded-tr-none flex-grow h-full md:h-auto">
             <div class="w-full max-w-md">
                 <router-view />
             </div>

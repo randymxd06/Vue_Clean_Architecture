@@ -1,7 +1,7 @@
 <template>
     <main>
 
-        <h1 class="text-3xl font-bold text-center text-blue-700 mb-8">Hello</h1>
+        <h1 class="text-3xl font-bold text-center text-blue-700 mb-8">Welcome</h1>
         <p class="text-center text-gray-500 mb-6">Create your account</p>
 
         <form class="space-y-4">
