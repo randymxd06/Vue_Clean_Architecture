@@ -3,7 +3,7 @@
 
         <section class="w-full md:w-1/2 text-white flex items-center justify-center flex-col px-6 py-16">
             <div class="text-center">
-                <h1 class="text-2xl md:text-4xl font-bold mb-2">Welcome to BLUEBACK</h1>
+                <h1 class="text-2xl md:text-4xl font-bold mb-2">Welcome to YourApp</h1>
                 <p class="text-sm md:text-lg">We made it for you</p>
             </div>
         </section>
