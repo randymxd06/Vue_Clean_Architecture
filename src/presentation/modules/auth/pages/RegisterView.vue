@@ -1,5 +1,5 @@
 <template>
-    <main class="w-full max-w-md">
+    <main>
 
         <h1 class="text-3xl font-bold text-center text-blue-700 mb-8">Hello</h1>
         <p class="text-center text-gray-500 mb-6">Create your account</p>

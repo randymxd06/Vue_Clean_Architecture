@@ -1,15 +1,18 @@
 <template>
-    <main class="min-h-screen flex bg-gradient-to-br from-blue-500 to-blue-700">
+    <main class="min-h-screen flex flex-col md:flex-row bg-blue-600">
 
-        <section class="hidden md:flex md:w-1/2 items-center justify-center">
-            <div class="text-white text-center px-6">
-                <h1 class="text-4xl font-bold mb-4">Welcome to BLUEBACK</h1>
-                <p class="text-lg">We made it for you</p>
+        <section class="w-full md:w-1/2 text-white flex items-center justify-center flex-col px-6 py-16">
+            <div class="text-center">
+                <h1 class="text-2xl md:text-4xl font-bold mb-2">Welcome to BLUEBACK</h1>
+                <p class="text-sm md:text-lg">We made it for you</p>
             </div>
         </section>
 
-        <section class="w-full md:w-1/2 bg-white md:rounded-l-3xl shadow-lg p-8 flex items-center justify-center">
-            <router-view />
+        <section
+            class="w-full md:w-1/2 flex items-center justify-center p-6 bg-white shadow-md rounded-l-[1.5rem]">
+            <div class="w-full max-w-md">
+                <router-view />
+            </div>
         </section>
 
     </main>
