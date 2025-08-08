@@ -163,13 +163,13 @@
             <main class="flex-1 overflow-y-auto bg-gray-50">
                 <router-view />
             </main>
+
         </div>
 
         <div v-if="sidebarOpen" @click="closeSidebar" class="fixed inset-0 z-40 bg-gray-600 bg-opacity-75 lg:hidden">
         </div>
 
     </main>
-    
 </template>
 
 <script setup>
@@ -195,6 +195,8 @@ const secondaryNavigation = ref([
     { name: 'Configuración', icon: 'fas fa-cog' },
     { name: 'Bandeja de entrada', icon: 'fas fa-inbox' },
 ])
+
+
 
 // Methods
 const toggleSidebar = () => {

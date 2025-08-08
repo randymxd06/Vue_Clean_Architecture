@@ -9,6 +9,10 @@ const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
+            path: "/",
+            redirect: "/dashboard",
+        },
+        {
             path: "/auth",
             component: AuthLayout,
             children: [
@@ -29,10 +33,15 @@ const router = createRouter({
             component: AppLayout,
             children: [
                 {
+                    path: "/dashboard",
+                    name: "dashboard",
+                    component: () => import("../modules/dashboard/DashboardView.vue")
+                },
+                {
                     path: "/products",
                     name: "products",
                     component: ProductsView
-                }
+                },
             ]
         },
     ],
