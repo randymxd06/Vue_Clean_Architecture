@@ -1,5 +1,7 @@
 <template>
+
     <main class="flex min-h-screen bg-gray-50">
+
         <!-- Sidebar -->
         <div :class="[
             'fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0',
@@ -21,7 +23,7 @@
                 </button>
             </div>
 
-            <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+            <div class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
                 <div class="space-y-1">
                     <p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
                         Navegación Principal
@@ -55,13 +57,15 @@
                         </a>
                     </div>
                 </div>
-            </nav>
+            </div>
 
             <div class="flex-shrink-0 border-t border-gray-200 p-4">
                 <div class="relative">
                     <button @click="toggleUserMenu"
                         class="group w-full flex items-center text-sm rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 hover:bg-gray-50 transition-colors duration-150">
-                        <img class="inline-block h-9 w-9 rounded-full" src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Sofia Davis" />
+                        <img class="inline-block h-9 w-9 rounded-full"
+                            src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                            alt="Sofia Davis" />
                         <div class="ml-3 text-left">
                             <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">
                                 Sofia Davis
@@ -97,6 +101,7 @@
 
         <!-- Main Content Area -->
         <div class="flex-1 flex flex-col lg:ml-0">
+
             <!-- Header -->
             <header class="bg-white shadow-sm border-b border-gray-200">
                 <div class="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
@@ -132,17 +137,6 @@
                     </div>
 
                     <div class="flex items-center space-x-4">
-                        <div class="hidden md:block relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-search text-gray-400"></i>
-                            </div>
-                            <input type="text" placeholder="Buscar..."
-                                class="block w-80 pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500" />
-                        </div>
-
-                        <button class="md:hidden p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100">
-                            <i class="fas fa-search"></i>
-                        </button>
 
                         <button @click="toggleTheme"
                             class="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100">
@@ -155,78 +149,15 @@
                                 class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-400 ring-2 ring-white"></span>
                         </button>
 
-                        <button class="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100">
-                            <i class="fas fa-plus"></i>
-                        </button>
                     </div>
                 </div>
             </header>
 
-            <!-- Main Dashboard Content -->
-            <main class="flex-1 overflow-y-auto bg-gray-50 p-6">
-                <!-- Stats Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <div class="bg-white rounded-lg shadow-sm p-6">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-sm font-medium text-gray-500">Total de Proyectos</p>
-                                <p class="text-3xl font-bold text-gray-900">24</p>
-                            </div>
-                            <div class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg">
-                                <i class="fas fa-folder text-blue-600 text-xl"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg shadow-sm p-6">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-sm font-medium text-gray-500">Mensajes Nuevos</p>
-                                <p class="text-3xl font-bold text-gray-900">12</p>
-                            </div>
-                            <div class="flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg">
-                                <i class="fas fa-comments text-green-600 text-xl"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg shadow-sm p-6">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-sm font-medium text-gray-500">Tareas Completadas</p>
-                                <p class="text-3xl font-bold text-gray-900">89%</p>
-                            </div>
-                            <div class="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-lg">
-                                <i class="fas fa-chart-line text-purple-600 text-xl"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Main Content -->
+            <div class="w-[95%] mx-auto my-7 p-6 bg-white rounded-xl shadow-sm">
+                <router-view />
+            </div>
 
-                <!-- Welcome Message -->
-                <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-2">Bienvenido de vuelta, Sofia</h2>
-                    <p class="text-gray-600">Aquí tienes un resumen de tu actividad reciente.</p>
-                </div>
-
-                <!-- Content Cards -->
-                <div class="space-y-6">
-                    <div v-for="item in contentItems" :key="item.id" 
-                         class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-200">
-                        <div class="flex items-center justify-between">
-                            <div class="flex-1">
-                                <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ item.title }}</h3>
-                                <p class="text-gray-600">{{ item.description }}</p>
-                            </div>
-                            <div class="ml-4">
-                                <button class="px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-800 focus:outline-none focus:underline">
-                                    Ver más
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
         </div>
 
         <!-- Mobile sidebar overlay -->
@@ -257,35 +188,6 @@ const mainNavigation = ref([
 const secondaryNavigation = ref([
     { name: 'Configuración', icon: 'fas fa-cog' },
     { name: 'Bandeja de entrada', icon: 'fas fa-inbox' },
-])
-
-// Content items for the main area
-const contentItems = ref([
-    {
-        id: 1,
-        title: 'Elemento de contenido 1',
-        description: 'Esta es una descripción del elemento de contenido que demuestra el scroll del layout.'
-    },
-    {
-        id: 2,
-        title: 'Elemento de contenido 2',
-        description: 'Esta es una descripción del elemento de contenido que demuestra el scroll del layout.'
-    },
-    {
-        id: 3,
-        title: 'Elemento de contenido 3',
-        description: 'Esta es una descripción del elemento de contenido que demuestra el scroll del layout.'
-    },
-    {
-        id: 4,
-        title: 'Elemento de contenido 4',
-        description: 'Esta es una descripción del elemento de contenido que demuestra el scroll del layout.'
-    },
-    {
-        id: 5,
-        title: 'Elemento de contenido 5',
-        description: 'Esta es una descripción del elemento de contenido que demuestra el scroll del layout.'
-    },
 ])
 
 // Methods
