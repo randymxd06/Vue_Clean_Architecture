@@ -4,13 +4,14 @@ import LoginView from "../modules/auth/pages/LoginView.vue"
 import RegisterView from "../modules/auth/pages/RegisterView.vue"
 import ProductsView from "../modules/products/pages/ProductsView.vue"
 import AppLayout from "../components/layouts/AppLayout.vue"
+import DashboardView from "../modules/dashboard/DashboardView.vue"
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: "/",
-            redirect: "/dashboard",
+            redirect: { name: "login" },
         },
         {
             path: "/auth",
@@ -18,12 +19,12 @@ const router = createRouter({
             children: [
                 {
                     path: "login",
-                    name: "Login",
+                    name: "login",
                     component: LoginView,
                 },
                 {
                     path: "register",
-                    name: "Register",
+                    name: "register",
                     component: RegisterView,
                 },
             ],
@@ -35,7 +36,7 @@ const router = createRouter({
                 {
                     path: "/dashboard",
                     name: "dashboard",
-                    component: () => import("../modules/dashboard/DashboardView.vue")
+                    component: DashboardView
                 },
                 {
                     path: "/products",
