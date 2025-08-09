@@ -2,33 +2,61 @@
 
     <main class="flex min-h-screen bg-gray-50">
 
-        <!-- Sidebar -->
-        <div :class="[
+        <!--==========
+            SIDEBAR
+        ==============-->
+        <section :class="[
             'fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0',
             sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         ]">
-            <div class="flex items-center justify-between h-16 px-6 border-b border-gray-200">
-                <div class="flex items-center space-x-3">
-                    <div class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-lg">
+
+            <!--=================
+                SIDEBAR HEADER
+            =====================-->
+            <article class="flex items-center justify-between h-16 px-6 border-b border-gray-200">
+
+                <!--=================
+                    LOGO AND TITLE
+                =====================-->
+                <section class="flex items-center space-x-3">
+
+                    <!--=======
+                        LOGO
+                    ===========-->
+                    <article class="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-lg">
                         <i class="fas fa-chart-bar text-white text-sm"></i>
-                    </div>
-                    <div class="hidden lg:block">
+                    </article>
+
+                    <!--========
+                        TITLE
+                    ============-->
+                    <article class="hidden lg:block">
                         <h1 class="text-lg font-semibold text-gray-900">Mi Aplicación</h1>
                         <p class="text-xs text-gray-500">Versión 2.0</p>
-                    </div>
-                </div>
+                    </article>
+
+                </section>
+
+                <!--========================
+                    CLOSE BUTTON (MOBILE)
+                ============================-->
                 <button @click="toggleSidebar"
                     class="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100">
                     <i class="fas fa-times"></i>
                 </button>
-            </div>
 
-            <div class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
-                <div class="space-y-1">
+            </article>
+
+            <!--==================
+                MAIN NAVIGATION
+            ======================-->
+            <article class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+
+                <section class="space-y-1">
                     <p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
                         Navegación Principal
                     </p>
-                    <div class="space-y-1">
+                    <article class="space-y-1">
                         <a v-for="item in mainNavigation" :key="item.name" href="#" :class="[
                             'group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors duration-150',
                             item.isActive
@@ -42,44 +70,50 @@
                                 {{ item.badge }}
                             </span>
                         </a>
-                    </div>
-                </div>
+                    </article>
+                </section>
 
-                <div class="pt-6 space-y-1">
+                <section class="pt-6 space-y-1">
                     <p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
                         Herramientas
                     </p>
-                    <div class="space-y-1">
+                    <article class="space-y-1">
                         <a v-for="item in secondaryNavigation" :key="item.name" href="#"
                             class="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-50 hover:text-gray-900 transition-colors duration-150">
                             <i :class="[item.icon, 'mr-3 text-sm']"></i>
                             {{ item.name }}
                         </a>
-                    </div>
-                </div>
-            </div>
+                    </article>
+                </section>
 
-            <div class="flex-shrink-0 border-t border-gray-200 p-4">
-                <div class="relative">
+            </article>
+
+            <!--============
+                USER MENU
+            ================-->
+            <article class="flex-shrink-0 border-t border-gray-200 p-4">
+
+                <section class="relative">
+
                     <button @click="toggleUserMenu"
-                        class="group w-full flex items-center text-sm rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 hover:bg-gray-50 transition-colors duration-150">
+                        class="group w-full flex items-center text-sm rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 hover:bg-gray-50 transition-colors duration-150 cursor-pointer">
                         <img class="inline-block h-9 w-9 rounded-full"
                             src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                             alt="Sofia Davis" />
-                        <div class="ml-3 text-left">
+                        <article class="ml-3 text-left">
                             <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">
                                 Sofia Davis
                             </p>
                             <p class="text-xs font-medium text-gray-500 group-hover:text-gray-700">
                                 sofia@example.com
                             </p>
-                        </div>
+                        </article>
                         <i class="fas fa-chevron-up ml-auto text-gray-400 group-hover:text-gray-600"></i>
                     </button>
 
                     <div v-if="userMenuOpen"
                         class="absolute bottom-full left-0 right-0 mb-1 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <div class="py-1">
+                        <article class="py-1">
                             <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 <i class="fas fa-user mr-3"></i>
                                 Perfil
@@ -93,16 +127,23 @@
                                 <i class="fas fa-sign-out-alt mr-3"></i>
                                 Cerrar sesión
                             </a>
-                        </div>
+                        </article>
                     </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Main Content Area -->
-        <div class="flex-1 flex flex-col lg:ml-0">
+                </section>
 
-            <!-- Header -->
+            </article>
+
+        </section>
+
+        <!--==========================
+            HEADER AND MAIN CONTENT
+        ==============================-->
+        <section class="flex-1 flex flex-col lg:ml-0">
+
+            <!--=========
+                HEADER
+            =============-->
             <header class="bg-white shadow-sm border-b border-gray-200">
                 <div class="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
                     <div class="flex items-center space-x-4">
@@ -153,17 +194,23 @@
                 </div>
             </header>
 
-            <!-- Main Content -->
+            <!--===============
+                MAIN CONTENT
+            ===================-->
             <div class="w-[95%] mx-auto my-7 p-6 bg-white rounded-xl shadow-sm">
                 <router-view />
             </div>
 
-        </div>
+        </section>
 
-        <!-- Mobile sidebar overlay -->
-        <div v-if="sidebarOpen" @click="closeSidebar" class="fixed inset-0 z-40 bg-gray-600 bg-opacity-75 lg:hidden">
-        </div>
+        <!--=========================
+            MOBILE SIDEBAR OVERLAY
+        =============================-->
+        <section v-if="sidebarOpen" @click="closeSidebar" class="fixed inset-0 z-40 bg-black opacity-60 lg:hidden">
+        </section>
+
     </main>
+
 </template>
 
 <script setup>
