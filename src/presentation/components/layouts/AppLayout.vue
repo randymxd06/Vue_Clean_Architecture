@@ -214,7 +214,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from "vue"
 
 // Reactive state
 const sidebarOpen = ref(false)
@@ -223,18 +223,18 @@ const isDark = ref(false)
 
 // Navigation data
 const mainNavigation = ref([
-    { name: 'Dashboard', icon: 'fas fa-home', isActive: true },
-    { name: 'Proyectos', icon: 'fas fa-folder', badge: '12' },
-    { name: 'Mensajes', icon: 'fas fa-comments', badge: '3' },
-    { name: 'Calendario', icon: 'fas fa-calendar' },
-    { name: 'Documentos', icon: 'fas fa-file-alt' },
-    { name: 'Analíticas', icon: 'fas fa-chart-line' },
-    { name: 'Equipo', icon: 'fas fa-users' },
+    { name: "Dashboard", icon: "fas fa-home", isActive: true },
+    { name: "Proyectos", icon: "fas fa-folder", badge: "12" },
+    { name: "Mensajes", icon: "fas fa-comments", badge: "3" },
+    { name: "Calendario", icon: "fas fa-calendar" },
+    { name: "Documentos", icon: "fas fa-file-alt" },
+    { name: "Analíticas", icon: "fas fa-chart-line" },
+    { name: "Equipo", icon: "fas fa-users" },
 ])
 
 const secondaryNavigation = ref([
-    { name: 'Configuración', icon: 'fas fa-cog' },
-    { name: 'Bandeja de entrada', icon: 'fas fa-inbox' },
+    { name: "Configuración", icon: "fas fa-cog" },
+    { name: "Bandeja de entrada", icon: "fas fa-inbox" },
 ])
 
 // Methods
@@ -255,8 +255,8 @@ const toggleTheme = () => {
 }
 
 // Close dropdowns when clicking outside
-const handleClickOutside = (event) => {
-    if (!event.target.closest('.relative')) {
+const handleClickOutside = event => {
+    if (!event.target.closest(".relative")) {
         userMenuOpen.value = false
     }
 }
@@ -269,13 +269,13 @@ const handleResize = () => {
 }
 
 onMounted(() => {
-    document.addEventListener('click', handleClickOutside)
-    window.addEventListener('resize', handleResize)
+    document.addEventListener("click", handleClickOutside)
+    window.addEventListener("resize", handleResize)
 })
 
 onUnmounted(() => {
-    document.removeEventListener('click', handleClickOutside)
-    window.removeEventListener('resize', handleResize)
+    document.removeEventListener("click", handleClickOutside)
+    window.removeEventListener("resize", handleResize)
 })
 </script>
 
