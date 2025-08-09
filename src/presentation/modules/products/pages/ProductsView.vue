@@ -45,7 +45,7 @@ const resetForm = () => {
 
 <template>
 
-  <div class="">
+  <div class="max-w-5xl mx-auto my-8 p-6 shadow-lg rounded-2xl">
 
     <!--=========
         HEADER
