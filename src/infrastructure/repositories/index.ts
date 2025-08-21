@@ -1,7 +1,7 @@
-import { CreateProduct } from "@/domain/usecases/todos/CreateProduct"
-import { DeleteProduct } from "@/domain/usecases/todos/DeleteProduct"
-import { GetProducts } from "@/domain/usecases/todos/GetProducts"
-import { UpdateProduct } from "@/domain/usecases/todos/UpdateProduct"
+import { CreateProduct } from "@/domain/usecases/products/CreateProduct"
+import { DeleteProduct } from "@/domain/usecases/products/DeleteProduct"
+import { GetProducts } from "@/domain/usecases/products/GetProducts"
+import { UpdateProduct } from "@/domain/usecases/products/UpdateProduct"
 import { AxiosClient } from "../api/AxiosClient"
 import { ProductRepositoryImpl } from "../repositories/ProductRepositoryImpl"
 
