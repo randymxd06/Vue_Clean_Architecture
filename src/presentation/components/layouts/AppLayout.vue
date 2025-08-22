@@ -5,6 +5,9 @@ const sidebarVisible = ref(true);
 
 <template>
 
+    <!--=============
+        APP LAYOUT
+    =================-->
     <main class="h-screen flex bg-gray-100">
 
         <!--==========
