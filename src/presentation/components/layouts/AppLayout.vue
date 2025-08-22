@@ -10,7 +10,8 @@ const sidebarVisible = ref(true);
         <!--==========
             SIDEBAR
         ==============-->
-        <aside v-if="sidebarVisible" class="w-64 flex flex-col bg-gray-100">
+        <aside v-show="true"
+            :class="['sidebar w-64 flex flex-col bg-gray-100', { 'sidebar--hidden': !sidebarVisible }]">
 
             <!--==================
                 LOGO / APP NAME
@@ -184,7 +185,8 @@ const sidebarVisible = ref(true);
         <!--====================
             MAIN CONTENT AREA
         ========================-->
-        <section class="flex-1 flex flex-col overflow-hidden pr-2 pt-2" :class="{ 'pl-2': !sidebarVisible }">
+        <section
+            :class="['main-content flex-1 flex flex-col overflow-hidden pr-2 pt-2', { 'main-content--expanded': !sidebarVisible }]">
 
             <!--===========================
                 CONTENT CARD WITH TOPBAR
@@ -305,3 +307,27 @@ const sidebarVisible = ref(true);
     </main>
 
 </template>
+
+<style scoped>
+.sidebar {
+    transition: transform 0.8s cubic-bezier(.4, 0, .2, 1), opacity 0.6s cubic-bezier(.4, 0, .2, 1), scale 0.8s cubic-bezier(.4, 0, .2, 1);
+    transform: translateX(0) scaleX(1);
+    opacity: 1;
+    will-change: transform, opacity;
+}
+
+.sidebar--hidden {
+    transform: translateX(-100%) scaleX(0.7);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.main-content {
+    transition: margin-left 0.8s cubic-bezier(.4, 0, .2, 1), width 0.8s cubic-bezier(.4, 0, .2, 1);
+    margin-left: 0;
+}
+
+.main-content--expanded {
+    margin-left: -15.4rem;
+}
+</style>
