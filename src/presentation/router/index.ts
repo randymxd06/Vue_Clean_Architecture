@@ -3,13 +3,14 @@ import AuthLayout from "../components/layouts/AuthLayout.vue"
 import LoginView from "../modules/auth/pages/LoginView.vue"
 import RegisterView from "../modules/auth/pages/RegisterView.vue"
 import ProductsView from "../modules/products/pages/ProductsView.vue"
+import AppLayout from "../components/layouts/AppLayout.vue"
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: "/",
-            redirect: { name: "login" },
+            redirect: { name: "products" },
         },
         {
             path: "/auth",
@@ -28,9 +29,15 @@ const router = createRouter({
             ],
         },
         {
-            path: "/products",
-            name: "products",
-            component: ProductsView,
+            path: "/",
+            component: AppLayout,
+            children: [
+                {
+                    path: "products",
+                    name: "products",
+                    component: ProductsView,
+                }
+            ]
         },
     ],
 })
