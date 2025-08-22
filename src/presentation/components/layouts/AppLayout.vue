@@ -236,7 +236,7 @@ function closeSidebar() {
         <!--============================
             OVERLAY FOR MOBILE DRAWER
         ================================-->
-        <aside v-if="isMobile && sidebarVisible" class="fixed inset-0 bg-black bg-opacity-40 z-40" @click="closeSidebar">
+        <aside v-if="isMobile && sidebarVisible" class="fixed inset-0 bg-black opacity-80 z-40" @click="closeSidebar">
         </aside>
 
         <!--====================
