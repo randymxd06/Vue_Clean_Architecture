@@ -266,7 +266,7 @@ const sidebarVisible = ref(true);
                             ADD BUTTON
                         =================-->
                         <button
-                            class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center space-x-2 transition-colors">
+                            class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center space-x-2 transition-colors cursor-pointer">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M12 4v16m8-8H4" />
@@ -283,10 +283,14 @@ const sidebarVisible = ref(true);
                 ===================-->
                 <main class="flex-1 overflow-auto">
 
-                    <!--==============
-                        ROUTER-VIEW
-                    ==================-->
-                    <router-view />
+                    <section class="mx-auto p-6">
+
+                        <!--==============
+                            ROUTER-VIEW
+                        ==================-->
+                        <router-view />
+                        
+                    </section>
 
                 </main>
 

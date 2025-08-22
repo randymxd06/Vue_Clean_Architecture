@@ -45,7 +45,7 @@ const resetForm = () => {
 
 <template>
 
-  <div class="mx-auto p-6 shadow-lg rounded-2xl">
+  <main>
 
     <!--=========
         HEADER
@@ -143,7 +143,7 @@ const resetForm = () => {
     <!--==================
         LISTING SECTION
     ======================-->
-    <div v-if="productStore.loading" class="text-center py-8">
+    <section v-if="productStore.loading" class="text-center py-8">
       <div class="inline-flex items-center px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 rounded-lg">
         <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none"
           viewBox="0 0 24 24">
@@ -154,9 +154,9 @@ const resetForm = () => {
         </svg>
         Cloading products...
       </div>
-    </div>
+    </section>
 
-    <div v-else-if="productStore.error" class="p-4 mb-6 bg-red-50 border-l-4 border-red-500 rounded">
+    <section v-else-if="productStore.error" class="p-4 mb-6 bg-red-50 border-l-4 border-red-500 rounded">
       <div class="flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 mr-2" viewBox="0 0 20 20"
           fill="currentColor">
@@ -167,9 +167,9 @@ const resetForm = () => {
         <span class="font-medium text-red-700">Error:</span>
         <span class="ml-1 text-red-600">{{ productStore.error }}</span>
       </div>
-    </div>
+    </section>
 
-    <div v-else>
+    <section v-else>
       <div v-if="productStore.products.length > 0" class="overflow-hidden rounded-xl border border-gray-200 shadow-sm">
         <table class="min-w-full divide-y divide-gray-200">
           <thead class="bg-gray-50">
@@ -256,6 +256,8 @@ const resetForm = () => {
           </button>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
+
+  </main>
+
 </template>
