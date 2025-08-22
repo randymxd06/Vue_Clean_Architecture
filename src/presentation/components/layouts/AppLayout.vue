@@ -1,6 +1,44 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
-const sidebarVisible = ref(true);
+import { ref, onMounted, onUnmounted } from 'vue';
+const sidebarVisible = ref(false);
+const isMobile = ref(window.matchMedia('(max-width: 768px)').matches);
+
+function handleResize() {
+
+    isMobile.value = window.matchMedia('(max-width: 768px)').matches;
+
+    /**=========================================================
+     * IF YOU SWITCH FROM MOBILE TO DESKTOP, CLOSE THE DRAWER
+    ============================================================*/
+    if (!isMobile.value) sidebarVisible.value = true;
+
+    /**===================================================================
+     * IF YOU SWITCH FROM DESKTOP TO MOBILE, HIDE THE DRAWER BY DEFAULT
+    ======================================================================*/
+    if (isMobile.value) sidebarVisible.value = false;
+
+}
+
+onMounted(() => {
+
+    window.addEventListener('resize', handleResize);
+
+    /**=======================
+     * INITIALIZE THE STATE
+    ==========================*/
+    handleResize();
+
+});
+onUnmounted(() => {
+    window.removeEventListener('resize', handleResize);
+});
+
+function openSidebar() {
+    sidebarVisible.value = true;
+}
+function closeSidebar() {
+    sidebarVisible.value = false;
+}
 </script>
 
 <template>
@@ -8,17 +46,23 @@ const sidebarVisible = ref(true);
     <!--=============
         APP LAYOUT
     =================-->
-    <main class="h-screen flex bg-gray-100">
+    <main class="h-screen flex bg-gray-100 relative">
 
         <!--==========
             SIDEBAR
         ==============-->
-        <aside
-            :class="[
-                'w-64 flex flex-col bg-gray-100 transform transition-all duration-700 ease-in-out',
-                sidebarVisible ? 'translate-x-0 scale-x-100 opacity-100' : '-translate-x-full scale-x-90 opacity-0 pointer-events-none'
-            ]"
-        >
+        <aside :class="[
+            'w-64 flex flex-col bg-gray-100 transform transition-all duration-700 ease-in-out z-50',
+            isMobile
+                ? [
+                    'fixed top-0 left-0 h-full shadow-xl',
+                    sidebarVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0 pointer-events-none'
+                ]
+                : [
+                    'relative h-full',
+                    sidebarVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0 pointer-events-none'
+                ]
+        ]">
 
             <!--==================
                 LOGO / APP NAME
@@ -189,15 +233,19 @@ const sidebarVisible = ref(true);
 
         </aside>
 
+        <!--============================
+            OVERLAY FOR MOBILE DRAWER
+        ================================-->
+        <aside v-if="isMobile && sidebarVisible" class="fixed inset-0 bg-black bg-opacity-40 z-40" @click="closeSidebar">
+        </aside>
+
         <!--====================
             MAIN CONTENT AREA
         ========================-->
-        <section
-            :class="[
-                'flex-1 flex flex-col overflow-hidden pr-2 pt-2 transition-all duration-700 ease-in-out',
-                sidebarVisible ? 'ml-0' : '-ml-64 pl-2'
-            ]"
-        >
+        <section :class="[
+            'flex-1 flex flex-col overflow-hidden pr-2 pt-2 transition-all duration-700 ease-in-out',
+            isMobile ? '' : (sidebarVisible ? 'ml-0' : '-ml-64 pl-2')
+        ]">
 
             <!--===========================
                 CONTENT CARD WITH TOPBAR
@@ -211,10 +259,23 @@ const sidebarVisible = ref(true);
 
                     <section class="flex gap-10">
 
-                        <!--=============================
-                            HIDE / SHOW SIDEBAR BUTTON
-                        =================================-->
-                        <button type="button" class="cursor-pointer transition-transform hover:scale-110"
+                        <!--=======================================================
+                            BUTTON TO OPEN / CLOSE THE SIDEBAR ON MOBILE DEVICES
+                        ===========================================================-->
+                        <button v-if="isMobile" type="button"
+                            class="cursor-pointer transition-transform hover:scale-110" @click="openSidebar">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-sidebar">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="9" y1="3" x2="9" y2="21"></line>
+                            </svg>
+                        </button>
+
+                        <!--========================================
+                            BUTTON TO HIDE THE SIDEBAR ON DESKTOP
+                        ============================================-->
+                        <button v-else type="button" class="cursor-pointer transition-transform hover:scale-110"
                             @click="sidebarVisible = !sidebarVisible">
                             <svg width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                                 fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"
