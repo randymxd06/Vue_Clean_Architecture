@@ -69,7 +69,7 @@ const sizeClasses = {
     :type="type"
     :disabled="disabled"
     :class="[
-      'inline-flex items-center justify-center font-medium rounded-lg',
+      'inline-flex items-center justify-center font-medium rounded-lg max-sm:focus:outline-none max-sm:focus:ring-2 max-sm:focus:ring-offset-2 max-sm:transition',
       variantClasses[variant],
       sizeClasses[size],
       fullWidth ? 'w-full' : '',
