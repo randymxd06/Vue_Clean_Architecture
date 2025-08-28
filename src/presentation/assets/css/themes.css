@@ -1,0 +1,559 @@
+/* Tema Base (Light Mode) */
+:root {
+  /* Colores primarios */
+  --color-primary-50: 239 246 255;
+  --color-primary-100: 219 234 254;
+  --color-primary-200: 191 219 254;
+  --color-primary-300: 147 197 253;
+  --color-primary-400: 96 165 250;
+  --color-primary-500: 59 130 246;
+  --color-primary-600: 37 99 235;
+  --color-primary-700: 29 78 216;
+  --color-primary-800: 30 64 175;
+  --color-primary-900: 30 58 138;
+  --color-primary-950: 23 37 84;
+
+  /* Colores secundarios */
+  --color-secondary-50: 248 250 252;
+  --color-secondary-100: 241 245 249;
+  --color-secondary-200: 226 232 240;
+  --color-secondary-300: 203 213 225;
+  --color-secondary-400: 148 163 184;
+  --color-secondary-500: 100 116 139;
+  --color-secondary-600: 71 85 105;
+  --color-secondary-700: 51 65 85;
+  --color-secondary-800: 30 41 59;
+  --color-secondary-900: 15 23 42;
+  --color-secondary-950: 2 6 23;
+
+  /* Colores de acento */
+  --color-accent-50: 240 253 244;
+  --color-accent-100: 220 252 231;
+  --color-accent-200: 187 247 208;
+  --color-accent-300: 134 239 172;
+  --color-accent-400: 74 222 128;
+  --color-accent-500: 34 197 94;
+  --color-accent-600: 22 163 74;
+  --color-accent-700: 21 128 61;
+  --color-accent-800: 22 101 52;
+  --color-accent-900: 20 83 45;
+  --color-accent-950: 5 46 22;
+
+  /* Colores de superficie */
+  --color-surface-50: 250 250 250;
+  --color-surface-100: 245 245 245;
+  --color-surface-200: 229 229 229;
+  --color-surface-300: 212 212 212;
+  --color-surface-400: 163 163 163;
+  --color-surface-500: 115 115 115;
+  --color-surface-600: 82 82 82;
+  --color-surface-700: 64 64 64;
+  --color-surface-800: 38 38 38;
+  --color-surface-900: 23 23 23;
+  --color-surface-950: 10 10 10;
+
+  /* Fondos de la aplicación */
+  --color-bg-app: 248 250 252;      /* Fondo gris muy claro */
+  --color-bg-card: 255 255 255;     /* Siempre blanco en light mode */
+  --color-bg-sidebar: 248 250 252;  /* Fondo gris muy claro */
+  --color-bg-topbar: 255 255 255;
+
+  /* Colores de texto */
+  --color-text-primary: 17 24 39;   /* Texto principal oscuro */
+  --color-text-secondary: 75 85 99; /* Texto secundario */
+  --color-text-muted: 156 163 175;  /* Texto deshabilitado/silenciado */
+
+  /* Bordes */
+  --color-border: 229 231 235;
+  --color-border-light: 243 244 246;
+}
+
+/* Tema Oscuro */
+.dark {
+  /* Colores primarios (ajustados para dark mode) */
+  --color-primary-50: 23 37 84;
+  --color-primary-100: 30 58 138;
+  --color-primary-200: 30 64 175;
+  --color-primary-300: 29 78 216;
+  --color-primary-400: 37 99 235;
+  --color-primary-500: 59 130 246;
+  --color-primary-600: 96 165 250;
+  --color-primary-700: 147 197 253;
+  --color-primary-800: 191 219 254;
+  --color-primary-900: 219 234 254;
+  --color-primary-950: 239 246 255;
+
+  /* Colores secundarios */
+  --color-secondary-50: 2 6 23;
+  --color-secondary-100: 15 23 42;
+  --color-secondary-200: 30 41 59;
+  --color-secondary-300: 51 65 85;
+  --color-secondary-400: 71 85 105;
+  --color-secondary-500: 100 116 139;
+  --color-secondary-600: 148 163 184;
+  --color-secondary-700: 203 213 225;
+  --color-secondary-800: 226 232 240;
+  --color-secondary-900: 241 245 249;
+  --color-secondary-950: 248 250 252;
+
+  /* Colores de acento */
+  --color-accent-50: 5 46 22;
+  --color-accent-100: 20 83 45;
+  --color-accent-200: 22 101 52;
+  --color-accent-300: 21 128 61;
+  --color-accent-400: 22 163 74;
+  --color-accent-500: 34 197 94;
+  --color-accent-600: 74 222 128;
+  --color-accent-700: 134 239 172;
+  --color-accent-800: 187 247 208;
+  --color-accent-900: 220 252 231;
+  --color-accent-950: 240 253 244;
+
+  /* Colores de superficie */
+  --color-surface-50: 10 10 10;
+  --color-surface-100: 23 23 23;
+  --color-surface-200: 38 38 38;
+  --color-surface-300: 64 64 64;
+  --color-surface-400: 82 82 82;
+  --color-surface-500: 115 115 115;
+  --color-surface-600: 163 163 163;
+  --color-surface-700: 212 212 212;
+  --color-surface-800: 229 229 229;
+  --color-surface-900: 245 245 245;
+  --color-surface-950: 250 250 250;
+
+  /* Fondos de la aplicación */
+  --color-bg-app: 17 24 39;
+  --color-bg-card: 31 41 55;  /* Siempre gris oscuro en dark mode */
+  --color-bg-sidebar: 17 24 39;
+  --color-bg-topbar: 31 41 55;
+
+  /* Colores de texto */
+  --color-text-primary: 243 244 246;
+  --color-text-secondary: 209 213 219;
+  --color-text-muted: 156 163 175;
+
+  /* Bordes */
+  --color-border: 75 85 99;
+  --color-border-light: 55 65 81;
+}
+
+/* Tema Emerald */
+.theme-emerald {
+  --color-primary-50: 236 253 245;
+  --color-primary-100: 209 250 229;
+  --color-primary-200: 167 243 208;
+  --color-primary-300: 110 231 183;
+  --color-primary-400: 52 211 153;
+  --color-primary-500: 16 185 129;
+  --color-primary-600: 5 150 105;
+  --color-primary-700: 4 120 87;
+  --color-primary-800: 6 95 70;
+  --color-primary-900: 6 78 59;
+  --color-primary-950: 2 44 34;
+
+  /* Fondo emerald claro - más oscuro */
+  --color-bg-app: 167 243 208;  /* Verde más visible */
+  --color-bg-card: 255 255 255; /* Siempre blanco para legibilidad */
+  --color-bg-sidebar: 167 243 208;
+  --color-bg-topbar: 255 255 255;
+  
+  /* Colores de texto y estados */
+  --color-text-primary: 6 78 59;     /* Verde oscuro para texto principal */
+  --color-text-secondary: 6 95 70;   /* Verde medio para texto secundario */
+  --color-text-muted: 75 85 99;      /* Gris para texto deshabilitado */
+  --color-border: 209 250 229;       /* Verde claro para bordes */
+
+  --color-accent-50: 254 242 242;
+  --color-accent-100: 254 226 226;
+  --color-accent-200: 252 165 165;
+  --color-accent-300: 248 113 113;
+  --color-accent-400: 239 68 68;
+  --color-accent-500: 220 38 38;
+  --color-accent-600: 185 28 28;
+  --color-accent-700: 153 27 27;
+  --color-accent-800: 127 29 29;
+  --color-accent-900: 109 40 40;
+  --color-accent-950: 69 10 10;
+}
+
+/* Tema Emerald Oscuro */
+.theme-emerald.dark {
+  --color-bg-app: 6 78 59;
+  --color-bg-card: 31 41 55;  /* Mantiene gris oscuro para legibilidad */
+  --color-bg-sidebar: 6 78 59;
+  --color-bg-topbar: 31 41 55;
+  
+  /* Colores de texto para dark mode */
+  --color-text-primary: 243 244 246;   /* Gris claro para texto principal */
+  --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
+  --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
+  --color-border: 75 85 99;            /* Gris para bordes */
+}
+
+/* Tema Purple */
+.theme-purple {
+  --color-primary-50: 250 245 255;
+  --color-primary-100: 243 232 255;
+  --color-primary-200: 233 213 255;
+  --color-primary-300: 216 180 254;
+  --color-primary-400: 196 181 253;
+  --color-primary-500: 168 85 247;
+  --color-primary-600: 147 51 234;
+  --color-primary-700: 126 34 206;
+  --color-primary-800: 107 33 168;
+  --color-primary-900: 88 28 135;
+  --color-primary-950: 59 7 100;
+
+  /* Fondo purple claro - más oscuro */
+  --color-bg-app: 216 180 254;  /* Púrpura más visible */
+  --color-bg-card: 255 255 255; /* Siempre blanco para legibilidad */
+  --color-bg-sidebar: 216 180 254;
+  --color-bg-topbar: 255 255 255;
+  
+  /* Colores de texto y estados */
+  --color-text-primary: 88 28 135;    /* Púrpura oscuro para texto principal */
+  --color-text-secondary: 107 33 168; /* Púrpura medio para texto secundario */
+  --color-text-muted: 75 85 99;       /* Gris para texto deshabilitado */
+  --color-border: 233 213 255;        /* Púrpura claro para bordes */
+
+  --color-accent-50: 255 251 235;
+  --color-accent-100: 254 243 199;
+  --color-accent-200: 253 230 138;
+  --color-accent-300: 252 211 77;
+  --color-accent-400: 251 191 36;
+  --color-accent-500: 245 158 11;
+  --color-accent-600: 217 119 6;
+  --color-accent-700: 180 83 9;
+  --color-accent-800: 146 64 14;
+  --color-accent-900: 120 53 15;
+  --color-accent-950: 69 26 3;
+}
+
+/* Tema Purple Oscuro */
+.theme-purple.dark {
+  --color-bg-app: 88 28 135;
+  --color-bg-card: 31 41 55;  /* Mantiene gris oscuro para legibilidad */
+  --color-bg-sidebar: 88 28 135;
+  --color-bg-topbar: 31 41 55;
+  
+  /* Colores de texto para dark mode */
+  --color-text-primary: 243 244 246;   /* Gris claro para texto principal */
+  --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
+  --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
+  --color-border: 75 85 99;            /* Gris para bordes */
+}
+
+/* Tema Rose */
+.theme-rose {
+  --color-primary-50: 255 241 242;
+  --color-primary-100: 255 228 230;
+  --color-primary-200: 254 205 211;
+  --color-primary-300: 253 164 175;
+  --color-primary-400: 251 113 133;
+  --color-primary-500: 244 63 94;
+  --color-primary-600: 225 29 72;
+  --color-primary-700: 190 18 60;
+  --color-primary-800: 159 18 57;
+  --color-primary-900: 136 19 55;
+  --color-primary-950: 76 5 25;
+
+  /* Fondo rose claro - más oscuro */
+  --color-bg-app: 253 164 175;  /* Rosa más visible */
+  --color-bg-card: 255 255 255; /* Siempre blanco para legibilidad */
+  --color-bg-sidebar: 253 164 175;
+  --color-bg-topbar: 255 255 255;
+  
+  /* Colores de texto y estados */
+  --color-text-primary: 136 19 55;    /* Rosa oscuro para texto principal */
+  --color-text-secondary: 159 18 57;  /* Rosa medio para texto secundario */
+  --color-text-muted: 75 85 99;       /* Gris para texto deshabilitado */
+  --color-border: 254 205 211;        /* Rosa claro para bordes */
+
+  --color-accent-50: 240 249 255;
+  --color-accent-100: 224 242 254;
+  --color-accent-200: 186 230 253;
+  --color-accent-300: 125 211 252;
+  --color-accent-400: 56 189 248;
+  --color-accent-500: 14 165 233;
+  --color-accent-600: 2 132 199;
+  --color-accent-700: 3 105 161;
+  --color-accent-800: 7 89 133;
+  --color-accent-900: 12 74 110;
+  --color-accent-950: 8 47 73;
+}
+
+/* Tema Rose Oscuro */
+.theme-rose.dark {
+  --color-bg-app: 136 19 55;
+  --color-bg-card: 31 41 55;  /* Mantiene gris oscuro para legibilidad */
+  --color-bg-sidebar: 136 19 55;
+  --color-bg-topbar: 31 41 55;
+  
+  /* Colores de texto para dark mode */
+  --color-text-primary: 243 244 246;   /* Gris claro para texto principal */
+  --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
+  --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
+  --color-border: 75 85 99;            /* Gris para bordes */
+}
+
+/* Tema Ocean */
+.theme-ocean {
+  --color-primary-50: 240 249 255;
+  --color-primary-100: 224 242 254;
+  --color-primary-200: 186 230 253;
+  --color-primary-300: 125 211 252;
+  --color-primary-400: 56 189 248;
+  --color-primary-500: 14 165 233;
+  --color-primary-600: 2 132 199;
+  --color-primary-700: 3 105 161;
+  --color-primary-800: 7 89 133;
+  --color-primary-900: 12 74 110;
+  --color-primary-950: 8 47 73;
+
+  /* Fondo ocean claro - más oscuro */
+  --color-bg-app: 125 211 252;  /* Azul más visible */
+  --color-bg-card: 255 255 255; /* Siempre blanco para legibilidad */
+  --color-bg-sidebar: 125 211 252;
+  --color-bg-topbar: 255 255 255;
+  
+  /* Colores de texto y estados */
+  --color-text-primary: 12 74 110;    /* Azul oscuro para texto principal */
+  --color-text-secondary: 7 89 133;   /* Azul medio para texto secundario */
+  --color-text-muted: 75 85 99;       /* Gris para texto deshabilitado */
+  --color-border: 186 230 253;        /* Azul claro para bordes */
+
+  --color-accent-50: 240 253 250;
+  --color-accent-100: 204 251 241;
+  --color-accent-200: 153 246 228;
+  --color-accent-300: 94 234 212;
+  --color-accent-400: 45 212 191;
+  --color-accent-500: 20 184 166;
+  --color-accent-600: 13 148 136;
+  --color-accent-700: 15 118 110;
+  --color-accent-800: 17 94 89;
+  --color-accent-900: 19 78 74;
+  --color-accent-950: 4 47 46;
+}
+
+/* Tema Ocean Oscuro */
+.theme-ocean.dark {
+  --color-bg-app: 12 74 110;
+  --color-bg-card: 31 41 55;  /* Mantiene gris oscuro para legibilidad */
+  --color-bg-sidebar: 12 74 110;
+  --color-bg-topbar: 31 41 55;
+  
+  /* Colores de texto para dark mode */
+  --color-text-primary: 243 244 246;   /* Gris claro para texto principal */
+  --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
+  --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
+  --color-border: 75 85 99;            /* Gris para bordes */
+}
+
+/* Tema Sunset */
+.theme-sunset {
+  --color-primary-50: 255 247 237;
+  --color-primary-100: 255 237 213;
+  --color-primary-200: 254 215 170;
+  --color-primary-300: 253 186 116;
+  --color-primary-400: 251 146 60;
+  --color-primary-500: 249 115 22;
+  --color-primary-600: 234 88 12;
+  --color-primary-700: 194 65 12;
+  --color-primary-800: 154 52 18;
+  --color-primary-900: 124 45 18;
+  --color-primary-950: 67 20 7;
+
+  /* Fondo sunset claro - más oscuro */
+  --color-bg-app: 253 186 116;  /* Naranja más visible */
+  --color-bg-card: 255 255 255; /* Siempre blanco para legibilidad */
+  --color-bg-sidebar: 253 186 116;
+  --color-bg-topbar: 255 255 255;
+  
+  /* Colores de texto y estados */
+  --color-text-primary: 124 45 18;    /* Naranja oscuro para texto principal */
+  --color-text-secondary: 154 52 18;  /* Naranja medio para texto secundario */
+  --color-text-muted: 75 85 99;       /* Gris para texto deshabilitado */
+  --color-border: 254 215 170;        /* Naranja claro para bordes */
+
+  --color-accent-50: 254 242 242;
+  --color-accent-100: 254 226 226;
+  --color-accent-200: 252 165 165;
+  --color-accent-300: 248 113 113;
+  --color-accent-400: 239 68 68;
+  --color-accent-500: 220 38 38;
+  --color-accent-600: 185 28 28;
+  --color-accent-700: 153 27 27;
+  --color-accent-800: 127 29 29;
+  --color-accent-900: 109 40 40;
+  --color-accent-950: 69 10 10;
+}
+
+/* Tema Sunset Oscuro */
+.theme-sunset.dark {
+  --color-bg-app: 124 45 18;
+  --color-bg-card: 31 41 55;  /* Mantiene gris oscuro para legibilidad */
+  --color-bg-sidebar: 124 45 18;
+  --color-bg-topbar: 31 41 55;
+  
+  /* Colores de texto para dark mode */
+  --color-text-primary: 243 244 246;   /* Gris claro para texto principal */
+  --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
+  --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
+  --color-border: 75 85 99;            /* Gris para bordes */
+}
+
+/* Utilidades personalizadas para Tailwind 4 */
+@layer utilities {
+  /* Colores primarios */
+  .bg-primary-50 { background-color: rgb(var(--color-primary-50)); }
+  .bg-primary-100 { background-color: rgb(var(--color-primary-100)); }
+  .bg-primary-200 { background-color: rgb(var(--color-primary-200)); }
+  .bg-primary-300 { background-color: rgb(var(--color-primary-300)); }
+  .bg-primary-400 { background-color: rgb(var(--color-primary-400)); }
+  .bg-primary-500 { background-color: rgb(var(--color-primary-500)); }
+  .bg-primary-600 { background-color: rgb(var(--color-primary-600)); }
+  .bg-primary-700 { background-color: rgb(var(--color-primary-700)); }
+  .bg-primary-800 { background-color: rgb(var(--color-primary-800)); }
+  .bg-primary-900 { background-color: rgb(var(--color-primary-900)); }
+  .bg-primary-950 { background-color: rgb(var(--color-primary-950)); }
+
+  .text-primary-50 { color: rgb(var(--color-primary-50)); }
+  .text-primary-100 { color: rgb(var(--color-primary-100)); }
+  .text-primary-200 { color: rgb(var(--color-primary-200)); }
+  .text-primary-300 { color: rgb(var(--color-primary-300)); }
+  .text-primary-400 { color: rgb(var(--color-primary-400)); }
+  .text-primary-500 { color: rgb(var(--color-primary-500)); }
+  .text-primary-600 { color: rgb(var(--color-primary-600)); }
+  .text-primary-700 { color: rgb(var(--color-primary-700)); }
+  .text-primary-800 { color: rgb(var(--color-primary-800)); }
+  .text-primary-900 { color: rgb(var(--color-primary-900)); }
+  .text-primary-950 { color: rgb(var(--color-primary-950)); }
+
+  .border-primary-50 { border-color: rgb(var(--color-primary-50)); }
+  .border-primary-100 { border-color: rgb(var(--color-primary-100)); }
+  .border-primary-200 { border-color: rgb(var(--color-primary-200)); }
+  .border-primary-300 { border-color: rgb(var(--color-primary-300)); }
+  .border-primary-400 { border-color: rgb(var(--color-primary-400)); }
+  .border-primary-500 { border-color: rgb(var(--color-primary-500)); }
+  .border-primary-600 { border-color: rgb(var(--color-primary-600)); }
+  .border-primary-700 { border-color: rgb(var(--color-primary-700)); }
+  .border-primary-800 { border-color: rgb(var(--color-primary-800)); }
+  .border-primary-900 { border-color: rgb(var(--color-primary-900)); }
+  .border-primary-950 { border-color: rgb(var(--color-primary-950)); }
+
+  /* Colores secundarios */
+  .bg-secondary-50 { background-color: rgb(var(--color-secondary-50)); }
+  .bg-secondary-100 { background-color: rgb(var(--color-secondary-100)); }
+  .bg-secondary-200 { background-color: rgb(var(--color-secondary-200)); }
+  .bg-secondary-300 { background-color: rgb(var(--color-secondary-300)); }
+  .bg-secondary-400 { background-color: rgb(var(--color-secondary-400)); }
+  .bg-secondary-500 { background-color: rgb(var(--color-secondary-500)); }
+  .bg-secondary-600 { background-color: rgb(var(--color-secondary-600)); }
+  .bg-secondary-700 { background-color: rgb(var(--color-secondary-700)); }
+  .bg-secondary-800 { background-color: rgb(var(--color-secondary-800)); }
+  .bg-secondary-900 { background-color: rgb(var(--color-secondary-900)); }
+  .bg-secondary-950 { background-color: rgb(var(--color-secondary-950)); }
+
+  /* Colores de acento */
+  .bg-accent-50 { background-color: rgb(var(--color-accent-50)); }
+  .bg-accent-100 { background-color: rgb(var(--color-accent-100)); }
+  .bg-accent-200 { background-color: rgb(var(--color-accent-200)); }
+  .bg-accent-300 { background-color: rgb(var(--color-accent-300)); }
+  .bg-accent-400 { background-color: rgb(var(--color-accent-400)); }
+  .bg-accent-500 { background-color: rgb(var(--color-accent-500)); }
+  .bg-accent-600 { background-color: rgb(var(--color-accent-600)); }
+  .bg-accent-700 { background-color: rgb(var(--color-accent-700)); }
+  .bg-accent-800 { background-color: rgb(var(--color-accent-800)); }
+  .bg-accent-900 { background-color: rgb(var(--color-accent-900)); }
+  .bg-accent-950 { background-color: rgb(var(--color-accent-950)); }
+
+  .text-accent-50 { color: rgb(var(--color-accent-50)); }
+  .text-accent-100 { color: rgb(var(--color-accent-100)); }
+  .text-accent-200 { color: rgb(var(--color-accent-200)); }
+  .text-accent-300 { color: rgb(var(--color-accent-300)); }
+  .text-accent-400 { color: rgb(var(--color-accent-400)); }
+  .text-accent-500 { color: rgb(var(--color-accent-500)); }
+  .text-accent-600 { color: rgb(var(--color-accent-600)); }
+  .text-accent-700 { color: rgb(var(--color-accent-700)); }
+  .text-accent-800 { color: rgb(var(--color-accent-800)); }
+  .text-accent-900 { color: rgb(var(--color-accent-900)); }
+  .text-accent-950 { color: rgb(var(--color-accent-950)); }
+
+  .border-accent-50 { border-color: rgb(var(--color-accent-50)); }
+  .border-accent-100 { border-color: rgb(var(--color-accent-100)); }
+  .border-accent-200 { border-color: rgb(var(--color-accent-200)); }
+  .border-accent-300 { border-color: rgb(var(--color-accent-300)); }
+  .border-accent-400 { border-color: rgb(var(--color-accent-400)); }
+  .border-accent-500 { border-color: rgb(var(--color-accent-500)); }
+  .border-accent-600 { border-color: rgb(var(--color-accent-600)); }
+  .border-accent-700 { border-color: rgb(var(--color-accent-700)); }
+  .border-accent-800 { border-color: rgb(var(--color-accent-800)); }
+  .border-accent-900 { border-color: rgb(var(--color-accent-900)); }
+  .border-accent-950 { border-color: rgb(var(--color-accent-950)); }
+
+  /* Colores de superficie */
+  .bg-surface-50 { background-color: rgb(var(--color-surface-50)); }
+  .bg-surface-100 { background-color: rgb(var(--color-surface-100)); }
+  .bg-surface-200 { background-color: rgb(var(--color-surface-200)); }
+  .bg-surface-300 { background-color: rgb(var(--color-surface-300)); }
+  .bg-surface-400 { background-color: rgb(var(--color-surface-400)); }
+  .bg-surface-500 { background-color: rgb(var(--color-surface-500)); }
+  .bg-surface-600 { background-color: rgb(var(--color-surface-600)); }
+  .bg-surface-700 { background-color: rgb(var(--color-surface-700)); }
+  .bg-surface-800 { background-color: rgb(var(--color-surface-800)); }
+  .bg-surface-900 { background-color: rgb(var(--color-surface-900)); }
+  .bg-surface-950 { background-color: rgb(var(--color-surface-950)); }
+
+  /* Fondos de aplicación */
+  .bg-app { background-color: rgb(var(--color-bg-app)); }
+  .bg-card { background-color: rgb(var(--color-bg-card)); }
+  .bg-sidebar { background-color: rgb(var(--color-bg-sidebar)); }
+  .bg-topbar { background-color: rgb(var(--color-bg-topbar)); }
+
+  /* Colores de texto */
+  .text-text-primary { color: rgb(var(--color-text-primary)); }
+  .text-text-secondary { color: rgb(var(--color-text-secondary)); }
+  .text-text-muted { color: rgb(var(--color-text-muted)); }
+
+  /* Clases de bordes */
+  .border-border { border-color: rgb(var(--color-border)); }
+
+  /* Clases para colores primarios */
+  .bg-primary-50 { background-color: rgb(var(--color-primary-50)); }
+  .bg-primary-100 { background-color: rgb(var(--color-primary-100)); }
+  .bg-primary-500 { background-color: rgb(var(--color-primary-500)); }
+  .bg-primary-600 { background-color: rgb(var(--color-primary-600)); }
+  
+  .text-primary-500 { color: rgb(var(--color-primary-500)); }
+  .text-primary-600 { color: rgb(var(--color-primary-600)); }
+  .text-primary-700 { color: rgb(var(--color-primary-700)); }
+
+  /* Clases para colores secundarios */
+  .bg-secondary-600 { background-color: rgb(var(--color-secondary-600)); }
+  .bg-secondary-700 { background-color: rgb(var(--color-secondary-700)); }
+
+  /* Estados hover */
+  .hover\:bg-primary-50:hover { background-color: rgb(var(--color-primary-50)); }
+  .hover\:bg-primary-100:hover { background-color: rgb(var(--color-primary-100)); }
+  .hover\:bg-primary-600:hover { background-color: rgb(var(--color-primary-600)); }
+  .hover\:bg-secondary-700:hover { background-color: rgb(var(--color-secondary-700)); }
+  .hover\:bg-surface-100:hover { background-color: rgb(var(--color-surface-100)); }
+  .hover\:bg-surface-700:hover { background-color: rgb(var(--color-surface-700)); }
+  
+  .hover\:text-primary-600:hover { color: rgb(var(--color-primary-600)); }
+  .hover\:text-text-primary:hover { color: rgb(var(--color-text-primary)); }
+  
+  .hover\:border-primary-300:hover { border-color: rgb(var(--color-primary-300)); }
+  
+  /* Focus states */
+  .focus\:ring-primary-500:focus { 
+    --tw-ring-color: rgb(var(--color-primary-500)); 
+  }
+  .focus\:ring-secondary-500:focus { 
+    --tw-ring-color: rgb(var(--color-secondary-500)); 
+  }
+  .focus\:border-transparent:focus { 
+    border-color: transparent; 
+  }
+}
