@@ -106,7 +106,7 @@ onUnmounted(() => {
             USER PROFILE BUTTON
         ==========================-->
         <article
-            class="flex items-center space-x-3 cursor-pointer bg-hover-light hover:bg-hover-medium rounded-lg p-2 transition-colors"
+            class="flex items-center space-x-3 cursor-pointer bg-hover-light hover:bg-hover-medium rounded-lg p-2 transition-all shadow-sm hover:shadow-md"
             @click="handleToggleDropdown"
         >
             <Avatar :src="avatarSrc" :alt="name" />

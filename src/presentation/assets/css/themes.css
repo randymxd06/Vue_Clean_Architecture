@@ -53,9 +53,9 @@
   --color-surface-950: 10 10 10;
 
   /* Fondos de la aplicación */
-  --color-bg-app: 245 245 245;      /* bg-gray-100 de Tailwind */
+  --color-bg-app: 229 231 235;      /* bg-gray-200 de Tailwind - más oscuro */
   --color-bg-card: 255 255 255;     /* Siempre blanco en light mode */
-  --color-bg-sidebar: 245 245 245;  /* bg-gray-100 de Tailwind */
+  --color-bg-sidebar: 229 231 235;  /* bg-gray-200 de Tailwind - más oscuro */
   --color-bg-topbar: 255 255 255;
 
   /* Colores de texto */
@@ -138,8 +138,8 @@
   --color-text-muted: 107 114 128;    /* Color más sutil para placeholders en dark mode */
 
   /* Colores de hover para dark mode */
-  --color-hover-light: 55 65 81;    /* Hover sutil para dark mode */
-  --color-hover-medium: 75 85 99;   /* Hover medio para dark mode */
+  --color-hover-light: 30 58 138;   /* Hover con tono azul del tema */
+  --color-hover-medium: 37 99 235;  /* Hover medio con azul más intenso */
 
   /* Bordes */
   --color-border: 75 85 99;
@@ -203,8 +203,8 @@
   --color-border: 75 85 99;            /* Gris para bordes */
   
   /* Colores de hover para dark mode */
-  --color-hover-light: 55 65 81;       /* Hover sutil para dark mode */
-  --color-hover-medium: 75 85 99;      /* Hover medio para dark mode */
+  --color-hover-light: 22 163 74;      /* Hover con tono verde esmeralda */
+  --color-hover-medium: 34 197 94;     /* Hover medio con verde más intenso */
 }
 
 /* Tema Purple */
@@ -262,6 +262,10 @@
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
   --color-border: 75 85 99;            /* Gris para bordes */
+  
+  /* Colores de hover para dark mode */
+  --color-hover-light: 126 34 206;     /* Hover con tono púrpura */
+  --color-hover-medium: 147 51 234;    /* Hover medio con púrpura más intenso */
 }
 
 /* Tema Rose */
@@ -319,6 +323,10 @@
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
   --color-border: 75 85 99;            /* Gris para bordes */
+  
+  /* Colores de hover para dark mode */
+  --color-hover-light: 190 18 60;      /* Hover con tono rosa */
+  --color-hover-medium: 225 29 72;     /* Hover medio con rosa más intenso */
 }
 
 /* Tema Ocean */
@@ -376,6 +384,10 @@
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
   --color-border: 75 85 99;            /* Gris para bordes */
+  
+  /* Colores de hover para dark mode */
+  --color-hover-light: 14 165 233;     /* Hover con tono azul océano */
+  --color-hover-medium: 56 189 248;    /* Hover medio con azul más intenso */
 }
 
 /* Tema Sunset */
@@ -433,16 +445,10 @@
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
   --color-border: 75 85 99;            /* Gris para bordes */
-}
-
-/* Variables de hover para todos los temas oscuros */
-.theme-purple.dark,
-.theme-rose.dark,
-.theme-ocean.dark,
-.theme-sunset.dark {
+  
   /* Colores de hover para dark mode */
-  --color-hover-light: 55 65 81;       /* Hover sutil para dark mode */
-  --color-hover-medium: 75 85 99;      /* Hover medio para dark mode */
+  --color-hover-light: 194 65 12;      /* Hover con tono naranja atardecer */
+  --color-hover-medium: 234 88 12;     /* Hover medio con naranja más intenso */
 }
 
 /* Utilidades personalizadas para Tailwind 4 */
