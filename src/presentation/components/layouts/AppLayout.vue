@@ -11,7 +11,7 @@ const { sidebarVisible, isMobile, openSidebar, closeSidebar, toggleSidebar } = u
     <!--=============
         APP LAYOUT
     =================-->
-    <main class="h-screen flex bg-gray-100 dark:bg-gray-900 relative">
+    <main class="h-screen flex bg-gray-100 dark:bg-gray-900 relative transform transition-all duration-700 ease-in-out">
 
         <!--==========
             SIDEBAR
