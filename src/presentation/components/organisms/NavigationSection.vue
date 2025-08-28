@@ -2,9 +2,12 @@
 import SectionHeader from '@/presentation/components/molecules/SectionHeader.vue';
 import NavigationItem from '@/presentation/components/molecules/NavigationItem.vue';
 
+/**=================================
+ * NAVIGATION ITEM DATA INTERFACE
+====================================*/
 interface NavigationItemData {
   label: string;
-  icon: string; // Cualquier nombre de icono de Lucide
+  icon: string;
   href?: string;
   isActive?: boolean;
   badge?: {
@@ -13,23 +16,42 @@ interface NavigationItemData {
   };
 }
 
+/**===========================
+ * NAVIGATION SECTION PROPS
+==============================*/
 interface Props {
   title: string;
   items: NavigationItemData[];
 }
 
+/**===============
+ * DEFINE PROPS
+==================*/
 defineProps<Props>();
 
+/**========
+ * EMITS
+===========*/
 const emit = defineEmits<{
   'item-click': [item: NavigationItemData, event: Event];
 }>();
 
-const handleItemClick = (item: NavigationItemData, event: Event) => {
+/**===================================
+ * HANDLE ITEM CLICK EVENT
+ * @param {NavigationItemData} item
+ * @param {Event} event
+ * @returns {void}
+======================================*/
+const handleItemClick = (item: NavigationItemData, event: Event): void => {
   emit('item-click', item, event);
 };
 </script>
 
 <template>
+
+  <!--=============================
+    NAVIGATION SECTION COMPONENT
+  =================================-->
   <nav class="mt-2">
     <SectionHeader :title="title" />
     <ul class="space-y-1 px-4">
@@ -41,4 +63,5 @@ const handleItemClick = (item: NavigationItemData, event: Event) => {
       />
     </ul>
   </nav>
+  
 </template>

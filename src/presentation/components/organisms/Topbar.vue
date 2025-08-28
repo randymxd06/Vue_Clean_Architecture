@@ -1,12 +1,22 @@
 <script lang="ts" setup>
 import { defineProps, defineEmits } from 'vue';
 
+/**===============
+ * TOPBAR PROPS
+==================*/
 interface Props {
     isMobile: boolean;
     sidebarVisible: boolean;
 }
 
+/**===============
+ * DEFINE PROPS
+==================*/
 defineProps<Props>();
+
+/**===============
+ * DEFINE EMITS
+==================*/
 const emit = defineEmits(['open-sidebar', 'toggle-sidebar']);
 </script>
 

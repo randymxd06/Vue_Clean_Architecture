@@ -4,12 +4,18 @@ import Avatar from '@/presentation/components/atoms/Avatar.vue';
 import Icon from '@/presentation/components/atoms/Icon.vue';
 import Button from '@/presentation/components/atoms/Button.vue';
 
+/**======================
+ * MENU ITEM INTERFACE
+=========================*/
 interface MenuItem {
   label: string;
   icon: string;
   action: string;
 }
 
+/**=========================
+ * USER PROFILE INTERFACE
+============================*/
 interface Props {
     name: string;
     email: string;
@@ -18,7 +24,10 @@ interface Props {
     menuItems?: MenuItem[];
 }
 
-const props = withDefaults(defineProps<Props>(), {
+/**=======================
+ * DEFAULT PROPS VALUES
+==========================*/
+withDefaults(defineProps<Props>(), {
     showDropdown: true,
     menuItems: () => [
         { label: 'Mi Perfil', icon: 'user', action: 'profile' },
@@ -27,44 +36,76 @@ const props = withDefaults(defineProps<Props>(), {
     ]
 });
 
+/**========
+ * EMITS
+===========*/
 const emit = defineEmits<{
     'toggle-dropdown': [];
     'menu-item-click': [action: string];
 }>();
 
+/**=================
+ * DROPDOWN STATE
+====================*/
 const isDropdownOpen = ref(false);
 const dropdownRef = ref<HTMLElement | null>(null);
 
-const handleToggleDropdown = () => {
+/**===============================
+ * HANDLE TOGGLE DROPDOWN EVENT
+ * @returns {void}
+==================================*/
+const handleToggleDropdown = (): void => {
     isDropdownOpen.value = !isDropdownOpen.value;
     emit('toggle-dropdown');
 };
 
-const handleMenuItemClick = (action: string) => {
+/**===============================
+ * HANDLE MENU ITEM CLICK EVENT
+ * @param {string} action
+ * @returns {void}
+==================================*/
+const handleMenuItemClick = (action: string): void => {
     emit('menu-item-click', action);
     isDropdownOpen.value = false;
 };
 
-// Cerrar dropdown cuando se hace click fuera
-const handleClickOutside = (event: MouseEvent) => {
+/**=============================
+ * HANDLE CLICK OUTSIDE EVENT
+ * @param {MouseEvent} event
+ * @returns {void}
+================================*/
+const handleClickOutside = (event: MouseEvent): void => {
     if (dropdownRef.value && !dropdownRef.value.contains(event.target as Node)) {
         isDropdownOpen.value = false;
     }
 };
 
+/**=============
+ * ON MOUNTED
+================*/
 onMounted(() => {
     document.addEventListener('click', handleClickOutside);
 });
 
+/**===============
+ * ON UNMOUNTED
+==================*/
 onUnmounted(() => {
     document.removeEventListener('click', handleClickOutside);
 });
 </script>
 
 <template>
-    <div class="relative" ref="dropdownRef">
-        <!-- User Profile Button -->
-        <div 
+
+    <!--=========================
+        USER PROFILE COMPONENT
+    =============================-->
+    <section class="relative" ref="dropdownRef">
+
+        <!--======================
+            USER PROFILE BUTTON
+        ==========================-->
+        <article
             class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50 rounded-lg p-2 transition-colors"
             @click="handleToggleDropdown"
         >
@@ -89,9 +130,11 @@ onUnmounted(() => {
                     ]" 
                 />
             </Button>
-        </div>
+        </article>
 
-        <!-- Dropdown Menu -->
+        <!--================
+            Dropdown Menu
+        ====================-->
         <Transition
             enter-active-class="transition ease-out duration-100"
             enter-from-class="transform opacity-0 scale-95"
@@ -100,7 +143,7 @@ onUnmounted(() => {
             leave-from-class="transform opacity-100 scale-100"
             leave-to-class="transform opacity-0 scale-95"
         >
-            <div 
+            <article 
                 v-if="isDropdownOpen && showDropdown"
                 class="absolute bottom-full left-0 mb-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50"
             >
@@ -115,7 +158,9 @@ onUnmounted(() => {
                     <Icon :name="item.icon" size="sm" />
                     <span>{{ item.label }}</span>
                 </Button>
-            </div>
+            </article>
         </Transition>
-    </div>
+
+    </section>
+
 </template>
