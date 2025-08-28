@@ -18,7 +18,7 @@ defineProps<Props>();
     SECTION HEADER
   ===================-->
   <section class="px-4 mb-2">
-    <p class="text-xs font-medium text-gray-500 tracking-wide">
+    <p class="text-xs font-medium text-text-secondary tracking-wide">
       {{ title }}
     </p>
   </section>
