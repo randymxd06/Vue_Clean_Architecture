@@ -125,7 +125,7 @@ onUnmounted(() => {
                     name="chevron-down" 
                     size="sm" 
                     :class="[
-                        'text-gray-400 transition-transform duration-200',
+                        'text-text-primary transition-transform duration-200',
                         isDropdownOpen ? 'rotate-180' : ''
                     ]" 
                 />
