@@ -112,7 +112,7 @@ onUnmounted(() => {
             <Avatar :src="avatarSrc" :alt="name" />
             <div class="flex-1 min-w-0">
                 <p class="text-sm font-medium truncate text-text-primary">{{ name }}</p>
-                <p class="text-xs text-text-muted truncate">{{ email }}</p>
+                <p class="text-xs text-text-secondary truncate">{{ email }}</p>
             </div>
             <Button 
                 v-if="showDropdown"
