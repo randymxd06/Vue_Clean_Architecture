@@ -133,7 +133,7 @@ onUnmounted(() => {
         </article>
 
         <!--================
-            Dropdown Menu
+            DROPDOWN MENU
         ====================-->
         <Transition
             enter-active-class="transition ease-out duration-100"
