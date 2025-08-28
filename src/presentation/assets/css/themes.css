@@ -63,6 +63,10 @@
   --color-text-secondary: 75 85 99; /* Texto secundario */
   --color-text-muted: 156 163 175;  /* Texto deshabilitado/silenciado */
 
+  /* Colores de hover para light mode */
+  --color-hover-light: 248 250 252;  /* Hover muy claro para light mode */
+  --color-hover-medium: 241 245 249; /* Hover medio para light mode */
+
   /* Bordes */
   --color-border: 229 231 235;
   --color-border-light: 243 244 246;
@@ -133,6 +137,10 @@
   --color-text-secondary: 209 213 219;
   --color-text-muted: 156 163 175;
 
+  /* Colores de hover para dark mode */
+  --color-hover-light: 55 65 81;    /* Hover sutil para dark mode */
+  --color-hover-medium: 75 85 99;   /* Hover medio para dark mode */
+
   /* Bordes */
   --color-border: 75 85 99;
   --color-border-light: 55 65 81;
@@ -163,6 +171,10 @@
   --color-text-secondary: 6 95 70;   /* Verde medio para texto secundario */
   --color-text-muted: 75 85 99;      /* Gris para texto deshabilitado */
   --color-border: 209 250 229;       /* Verde claro para bordes */
+  
+  /* Colores de hover para light mode */
+  --color-hover-light: 209 250 229;  /* Hover claro tema emerald */
+  --color-hover-medium: 167 243 208; /* Hover medio tema emerald */
 
   --color-accent-50: 254 242 242;
   --color-accent-100: 254 226 226;
@@ -189,6 +201,10 @@
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
   --color-border: 75 85 99;            /* Gris para bordes */
+  
+  /* Colores de hover para dark mode */
+  --color-hover-light: 55 65 81;       /* Hover sutil para dark mode */
+  --color-hover-medium: 75 85 99;      /* Hover medio para dark mode */
 }
 
 /* Tema Purple */
@@ -216,6 +232,10 @@
   --color-text-secondary: 107 33 168; /* Púrpura medio para texto secundario */
   --color-text-muted: 75 85 99;       /* Gris para texto deshabilitado */
   --color-border: 233 213 255;        /* Púrpura claro para bordes */
+  
+  /* Colores de hover para light mode */
+  --color-hover-light: 233 213 255;   /* Hover claro tema purple */
+  --color-hover-medium: 216 180 254;  /* Hover medio tema purple */
 
   --color-accent-50: 255 251 235;
   --color-accent-100: 254 243 199;
@@ -269,6 +289,10 @@
   --color-text-secondary: 159 18 57;  /* Rosa medio para texto secundario */
   --color-text-muted: 75 85 99;       /* Gris para texto deshabilitado */
   --color-border: 254 205 211;        /* Rosa claro para bordes */
+  
+  /* Colores de hover para light mode */
+  --color-hover-light: 254 205 211;   /* Hover claro tema rose */
+  --color-hover-medium: 253 164 175;  /* Hover medio tema rose */
 
   --color-accent-50: 240 249 255;
   --color-accent-100: 224 242 254;
@@ -322,6 +346,10 @@
   --color-text-secondary: 7 89 133;   /* Azul medio para texto secundario */
   --color-text-muted: 75 85 99;       /* Gris para texto deshabilitado */
   --color-border: 186 230 253;        /* Azul claro para bordes */
+  
+  /* Colores de hover para light mode */
+  --color-hover-light: 186 230 253;   /* Hover claro tema ocean */
+  --color-hover-medium: 125 211 252;  /* Hover medio tema ocean */
 
   --color-accent-50: 240 253 250;
   --color-accent-100: 204 251 241;
@@ -375,6 +403,10 @@
   --color-text-secondary: 154 52 18;  /* Naranja medio para texto secundario */
   --color-text-muted: 75 85 99;       /* Gris para texto deshabilitado */
   --color-border: 254 215 170;        /* Naranja claro para bordes */
+  
+  /* Colores de hover para light mode */
+  --color-hover-light: 254 215 170;   /* Hover claro tema sunset */
+  --color-hover-medium: 253 186 116;  /* Hover medio tema sunset */
 
   --color-accent-50: 254 242 242;
   --color-accent-100: 254 226 226;
@@ -401,6 +433,16 @@
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
   --color-border: 75 85 99;            /* Gris para bordes */
+}
+
+/* Variables de hover para todos los temas oscuros */
+.theme-purple.dark,
+.theme-rose.dark,
+.theme-ocean.dark,
+.theme-sunset.dark {
+  /* Colores de hover para dark mode */
+  --color-hover-light: 55 65 81;       /* Hover sutil para dark mode */
+  --color-hover-medium: 75 85 99;      /* Hover medio para dark mode */
 }
 
 /* Utilidades personalizadas para Tailwind 4 */
@@ -518,6 +560,12 @@
 
   /* Clases de bordes */
   .border-border { border-color: rgb(var(--color-border)); }
+
+  /* Clases de hover responsivas al modo */
+  .bg-hover-light { background-color: rgb(var(--color-hover-light)); }
+  .bg-hover-medium { background-color: rgb(var(--color-hover-medium)); }
+  .hover\:bg-hover-light:hover { background-color: rgb(var(--color-hover-light)); }
+  .hover\:bg-hover-medium:hover { background-color: rgb(var(--color-hover-medium)); }
 
   /* Clases para colores primarios */
   .bg-primary-50 { background-color: rgb(var(--color-primary-50)); }

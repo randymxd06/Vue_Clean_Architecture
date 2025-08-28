@@ -45,8 +45,8 @@ const handleClick = (event: MouseEvent): void => {
 const variantClasses = {
   primary: 'bg-primary-500 text-white hover:bg-primary-600 focus:ring-primary-500 transition-all duration-300 ease-in-out',
   secondary: 'bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500 transition-all duration-300 ease-in-out',
-  outline: 'border border-border text-text-primary hover:bg-primary-50 focus:ring-primary-500 transition-all duration-300 ease-in-out',
-  ghost: 'bg-transparent text-text-primary hover:bg-primary-100 focus:ring-primary-500 transition-all duration-300 ease-in-out',
+  outline: 'border border-border text-text-primary hover:bg-hover-light focus:ring-primary-500 transition-all duration-300 ease-in-out',
+  ghost: 'bg-transparent text-text-primary hover:bg-hover-medium focus:ring-primary-500 transition-all duration-300 ease-in-out',
   danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 transition-all duration-300 ease-in-out'
 };
 

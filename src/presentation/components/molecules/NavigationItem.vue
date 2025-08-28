@@ -54,7 +54,7 @@ const handleClick = (event: Event): void => {
         'flex items-center space-x-3 px-3 py-2 rounded-lg font-semibold transition-colors',
         isActive 
           ? 'bg-primary-100 text-primary-700' 
-          : 'text-text-primary hover:bg-primary-50'
+          : 'text-text-primary hover:bg-hover-light'
       ]"
       @click="handleClick"
     >
@@ -74,7 +74,7 @@ const handleClick = (event: Event): void => {
         'flex items-center space-x-3 px-3 py-2 rounded-lg font-semibold transition-colors',
         isActive 
           ? 'bg-primary-100 text-primary-700' 
-          : 'text-text-primary hover:bg-primary-50'
+          : 'text-text-primary hover:bg-hover-light'
       ]"
       @click="handleClick"
     >

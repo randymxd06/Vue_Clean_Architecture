@@ -106,7 +106,7 @@ onUnmounted(() => {
             USER PROFILE BUTTON
         ==========================-->
         <article
-            class="flex items-center space-x-3 cursor-pointer hover:bg-primary-50 rounded-lg p-2 transition-colors"
+            class="flex items-center space-x-3 cursor-pointer bg-hover-light hover:bg-hover-medium rounded-lg p-2 transition-colors"
             @click="handleToggleDropdown"
         >
             <Avatar :src="avatarSrc" :alt="name" />
@@ -152,7 +152,7 @@ onUnmounted(() => {
                     :key="item.action"
                     variant="ghost"
                     size="sm"
-                    class="w-full justify-start space-x-3 px-3 py-2 text-sm text-text-primary hover:bg-primary-100"
+                    class="w-full justify-start space-x-3 px-3 py-2 text-sm text-text-primary hover:bg-hover-medium"
                     @click="handleMenuItemClick(item.action)"
                 >
                     <Icon :name="item.icon" size="sm" />
