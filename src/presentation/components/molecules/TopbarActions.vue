@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { Button, Icon, NotificationBadge } from '../index';
+import { useThemeStore } from '@/presentation/stores/themeStore';
 
 /**=======================
  * TOPBAR ACTIONS PROPS
@@ -26,6 +27,11 @@ defineEmits<{
   'toggle-theme': [];
   'notifications-click': [];
 }>();
+
+/**===============
+ * THEME STORE
+==================*/
+const themeStore = useThemeStore();
 </script>
 
 <template>
@@ -44,7 +50,7 @@ defineEmits<{
       size="md"
       @click="$emit('toggle-theme')"
     >
-      <Icon name="moon" size="md" />
+      <Icon :name="themeStore.theme === 'dark' ? 'sun' : 'moon'" size="md" />
     </Button>
 
     <!--==============

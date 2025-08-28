@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { SidebarToggle, Breadcrumb, TopbarActions } from '../index';
+import { useThemeStore } from '@/presentation/stores/themeStore';
 
 /**===============
  * TOPBAR PROPS
@@ -21,9 +22,13 @@ const props = defineProps<Props>();
 const emit = defineEmits<{
   'open-sidebar': [];
   'toggle-sidebar': [];
-  'toggle-theme': [];
   'notifications-click': [];
 }>();
+
+/**===============
+ * THEME STORE
+==================*/
+const themeStore = useThemeStore();
 
 /**====================
  * BREADCRUMB ITEMS
@@ -68,7 +73,7 @@ const breadcrumbItems = computed(() => [
         =====================-->
         <TopbarActions 
             :notification-count="1"
-            @toggle-theme="$emit('toggle-theme')"
+            @toggle-theme="themeStore.toggleTheme"
             @notifications-click="$emit('notifications-click')"
         />
 

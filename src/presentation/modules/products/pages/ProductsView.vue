@@ -2,10 +2,12 @@
 import { onMounted, ref } from "vue"
 import type { Product } from "@/domain/entities/Product"
 import { useProductStore } from "../stores/productStore"
+import { useThemeStore } from "@/presentation/stores/themeStore"
 import Button from "@/presentation/components/atoms/Button.vue"
 import Icon from "@/presentation/components/atoms/Icon.vue"
 
 const productStore = useProductStore()
+const themeStore = useThemeStore()
 const isEditing = ref(false)
 const currentProductId = ref<string | null>(null)
 
@@ -53,14 +55,16 @@ const resetForm = () => {
         HEADER
     =============-->
     <header class="mb-8">
-      <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-        </svg>
-        Product Management
-      </h1>
+      <div class="flex items-center justify-between mb-4">
+        <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+          </svg>
+          Product Management
+        </h1>
+      </div>
       <p class="text-gray-500 dark:text-gray-400 mt-1">Manage product inventory</p>
     </header>
 
