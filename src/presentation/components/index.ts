@@ -6,6 +6,7 @@ export { default as Badge } from './atoms/Badge.vue';
 export { default as Icon } from './atoms/Icon.vue';
 export { default as Avatar } from './atoms/Avatar.vue';
 export { default as Button } from './atoms/Button.vue';
+export { default as NotificationBadge } from './atoms/NotificationBadge.vue';
 
 /**============
  * MOLECULES
@@ -14,6 +15,9 @@ export { default as AppBrand } from './molecules/AppBrand.vue';
 export { default as NavigationItem } from './molecules/NavigationItem.vue';
 export { default as UserProfile } from './molecules/UserProfile.vue';
 export { default as SectionHeader } from './molecules/SectionHeader.vue';
+export { default as Breadcrumb } from './molecules/Breadcrumb.vue';
+export { default as TopbarActions } from './molecules/TopbarActions.vue';
+export { default as SidebarToggle } from './molecules/SidebarToggle.vue';
 
 /**============
  * ORGANISMS
