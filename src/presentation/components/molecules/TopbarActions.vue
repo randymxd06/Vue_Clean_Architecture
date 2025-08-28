@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { Button, Icon, NotificationBadge } from '../index';
 
-/**===============================
+/**=======================
  * TOPBAR ACTIONS PROPS
-==================================*/
+==========================*/
 interface Props {
   showThemeToggle?: boolean;
   showNotifications?: boolean;
@@ -22,7 +22,7 @@ withDefaults(defineProps<Props>(), {
 /**===============
  * DEFINE EMITS
 ==================*/
-const emit = defineEmits<{
+defineEmits<{
   'toggle-theme': [];
   'notifications-click': [];
 }>();
@@ -30,43 +30,48 @@ const emit = defineEmits<{
 
 <template>
 
-  <!--===================
-    TOPBAR ACTIONS
-  =======================-->
+  <!--=========================
+    TOPBAR ACTIONS COMPONENT
+  =============================-->
   <section class="flex items-center space-x-2">
 
-    <!--===============
+    <!--=============
       THEME TOGGLE
-    ===================-->
+    =================-->
     <Button 
       v-if="showThemeToggle"
       variant="ghost" 
-      size="sm"
+      size="md"
       @click="$emit('toggle-theme')"
     >
-      <Icon name="moon" size="sm" />
+      <Icon name="moon" size="md" />
     </Button>
 
-    <!--================
+    <!--==============
       NOTIFICATIONS
-    ====================-->
-    <div v-if="showNotifications" class="relative">
-      <Button 
-        variant="ghost" 
-        size="sm"
-        @click="$emit('notifications-click')"
-      >
-        <Icon name="bell" size="sm" />
-      </Button>
-      
-      <!--======================
-        NOTIFICATION BADGE
-      ==========================-->
-      <NotificationBadge 
-        v-if="notificationCount > 0"
-        :count="notificationCount"
-      />
-    </div>
+    ==================-->
+    <article v-if="showNotifications" class="relative">
+
+        <!--======================
+            NOTIFICATION BUTTON
+        ==========================-->
+        <Button 
+            variant="ghost" 
+            size="md"
+            @click="$emit('notifications-click')"
+        >
+            <Icon name="bell" size="md" />
+        </Button>
+        
+        <!--=====================
+            NOTIFICATION BADGE
+        =========================-->
+        <NotificationBadge 
+            v-if="notificationCount > 0"
+            :count="notificationCount"
+        />
+
+    </article>
 
   </section>
   
