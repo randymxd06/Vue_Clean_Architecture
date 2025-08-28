@@ -32,7 +32,7 @@ withDefaults(defineProps<Props>(), {
     menuItems: () => [
         { label: 'Mi Perfil', icon: 'user', action: 'profile' },
         { label: 'Configuración', icon: 'settings', action: 'settings' },
-        { label: 'Cerrar Sesión', icon: 'logout', action: 'logout' }
+        { label: 'Cerrar Sesión', icon: 'log-out', action: 'logout' }
     ]
 });
 
