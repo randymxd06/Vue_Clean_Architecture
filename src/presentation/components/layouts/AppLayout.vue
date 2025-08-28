@@ -35,14 +35,14 @@ const { sidebarVisible, isMobile, openSidebar, closeSidebar, toggleSidebar } = u
             MAIN CONTENT AREA
         ========================-->
         <section :class="[
-            'flex-1 flex flex-col overflow-hidden pr-2 pt-2 transition-all duration-700 ease-in-out',
+            'flex-1 flex flex-col overflow-hidden pr-2 pt-2',
             isMobile ? 'ml-2' : (sidebarVisible ? 'ml-0' : '-ml-64 pl-2')
         ]">
 
             <!--===========================
                 CONTENT CARD WITH TOPBAR
             ===============================-->
-            <article class="bg-white dark:bg-gray-800 rounded-t-xl shadow-sm flex-1 flex flex-col overflow-hidden">
+            <article class="bg-white dark:bg-gray-800 rounded-t-xl shadow-sm flex-1 flex flex-col overflow-hidden transition-all duration-700 ease-in-out">
 
                 <!--==========
                     TOP BAR

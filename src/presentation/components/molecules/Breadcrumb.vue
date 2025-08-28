@@ -45,8 +45,8 @@ defineProps<Props>();
         :class="[
           'text-sm',
           item.active 
-            ? 'text-gray-900 dark:text-gray-500 font-medium' 
-            : 'text-gray-500 dark:text-gray-400'
+            ? 'text-gray-900 dark:text-gray-400 font-medium' 
+            : 'text-gray-500 dark:text-gray-500'
         ]"
       >
         {{ item.label }}
