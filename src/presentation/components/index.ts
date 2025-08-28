@@ -18,6 +18,7 @@ export { default as SectionHeader } from './molecules/SectionHeader.vue';
 export { default as Breadcrumb } from './molecules/Breadcrumb.vue';
 export { default as TopbarActions } from './molecules/TopbarActions.vue';
 export { default as SidebarToggle } from './molecules/SidebarToggle.vue';
+export { default as ThemeSelector } from './molecules/ThemeSelector.vue';
 
 /**============
  * ORGANISMS

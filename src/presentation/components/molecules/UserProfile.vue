@@ -106,13 +106,13 @@ onUnmounted(() => {
             USER PROFILE BUTTON
         ==========================-->
         <article
-            class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg p-2 transition-colors"
+            class="flex items-center space-x-3 cursor-pointer hover:bg-primary-50 rounded-lg p-2 transition-colors"
             @click="handleToggleDropdown"
         >
             <Avatar :src="avatarSrc" :alt="name" />
             <div class="flex-1 min-w-0">
-                <p class="text-sm font-medium truncate dark:text-white">{{ name }}</p>
-                <p class="text-xs text-gray-400 truncate">{{ email }}</p>
+                <p class="text-sm font-medium truncate text-text-primary">{{ name }}</p>
+                <p class="text-xs text-text-muted truncate">{{ email }}</p>
             </div>
             <Button 
                 v-if="showDropdown"
@@ -145,14 +145,14 @@ onUnmounted(() => {
         >
             <article 
                 v-if="isDropdownOpen && showDropdown"
-                class="absolute bottom-full left-0 mb-2 w-48 bg-white dark:bg-gray-700 rounded-lg shadow-lg border border-gray-200 dark:border-gray-500 py-1 z-50"
+                class="absolute bottom-full left-0 mb-2 w-48 bg-card rounded-lg shadow-lg border border-border py-1 z-50"
             >
                 <Button
                     v-for="item in menuItems"
                     :key="item.action"
                     variant="ghost"
                     size="sm"
-                    class="w-full justify-start space-x-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                    class="w-full justify-start space-x-3 px-3 py-2 text-sm text-text-primary hover:bg-primary-100"
                     @click="handleMenuItemClick(item.action)"
                 >
                     <Icon :name="item.icon" size="sm" />

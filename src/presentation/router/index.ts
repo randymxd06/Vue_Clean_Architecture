@@ -3,6 +3,7 @@ import AuthLayout from "../components/layouts/AuthLayout.vue"
 import LoginView from "../modules/auth/pages/LoginView.vue"
 import RegisterView from "../modules/auth/pages/RegisterView.vue"
 import ProductsView from "../modules/products/pages/ProductsView.vue"
+import ThemeDemoView from "../modules/themes/pages/ThemeDemoView.vue"
 import AppLayout from "../components/layouts/AppLayout.vue"
 
 const router = createRouter({
@@ -36,6 +37,11 @@ const router = createRouter({
                     path: "products",
                     name: "products",
                     component: ProductsView,
+                },
+                {
+                    path: "themes",
+                    name: "themes",
+                    component: ThemeDemoView,
                 },
             ]
         },

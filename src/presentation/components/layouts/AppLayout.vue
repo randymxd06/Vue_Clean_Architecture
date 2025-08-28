@@ -11,7 +11,7 @@ const { sidebarVisible, isMobile, openSidebar, closeSidebar, toggleSidebar } = u
     <!--=============
         APP LAYOUT
     =================-->
-    <main class="h-screen flex bg-gray-100 dark:bg-gray-800 relative transform transition-all duration-700 ease-in-out">
+    <main class="h-screen flex bg-app relative transform transition-all duration-700 ease-in-out">
 
         <!--==========
             SIDEBAR
@@ -27,7 +27,7 @@ const { sidebarVisible, isMobile, openSidebar, closeSidebar, toggleSidebar } = u
         ================================-->
         <aside 
             v-if="isMobile && sidebarVisible"
-            class="fixed inset-0 bg-black opacity-80 z-40"
+            class="fixed inset-0 bg-surface-900/80 z-40"
             @click="closeSidebar"
         ></aside>
 
@@ -42,7 +42,7 @@ const { sidebarVisible, isMobile, openSidebar, closeSidebar, toggleSidebar } = u
             <!--===========================
                 CONTENT CARD WITH TOPBAR
             ===============================-->
-            <article class="bg-white dark:bg-gray-900 rounded-t-xl shadow-sm flex-1 flex flex-col overflow-hidden transition-all duration-700 ease-in-out">
+            <article class="bg-card rounded-t-xl shadow-sm flex-1 flex flex-col overflow-hidden transition-all duration-700 ease-in-out">
 
                 <!--==========
                     TOP BAR

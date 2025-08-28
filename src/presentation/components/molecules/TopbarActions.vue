@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Button, Icon, NotificationBadge } from '../index';
+import { Button, Icon, NotificationBadge, ThemeSelector } from '../index';
 import { useThemeStore } from '@/presentation/stores/themeStore';
 
 /**=======================
@@ -42,16 +42,9 @@ const themeStore = useThemeStore();
   <section class="flex items-center space-x-2">
 
     <!--=============
-      THEME TOGGLE
+      THEME SELECTOR
     =================-->
-    <Button 
-      v-if="showThemeToggle"
-      variant="ghost" 
-      size="md"
-      @click="$emit('toggle-theme')"
-    >
-      <Icon :name="themeStore.theme === 'dark' ? 'sun' : 'moon'" size="md" />
-    </Button>
+    <ThemeSelector v-if="showThemeToggle" />
 
     <!--==============
       NOTIFICATIONS

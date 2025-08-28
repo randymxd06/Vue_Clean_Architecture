@@ -36,6 +36,16 @@ const navigationSections = [
         isActive: true
       },
       {
+        label: 'Productos',
+        icon: 'package',
+        href: '/products'
+      },
+      {
+        label: 'Temas',
+        icon: 'palette',
+        href: '/themes'
+      },
+      {
         label: 'Proyectos',
         icon: 'folder-open',
         href: '#',
@@ -143,7 +153,7 @@ const handleUserMenuClick = (action: string): void => {
     SIDEBAR COMPONENT
   ======================-->
   <aside :class="[
-    'w-64 flex flex-col bg-gray-100 dark:bg-gray-800 transform transition-all duration-700 ease-in-out z-50',
+    'w-64 flex flex-col bg-app transform transition-all duration-700 ease-in-out z-50',
     isMobile
       ? [
           'fixed top-0 left-0 h-full shadow-xl',
