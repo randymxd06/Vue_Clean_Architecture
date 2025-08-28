@@ -39,7 +39,7 @@
         <span class="text-sm font-medium text-text-primary">Modo {{ currentTheme.mode === 'dark' ? 'Oscuro' : 'Claro' }}</span>
         <button
           @click="themeStore.toggleMode()"
-          class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+          class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 cursor-pointer"
           :class="currentTheme.mode === 'dark' ? 'bg-primary-600' : 'bg-surface-300'"
         >
           <span

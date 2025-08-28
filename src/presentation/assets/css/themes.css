@@ -53,9 +53,9 @@
   --color-surface-950: 10 10 10;
 
   /* Fondos de la aplicación */
-  --color-bg-app: 248 250 252;      /* Fondo gris muy claro */
+  --color-bg-app: 245 245 245;      /* bg-gray-100 de Tailwind */
   --color-bg-card: 255 255 255;     /* Siempre blanco en light mode */
-  --color-bg-sidebar: 248 250 252;  /* Fondo gris muy claro */
+  --color-bg-sidebar: 245 245 245;  /* bg-gray-100 de Tailwind */
   --color-bg-topbar: 255 255 255;
 
   /* Colores de texto */
@@ -114,7 +114,7 @@
   --color-accent-950: 240 253 244;
 
   /* Colores de superficie */
-  --color-surface-50: 10 10 10;
+  --color-surface-50: 38 38 38;   /* Más claro para inputs en dark mode */
   --color-surface-100: 23 23 23;
   --color-surface-200: 38 38 38;
   --color-surface-300: 64 64 64;
@@ -128,14 +128,14 @@
 
   /* Fondos de la aplicación */
   --color-bg-app: 17 24 39;
-  --color-bg-card: 31 41 55;  /* Siempre gris oscuro en dark mode */
+  --color-bg-card: 29 35 42;  /* Tono azul muy sutil para cohesión con el tema */
   --color-bg-sidebar: 17 24 39;
   --color-bg-topbar: 31 41 55;
 
   /* Colores de texto */
   --color-text-primary: 243 244 246;
   --color-text-secondary: 209 213 219;
-  --color-text-muted: 156 163 175;
+  --color-text-muted: 107 114 128;    /* Color más sutil para placeholders en dark mode */
 
   /* Colores de hover para dark mode */
   --color-hover-light: 55 65 81;    /* Hover sutil para dark mode */
@@ -192,7 +192,7 @@
 /* Tema Emerald Oscuro */
 .theme-emerald.dark {
   --color-bg-app: 6 78 59;
-  --color-bg-card: 31 41 55;  /* Mantiene gris oscuro para legibilidad */
+  --color-bg-card: 25 35 30;  /* Tono verde esmeralda muy sutil */
   --color-bg-sidebar: 6 78 59;
   --color-bg-topbar: 31 41 55;
   
@@ -253,7 +253,7 @@
 /* Tema Purple Oscuro */
 .theme-purple.dark {
   --color-bg-app: 88 28 135;
-  --color-bg-card: 31 41 55;  /* Mantiene gris oscuro para legibilidad */
+  --color-bg-card: 35 25 42;  /* Tono púrpura muy sutil */
   --color-bg-sidebar: 88 28 135;
   --color-bg-topbar: 31 41 55;
   
@@ -310,7 +310,7 @@
 /* Tema Rose Oscuro */
 .theme-rose.dark {
   --color-bg-app: 136 19 55;
-  --color-bg-card: 31 41 55;  /* Mantiene gris oscuro para legibilidad */
+  --color-bg-card: 42 25 32;  /* Tono rosa muy sutil */
   --color-bg-sidebar: 136 19 55;
   --color-bg-topbar: 31 41 55;
   
@@ -367,7 +367,7 @@
 /* Tema Ocean Oscuro */
 .theme-ocean.dark {
   --color-bg-app: 12 74 110;
-  --color-bg-card: 31 41 55;  /* Mantiene gris oscuro para legibilidad */
+  --color-bg-card: 25 35 42;  /* Tono azul oceánico muy sutil */
   --color-bg-sidebar: 12 74 110;
   --color-bg-topbar: 31 41 55;
   
@@ -424,7 +424,7 @@
 /* Tema Sunset Oscuro */
 .theme-sunset.dark {
   --color-bg-app: 124 45 18;
-  --color-bg-card: 31 41 55;  /* Mantiene gris oscuro para legibilidad */
+  --color-bg-card: 42 32 25;  /* Tono naranja atardecer muy sutil */
   --color-bg-sidebar: 124 45 18;
   --color-bg-topbar: 31 41 55;
   
@@ -603,5 +603,13 @@
   }
   .focus\:border-transparent:focus { 
     border-color: transparent; 
+  }
+
+  /* Placeholder styles */
+  .placeholder\:text-text-muted::placeholder { 
+    color: rgb(var(--color-text-muted)); 
+  }
+  .placeholder\:text-surface-400::placeholder { 
+    color: rgb(var(--color-surface-400)); 
   }
 }

@@ -88,7 +88,7 @@ const resetForm = () => {
         <article class="space-y-2">
           <label for="name" class="block text-sm font-medium text-text-primary">Product Name</label>
           <input name="name" v-model="productStore.newProduct.name"
-            class="w-full px-4 py-2.5 text-sm border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all text-text-primary placeholder:text-text-muted bg-surface-50"
+            class="w-full px-4 py-2.5 text-sm border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all text-text-primary placeholder:text-surface-400 bg-surface-50"
             placeholder="Eg: HP EliteBook laptop" required />
         </article>
 
@@ -97,7 +97,7 @@ const resetForm = () => {
           <div class="relative">
             <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-muted">$</span>
             <input name="price" v-model.number="productStore.newProduct.price" type="number" min="0" step="0.01"
-              class="w-full pl-8 pr-4 py-2.5 text-sm border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all text-text-primary placeholder:text-text-muted bg-surface-50"
+              class="w-full pl-8 pr-4 py-2.5 text-sm border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all text-text-primary placeholder:text-surface-400 bg-surface-50"
               placeholder="0.00" required />
           </div>
         </article>
@@ -105,14 +105,14 @@ const resetForm = () => {
         <article class="space-y-2">
           <label for="stock" class="block text-sm font-medium text-text-primary">Stock Available</label>
           <input name="stock" v-model.number="productStore.newProduct.stock" type="number" min="0"
-            class="w-full px-4 py-2.5 text-sm border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all text-text-primary placeholder:text-text-muted bg-surface-50"
+            class="w-full px-4 py-2.5 text-sm border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all text-text-primary placeholder:text-surface-400 bg-surface-50"
             placeholder="Quantity in stock" required />
         </article>
 
         <article class="space-y-2">
           <label for="category" class="block text-sm font-medium text-text-primary">Category</label>
           <input name="category" v-model="productStore.newProduct.category"
-            class="w-full px-4 py-2.5 text-sm border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all text-text-primary placeholder:text-text-muted bg-surface-50"
+            class="w-full px-4 py-2.5 text-sm border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all text-text-primary placeholder:text-surface-400 bg-surface-50"
             placeholder="E.g.: Electronics" required />
         </article>
 
@@ -121,7 +121,7 @@ const resetForm = () => {
       <section class="mb-6 space-y-2">
         <label for="description" class="block text-sm font-medium text-text-primary">Description</label>
         <textarea name="description" v-model="productStore.newProduct.description"
-          class="w-full px-4 py-2.5 text-sm border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all text-text-primary placeholder:text-text-muted bg-surface-50"
+          class="w-full px-4 py-2.5 text-sm border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all text-text-primary placeholder:text-surface-400 bg-surface-50"
           rows="3" placeholder="Detailed product description..."></textarea>
       </section>
 

@@ -28,8 +28,8 @@ withDefaults(defineProps<Props>(), {
   <section class="flex items-center space-x-2">
     <Logo :letter="logoLetter" />
     <article>
-      <h1 class="font-semibold dark:text-gray-200">{{ appName }}</h1>
-      <p class="text-xs font-semibold dark:text-gray-400">{{ version }}</p>
+      <h1 class="font-semibold text-text-primary">{{ appName }}</h1>
+      <p class="text-xs font-semibold text-text-secondary">{{ version }}</p>
     </article>
   </section>
   
