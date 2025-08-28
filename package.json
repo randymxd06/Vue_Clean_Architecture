@@ -21,6 +21,7 @@
         "@animxyz/vue3": "^0.6.7",
         "@tailwindcss/vite": "^4.1.11",
         "axios": "^1.11.0",
+        "lucide-vue-next": "^0.542.0",
         "pinia": "^3.0.3",
         "tailwindcss": "^4.1.11",
         "vue": "^3.5.17",
