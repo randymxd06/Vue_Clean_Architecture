@@ -2,9 +2,12 @@
 import Icon from '@/presentation/components/atoms/Icon.vue';
 import Badge from '@/presentation/components/atoms/Badge.vue';
 
+/**========================
+ * NAVIGATION ITEM PROPS
+===========================*/
 interface Props {
   label: string;
-  icon: string; // Cualquier nombre de icono de Lucide
+  icon: string;
   href?: string;
   isActive?: boolean;
   badge?: {
@@ -13,21 +16,36 @@ interface Props {
   };
 }
 
-const props = withDefaults(defineProps<Props>(), {
+/**=======================
+ * DEFAULT PROPS VALUES
+==========================*/
+withDefaults(defineProps<Props>(), {
   href: '#',
   isActive: false
 });
 
+/**========
+ * EMITS
+===========*/
 const emit = defineEmits<{
   click: [event: Event];
 }>();
 
-const handleClick = (event: Event) => {
+/**=======================
+ * HANDLE CLICK EVENT
+ * @param {Event} event
+ * @returns {void}
+==========================*/
+const handleClick = (event: Event): void => {
   emit('click', event);
 };
 </script>
 
 <template>
+
+  <!--===============================
+    NAVIGATION ITEM LINK COMPONENT
+  ===================================-->
   <li>
     <router-link 
       v-if="href.startsWith('/')"

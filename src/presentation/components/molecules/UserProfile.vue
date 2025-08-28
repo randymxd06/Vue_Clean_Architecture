@@ -6,7 +6,7 @@ import Button from '@/presentation/components/atoms/Button.vue';
 
 interface MenuItem {
   label: string;
-  icon: string; // Cualquier nombre de icono de Lucide
+  icon: string;
   action: string;
 }
 
@@ -73,9 +73,11 @@ onUnmounted(() => {
                 <p class="text-sm font-medium truncate">{{ name }}</p>
                 <p class="text-xs text-gray-400 truncate">{{ email }}</p>
             </div>
-            <button 
+            <Button 
                 v-if="showDropdown"
-                class="p-1 rounded hover:bg-gray-200 transition-colors"
+                variant="ghost"
+                size="sm"
+                class="p-1"
                 @click.stop="handleToggleDropdown"
             >
                 <Icon 
@@ -86,7 +88,7 @@ onUnmounted(() => {
                         isDropdownOpen ? 'rotate-180' : ''
                     ]" 
                 />
-            </button>
+            </Button>
         </div>
 
         <!-- Dropdown Menu -->
@@ -102,15 +104,17 @@ onUnmounted(() => {
                 v-if="isDropdownOpen && showDropdown"
                 class="absolute bottom-full left-0 mb-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50"
             >
-                <button
+                <Button
                     v-for="item in menuItems"
                     :key="item.action"
-                    class="w-full flex items-center space-x-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors text-left"
+                    variant="ghost"
+                    size="sm"
+                    class="w-full justify-start space-x-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     @click="handleMenuItemClick(item.action)"
                 >
                     <Icon :name="item.icon" size="sm" />
                     <span>{{ item.label }}</span>
-                </button>
+                </Button>
             </div>
         </Transition>
     </div>

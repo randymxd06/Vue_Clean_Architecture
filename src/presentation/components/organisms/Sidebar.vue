@@ -47,11 +47,6 @@ const navigationSections = [
         href: '#'
       },
       {
-        label: 'Iconos',
-        icon: 'palette', // Nombre de Lucide
-        href: '/icons'
-      },
-      {
         label: 'Analíticas',
         icon: 'bar-chart-3', // Nombre de Lucide
         href: '#'

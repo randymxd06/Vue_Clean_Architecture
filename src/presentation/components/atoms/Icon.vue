@@ -2,44 +2,64 @@
 import { computed } from 'vue';
 import * as LucideIcons from 'lucide-vue-next';
 
+/**=============
+ * ICON PROPS
+================*/
 interface Props {
-  name: string; // Cualquier nombre de icono de Lucide
+  name: string;
   size?: number | 'sm' | 'md' | 'lg';
   color?: string;
   strokeWidth?: number;
 }
 
+/**=======================
+ * DEFAULT PROPS VALUES
+==========================*/
 const props = withDefaults(defineProps<Props>(), {
   size: 'md',
   strokeWidth: 2
 });
 
-const getSize = (size: number | string) => {
+/**================================
+ * GET SIZE FUNCTION
+ * @param {number | string} size
+ * @returns {number}
+===================================*/
+const getSize = (size: number | string): number => {
   if (typeof size === 'number') return size;
-  
   const sizeMap: Record<string, number> = {
     sm: 16,
     md: 20,
     lg: 24
   };
-  
   return sizeMap[size] || 20;
 };
 
-// Convertir kebab-case a PascalCase para nombres de Lucide
-const toPascalCase = (str: string) => {
-  return str
+/**====================================================
+ * CONVERT KEBAB-CASE TO PASCALCASE FOR LUCIDE NAMES
+ * @param name
+ * @returns {string}
+=======================================================*/
+const toPascalCase = (name: string): string => {
+  return name
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join('');
 };
 
-// Buscar el icono dinámicamente
+/**==================================
+ * SEARCH FOR THE ICON DYNAMICALLY
+=====================================*/
 const IconComponent = computed(() => {
-  // Primero intentar con el nombre exacto
+
+  /**================================
+   * FIRST TRY WITH THE EXACT NAME
+  ===================================*/
   let iconName = toPascalCase(props.name);
   
-  // Si no existe, intentar con variaciones comunes
+  /**==============================================
+   * IF IT DOES NOT EXIST, TRY COMMON VARIATIONS
+  =================================================*/
   const variations = [
     iconName,
     `${iconName}Icon`,
@@ -52,17 +72,26 @@ const IconComponent = computed(() => {
     }
   }
   
-  // Si no encuentra el icono, usar un icono por defecto
+  /**==================================================
+   * IF YOU CANNOT FIND THE ICON, USE A DEFAULT ICON
+  =====================================================*/
   console.warn(`Icon "${props.name}" not found in Lucide Icons`);
+
   return LucideIcons.HelpCircle;
+
 });
 </script>
 
 <template>
+
+  <!--===============
+    ICON COMPONENT
+  ===================-->
   <component 
     :is="IconComponent"
     :size="getSize(size)"
     :color="color"
     :stroke-width="strokeWidth"
   />
+  
 </template>

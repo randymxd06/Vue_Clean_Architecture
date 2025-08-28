@@ -1,12 +1,18 @@
 <script lang="ts" setup>
+/**===============
+ * BUTTON PROPS
+==================*/
 interface Props {
-  variant?: 'primary' | 'secondary' | 'ghost' | 'danger';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
   fullWidth?: boolean;
 }
 
+/**=======================
+ * DEFAULT PROPS VALUES
+==========================*/
 const props = withDefaults(defineProps<Props>(), {
   variant: 'primary',
   size: 'md',
@@ -15,23 +21,38 @@ const props = withDefaults(defineProps<Props>(), {
   fullWidth: false
 });
 
+/**========
+ * EMITS
+===========*/
 const emit = defineEmits<{
   click: [event: MouseEvent];
 }>();
 
-const handleClick = (event: MouseEvent) => {
+/**============================
+ * HANDLE CLICK EVENT
+ * @param {MouseEvent} event
+ * @returns {void}
+===============================*/
+const handleClick = (event: MouseEvent): void => {
   if (!props.disabled) {
     emit('click', event);
   }
 };
 
+/**=========================
+ * BUTTON VARIANT CLASSES
+============================*/
 const variantClasses = {
   primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
   secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500',
+  outline: 'border border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-gray-500',
   ghost: 'bg-transparent text-gray-700 hover:bg-gray-100 focus:ring-gray-500',
   danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500'
 };
 
+/**======================
+ * BUTTON SIZE CLASSES
+=========================*/
 const sizeClasses = {
   sm: 'px-2 py-1 text-xs',
   md: 'px-3 py-2 text-sm',
@@ -40,6 +61,10 @@ const sizeClasses = {
 </script>
 
 <template>
+
+  <!--=================
+    BUTTON COMPONENT
+  =====================-->
   <button
     :type="type"
     :disabled="disabled"
@@ -54,4 +79,5 @@ const sizeClasses = {
   >
     <slot />
   </button>
+  
 </template>

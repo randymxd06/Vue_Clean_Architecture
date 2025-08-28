@@ -2,6 +2,8 @@
 import { onMounted, ref } from "vue"
 import type { Product } from "@/domain/entities/Product"
 import { useProductStore } from "../stores/productStore"
+import Button from "@/presentation/components/atoms/Button.vue"
+import Icon from "@/presentation/components/atoms/Icon.vue"
 
 const productStore = useProductStore()
 const isEditing = ref(false)
@@ -118,25 +120,15 @@ const resetForm = () => {
       </div>
 
       <div class="flex gap-3">
-        <button type="submit"
-          class="px-6 py-2.5 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 shadow-sm transition-all flex items-center gap-2 cursor-pointer">
-          <svg v-if="!isEditing" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-          </svg>
-          <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg>
-          {{ isEditing ? 'Update Product' : 'Add Product' }}
-        </button>
-        <button v-if="isEditing" @click="resetForm" type="button"
-          class="px-6 py-2.5 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-          Cancel
-        </button>
+        <Button type="submit" variant="primary">
+          <Icon v-if="!isEditing" name="plus" size="sm" />
+          <Icon v-else name="check" size="sm" />
+          <span>{{ isEditing ? 'Update Product' : 'Add Product' }}</span>
+        </Button>
+        <Button v-if="isEditing" @click="resetForm" type="button" variant="outline">
+          <Icon name="x" size="sm" />
+          <span>Cancel</span>
+        </Button>
       </div>
     </form>
 
@@ -217,20 +209,12 @@ const resetForm = () => {
                 {{ product.category || '-' }}
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                <button @click="editProduct(product)" class="text-indigo-600 hover:text-indigo-900 mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                  </svg>
-                </button>
-                <button @click="productStore.deleteProduct(product.id)" class="text-red-600 hover:text-red-900">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                  </svg>
-                </button>
+                <Button @click="editProduct(product)" variant="ghost" size="sm" class="p-2 text-indigo-600 hover:text-indigo-900 hover:bg-indigo-50">
+                  <Icon name="edit" size="sm" />
+                </Button>
+                <Button @click="productStore.deleteProduct(product.id)" variant="ghost" size="sm" class="p-2 text-red-600 hover:text-red-900 hover:bg-red-50">
+                  <Icon name="trash-2" size="sm" />
+                </Button>
               </td>
             </tr>
           </tbody>
