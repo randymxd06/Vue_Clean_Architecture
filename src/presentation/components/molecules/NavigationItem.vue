@@ -54,7 +54,7 @@ const handleClick = (event: Event): void => {
         'flex items-center space-x-3 px-3 py-2 rounded-lg font-semibold transition-colors',
         isActive 
           ? 'bg-gray-200' 
-          : 'text-gray-700 hover:bg-gray-200'
+          : 'text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700'
       ]"
       @click="handleClick"
     >
@@ -74,7 +74,7 @@ const handleClick = (event: Event): void => {
         'flex items-center space-x-3 px-3 py-2 rounded-lg font-semibold transition-colors',
         isActive 
           ? 'bg-gray-200' 
-          : 'text-gray-700 hover:bg-gray-200'
+          : 'text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700'
       ]"
       @click="handleClick"
     >

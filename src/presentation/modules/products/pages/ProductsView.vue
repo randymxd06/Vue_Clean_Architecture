@@ -53,7 +53,7 @@ const resetForm = () => {
         HEADER
     =============-->
     <header class="mb-8">
-      <h1 class="text-3xl font-bold text-gray-800 flex items-center gap-2">
+      <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24"
           stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -61,65 +61,67 @@ const resetForm = () => {
         </svg>
         Product Management
       </h1>
-      <p class="text-gray-500 mt-1">Manage product inventory</p>
+      <p class="text-gray-500 dark:text-gray-400 mt-1">Manage product inventory</p>
     </header>
 
     <!--================
         IMPROVED FORM
     ====================-->
-    <form @submit.prevent="handleSubmit" class="mb-10 p-6 rounded-xl border border-blue-100 shadow-inner">
+    <form @submit.prevent="handleSubmit" class="mb-10 p-6 rounded-xl border border-blue-100 dark:border-gray-600 shadow-inner">
 
-      <div class="flex items-center justify-between mb-6">
-        <h2 class="text-xl font-semibold text-gray-700">
+      <section class="flex items-center justify-between mb-6">
+        <h2 class="text-xl font-semibold text-gray-700 dark:text-gray-200">
           {{ isEditing ? '✏️ Edit Product' : '➕ Add New Product' }}
         </h2>
         <span class="px-3 py-1 text-xs font-medium rounded-full"
           :class="isEditing ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800'">
           {{ isEditing ? 'Edit Mode' : 'Creation Mode' }}
         </span>
-      </div>
+      </section>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="space-y-2">
-          <label for="name" class="block text-sm font-medium text-gray-700">Product Name</label>
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+
+        <article class="space-y-2">
+          <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Product Name</label>
           <input name="name" v-model="productStore.newProduct.name"
-            class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
+            class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all dark:text-gray-200 placeholder:text-gray-400 dark:border-gray-600"
             placeholder="Eg: HP EliteBook laptop" required />
-        </div>
+        </article>
 
-        <div class="space-y-2">
-          <label for="price" class="block text-sm font-medium text-gray-700">Price (USD)</label>
+        <article class="space-y-2">
+          <label for="price" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Price (USD)</label>
           <div class="relative">
             <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
             <input name="price" v-model.number="productStore.newProduct.price" type="number" min="0" step="0.01"
-              class="w-full pl-8 pr-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
+              class="w-full pl-8 pr-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all dark:text-gray-200 placeholder:text-gray-400 dark:border-gray-600"
               placeholder="0.00" required />
           </div>
-        </div>
+        </article>
 
-        <div class="space-y-2">
-          <label for="stock" class="block text-sm font-medium text-gray-700">Stock Available</label>
+        <article class="space-y-2">
+          <label for="stock" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Stock Available</label>
           <input name="stock" v-model.number="productStore.newProduct.stock" type="number" min="0"
-            class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
+            class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all dark:text-gray-200 placeholder:text-gray-400 dark:border-gray-600"
             placeholder="Quantity in stock" required />
-        </div>
+        </article>
 
-        <div class="space-y-2">
-          <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+        <article class="space-y-2">
+          <label for="category" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Category</label>
           <input name="category" v-model="productStore.newProduct.category"
-            class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
+            class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all dark:text-gray-200 placeholder:text-gray-400 dark:border-gray-600"
             placeholder="E.g.: Electronics" required />
-        </div>
-      </div>
+        </article>
 
-      <div class="mb-6 space-y-2">
-        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+      </section>
+
+      <section class="mb-6 space-y-2">
+        <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Description</label>
         <textarea name="description" v-model="productStore.newProduct.description"
-          class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
+          class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all dark:text-gray-200 placeholder:text-gray-400 dark:border-gray-600"
           rows="3" placeholder="Detailed product description..."></textarea>
-      </div>
+      </section>
 
-      <div class="flex gap-3">
+      <section class="flex gap-3">
         <Button type="submit" variant="primary">
           <Icon v-if="!isEditing" name="plus" size="sm" />
           <Icon v-else name="check" size="sm" />
@@ -129,7 +131,8 @@ const resetForm = () => {
           <Icon name="x" size="sm" />
           <span>Cancel</span>
         </Button>
-      </div>
+      </section>
+
     </form>
 
     <!--==================

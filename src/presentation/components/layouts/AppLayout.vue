@@ -11,7 +11,7 @@ const { sidebarVisible, isMobile, openSidebar, closeSidebar, toggleSidebar } = u
     <!--=============
         APP LAYOUT
     =================-->
-    <main class="h-screen flex bg-gray-100 relative">
+    <main class="h-screen flex bg-gray-100 dark:bg-gray-900 relative">
 
         <!--==========
             SIDEBAR
@@ -36,13 +36,13 @@ const { sidebarVisible, isMobile, openSidebar, closeSidebar, toggleSidebar } = u
         ========================-->
         <section :class="[
             'flex-1 flex flex-col overflow-hidden pr-2 pt-2 transition-all duration-700 ease-in-out',
-            isMobile ? '' : (sidebarVisible ? 'ml-0' : '-ml-64 pl-2')
+            isMobile ? 'ml-2' : (sidebarVisible ? 'ml-0' : '-ml-64 pl-2')
         ]">
 
             <!--===========================
                 CONTENT CARD WITH TOPBAR
             ===============================-->
-            <article class="bg-white rounded-t-xl shadow-sm flex-1 flex flex-col overflow-hidden">
+            <article class="bg-white dark:bg-gray-800 rounded-t-xl shadow-sm flex-1 flex flex-col overflow-hidden">
 
                 <!--==========
                     TOP BAR

@@ -25,6 +25,7 @@ defineProps<Props>();
     BREADCRUMB COMPONENT
   ======================-->
   <nav class="hidden md:flex items-center space-x-2">
+
     <template v-for="(item, index) in items" :key="index">
       
       <!--====================
@@ -44,14 +45,15 @@ defineProps<Props>();
         :class="[
           'text-sm',
           item.active 
-            ? 'text-gray-900 font-medium' 
-            : 'text-gray-500'
+            ? 'text-gray-900 dark:text-gray-500 font-medium' 
+            : 'text-gray-500 dark:text-gray-400'
         ]"
       >
         {{ item.label }}
       </span>
       
     </template>
+
   </nav>
   
 </template>

@@ -143,7 +143,7 @@ const handleUserMenuClick = (action: string): void => {
     SIDEBAR COMPONENT
   ======================-->
   <aside :class="[
-    'w-64 flex flex-col bg-gray-100 transform transition-all duration-700 ease-in-out z-50',
+    'w-64 flex flex-col bg-gray-100 dark:bg-gray-900 transform transition-all duration-700 ease-in-out z-50',
     isMobile
       ? [
           'fixed top-0 left-0 h-full shadow-xl',
