@@ -64,8 +64,8 @@
   --color-text-muted: 156 163 175;  /* Texto deshabilitado/silenciado */
 
   /* Colores de hover para light mode */
-  --color-hover-light: 248 250 252;  /* Hover muy claro para light mode */
-  --color-hover-medium: 241 245 249; /* Hover medio para light mode */
+  --color-hover-light: 219 234 254;  /* Hover claro tema azul - primary-100 */
+  --color-hover-medium: 191 219 254; /* Hover medio tema azul - primary-200 */
 
   /* Bordes */
   --color-border: 229 231 235;
