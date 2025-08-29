@@ -75,7 +75,7 @@
 /* Tema Oscuro */
 .dark {
   /* Colores primarios (ajustados para dark mode) */
-  --color-primary-50: 23 37 84;
+  --color-primary-50: 239 246 255;  /* Mismo color bonito que light mode */
   --color-primary-100: 30 58 138;
   --color-primary-200: 30 64 175;
   --color-primary-300: 29 78 216;
@@ -142,7 +142,7 @@
   --color-hover-medium: 37 99 235;  /* Hover medio con azul más intenso */
 
   /* Bordes */
-  --color-border: 75 85 99;
+  --color-border: 30 58 138;         /* Azul oscuro sutil para bordes en dark mode */
   --color-border-light: 55 65 81;
 }
 
@@ -191,6 +191,9 @@
 
 /* Tema Emerald Oscuro */
 .theme-emerald.dark {
+  /* Colores primarios - usar el mismo fondo bonito que light mode */
+  --color-primary-50: 236 253 245;    /* Mismo color bonito que light mode */
+  
   --color-bg-app: 6 78 59;
   --color-bg-card: 25 35 30;  /* Tono verde esmeralda muy sutil */
   --color-bg-sidebar: 6 78 59;
@@ -200,7 +203,7 @@
   --color-text-primary: 243 244 246;   /* Gris claro para texto principal */
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
-  --color-border: 75 85 99;            /* Gris para bordes */
+  --color-border: 20 83 45;            /* Verde oscuro sutil para bordes en dark mode */
   
   /* Colores de hover para dark mode */
   --color-hover-light: 22 163 74;      /* Hover con tono verde esmeralda */
@@ -252,6 +255,9 @@
 
 /* Tema Purple Oscuro */
 .theme-purple.dark {
+  /* Colores primarios - usar el mismo fondo bonito que light mode */
+  --color-primary-50: 250 245 255;    /* Mismo color bonito que light mode */
+  
   --color-bg-app: 88 28 135;
   --color-bg-card: 35 25 42;  /* Tono púrpura muy sutil */
   --color-bg-sidebar: 88 28 135;
@@ -261,7 +267,7 @@
   --color-text-primary: 243 244 246;   /* Gris claro para texto principal */
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
-  --color-border: 75 85 99;            /* Gris para bordes */
+  --color-border: 107 33 168;          /* Púrpura oscuro sutil para bordes en dark mode */
   
   /* Colores de hover para dark mode */
   --color-hover-light: 126 34 206;     /* Hover con tono púrpura */
@@ -313,6 +319,9 @@
 
 /* Tema Rose Oscuro */
 .theme-rose.dark {
+  /* Colores primarios - usar el mismo fondo bonito que light mode */
+  --color-primary-50: 255 241 242;    /* Mismo color bonito que light mode */
+  
   --color-bg-app: 136 19 55;
   --color-bg-card: 42 25 32;  /* Tono rosa muy sutil */
   --color-bg-sidebar: 136 19 55;
@@ -322,7 +331,7 @@
   --color-text-primary: 243 244 246;   /* Gris claro para texto principal */
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
-  --color-border: 75 85 99;            /* Gris para bordes */
+  --color-border: 159 18 57;           /* Rosa oscuro sutil para bordes en dark mode */
   
   /* Colores de hover para dark mode */
   --color-hover-light: 190 18 60;      /* Hover con tono rosa */
@@ -374,6 +383,9 @@
 
 /* Tema Ocean Oscuro */
 .theme-ocean.dark {
+  /* Colores primarios - usar el mismo fondo bonito que light mode */
+  --color-primary-50: 240 249 255;    /* Mismo color bonito que light mode */
+  
   --color-bg-app: 12 74 110;
   --color-bg-card: 25 35 42;  /* Tono azul oceánico muy sutil */
   --color-bg-sidebar: 12 74 110;
@@ -383,7 +395,7 @@
   --color-text-primary: 243 244 246;   /* Gris claro para texto principal */
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
-  --color-border: 75 85 99;            /* Gris para bordes */
+  --color-border: 12 74 110;           /* Azul océano oscuro sutil para bordes en dark mode */
   
   /* Colores de hover para dark mode */
   --color-hover-light: 14 165 233;     /* Hover con tono azul océano */
@@ -435,6 +447,9 @@
 
 /* Tema Sunset Oscuro */
 .theme-sunset.dark {
+  /* Colores primarios - usar el mismo fondo bonito que light mode */
+  --color-primary-50: 255 247 237;    /* Mismo color bonito que light mode */
+  
   --color-bg-app: 124 45 18;
   --color-bg-card: 42 32 25;  /* Tono naranja atardecer muy sutil */
   --color-bg-sidebar: 124 45 18;
@@ -444,7 +459,7 @@
   --color-text-primary: 243 244 246;   /* Gris claro para texto principal */
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
-  --color-border: 75 85 99;            /* Gris para bordes */
+  --color-border: 154 52 18;           /* Naranja oscuro sutil para bordes en dark mode */
   
   /* Colores de hover para dark mode */
   --color-hover-light: 194 65 12;      /* Hover con tono naranja atardecer */
