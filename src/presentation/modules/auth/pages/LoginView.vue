@@ -1,6 +1,12 @@
 <script lang="ts" setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 const onSubmit = () => {
     console.log("Login form submitted")
+    // Navigate to products page after login
+    router.push({ name: 'products' })
 }
 </script>
 

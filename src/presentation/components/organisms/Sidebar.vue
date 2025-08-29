@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { defineProps, defineEmits } from 'vue';
+import { useRouter } from 'vue-router';
 import SidebarHeader from '@/presentation/components/organisms/SidebarHeader.vue';
 import NavigationSection from '@/presentation/components/organisms/NavigationSection.vue';
 import SidebarFooter from '@/presentation/components/organisms/SidebarFooter.vue';
@@ -21,6 +22,11 @@ defineProps<Props>();
  * EMITS
 ===========*/
 const emit = defineEmits(['close-sidebar']);
+
+/**==============
+ * COMPOSABLES
+=================*/
+const router = useRouter();
 
 /**==================
  * NAVIGATION DATA
@@ -132,6 +138,8 @@ const handleUserMenuClick = (action: string): void => {
       break;
     case 'logout':
       console.log('Cerrando sesión...');
+      // Navigate to login page
+      router.push({ name: 'login' });
       break;
   }
 };
