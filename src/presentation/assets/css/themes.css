@@ -142,7 +142,7 @@
   --color-hover-medium: 37 99 235;  /* Hover medio con azul más intenso */
 
   /* Bordes */
-  --color-border: 30 58 138;         /* Azul oscuro sutil para bordes en dark mode */
+  --color-border: 147 197 253;        /* Azul más visible para contrastar con fondo claro */
   --color-border-light: 55 65 81;
 }
 
@@ -203,7 +203,7 @@
   --color-text-primary: 243 244 246;   /* Gris claro para texto principal */
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
-  --color-border: 20 83 45;            /* Verde oscuro sutil para bordes en dark mode */
+  --color-border: 110 231 183;         /* Verde más visible para contrastar con fondo claro */
   
   /* Colores de hover para dark mode */
   --color-hover-light: 22 163 74;      /* Hover con tono verde esmeralda */
@@ -267,7 +267,7 @@
   --color-text-primary: 243 244 246;   /* Gris claro para texto principal */
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
-  --color-border: 107 33 168;          /* Púrpura oscuro sutil para bordes en dark mode */
+  --color-border: 196 181 253;         /* Púrpura más visible para contrastar con fondo claro */
   
   /* Colores de hover para dark mode */
   --color-hover-light: 126 34 206;     /* Hover con tono púrpura */
@@ -331,7 +331,7 @@
   --color-text-primary: 243 244 246;   /* Gris claro para texto principal */
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
-  --color-border: 159 18 57;           /* Rosa oscuro sutil para bordes en dark mode */
+  --color-border: 253 164 175;         /* Rosa más visible para contrastar con fondo claro */
   
   /* Colores de hover para dark mode */
   --color-hover-light: 190 18 60;      /* Hover con tono rosa */
@@ -395,7 +395,7 @@
   --color-text-primary: 243 244 246;   /* Gris claro para texto principal */
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
-  --color-border: 12 74 110;           /* Azul océano oscuro sutil para bordes en dark mode */
+  --color-border: 125 211 252;         /* Azul océano más visible para contrastar con fondo claro */
   
   /* Colores de hover para dark mode */
   --color-hover-light: 14 165 233;     /* Hover con tono azul océano */
@@ -459,7 +459,7 @@
   --color-text-primary: 243 244 246;   /* Gris claro para texto principal */
   --color-text-secondary: 209 213 219; /* Gris medio para texto secundario */
   --color-text-muted: 156 163 175;     /* Gris más oscuro para texto deshabilitado */
-  --color-border: 154 52 18;           /* Naranja oscuro sutil para bordes en dark mode */
+  --color-border: 253 186 116;         /* Naranja más visible para contrastar con fondo claro */
   
   /* Colores de hover para dark mode */
   --color-hover-light: 194 65 12;      /* Hover con tono naranja atardecer */
