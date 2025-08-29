@@ -71,7 +71,7 @@ const resetForm = () => {
     <!--================
         IMPROVED FORM
     ====================-->
-    <form @submit.prevent="handleSubmit" class="mb-10 p-6 rounded-xl border border-border shadow-inner bg-card">
+    <form @submit.prevent="handleSubmit" class="mb-10 p-6 rounded-xl border border-border shadow-inner bg-card transform transition-all duration-700 ease-in-out">
 
       <section class="flex items-center justify-between mb-6">
         <h2 class="text-xl font-semibold text-text-primary">

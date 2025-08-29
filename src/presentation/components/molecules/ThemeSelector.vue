@@ -20,7 +20,7 @@
     <!-- Panel del selector -->
     <div
       v-if="isOpen"
-      class="absolute right-0 top-12 w-80 bg-card border border-border rounded-lg shadow-lg z-50 p-4"
+      class="absolute right-0 top-12 w-80 bg-card border border-border rounded-lg shadow-lg z-50 p-4 transform transition-all duration-700 ease-in-out"
       @click.stop
     >
       <!-- Header -->
@@ -35,7 +35,7 @@
       </div>
 
       <!-- Toggle rápido de modo -->
-      <div class="flex items-center justify-between mb-4 p-3 bg-surface-50 rounded-lg">
+      <div class="flex items-center justify-between mb-4 p-3 bg-surface-50 rounded-lg transform transition-all duration-700 ease-in-out">
         <span class="text-sm font-medium text-text-primary">Modo {{ currentTheme.mode === 'dark' ? 'Oscuro' : 'Claro' }}</span>
         <button
           @click="themeStore.toggleMode()"
