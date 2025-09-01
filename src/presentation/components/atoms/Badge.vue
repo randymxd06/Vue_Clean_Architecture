@@ -36,5 +36,5 @@ const variantClasses = {
   ]">
     {{ count }}
   </span>
-  
+
 </template>

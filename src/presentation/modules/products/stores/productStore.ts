@@ -24,9 +24,9 @@ export const useProductStore = defineStore("product", () => {
     const error = ref<string | null>(null)
 
     /**===========================
-	 * LOAD PRODUCTS FUNCTION
-	 * @returns {Promise<void>}
-	==============================*/
+     * LOAD PRODUCTS FUNCTION
+     * @returns {Promise<void>}
+    ==============================*/
     const loadProducts = async (): Promise<void> => {
         loading.value = true
         try {
@@ -45,9 +45,9 @@ export const useProductStore = defineStore("product", () => {
     }
 
     /**===========================
-	 * ADD PRODUCT FUNCTION
-	 * @returns {Promise<void>}
-	==============================*/
+     * ADD PRODUCT FUNCTION
+     * @returns {Promise<void>}
+    ==============================*/
     const addProduct = async (): Promise<void> => {
         if (!newProduct.value.name.trim()) return
         const product = await createProduct.execute(newProduct.value)
@@ -56,10 +56,10 @@ export const useProductStore = defineStore("product", () => {
     }
 
     /**===========================
-	 * UPDATE PRODUCT FUNCTION
-	 * @param {Product} product
-	 * @returns {Promise<void>}
-	==============================*/
+     * UPDATE PRODUCT FUNCTION
+     * @param {Product} product
+     * @returns {Promise<void>}
+    ==============================*/
     const updateProductItem = async (product: Product): Promise<void> => {
         const updatedProduct = await updateProduct.execute(product)
         const index = products.value.findIndex(p => p.id === updatedProduct.id)
@@ -69,18 +69,18 @@ export const useProductStore = defineStore("product", () => {
     }
 
     /**===========================
-	 * DELETE PRODUCT FUNCTION
-	 * @param {string} id
-	 * @returns {Promise<void>}
-	==============================*/
+     * DELETE PRODUCT FUNCTION
+     * @param {string} id
+     * @returns {Promise<void>}
+    ==============================*/
     const deleteProduct = async (id: string): Promise<void> => {
         await removeProduct.execute(id)
         products.value = products.value.filter(p => p.id !== id)
     }
 
     /**=============================
-	 * RESET NEW PRODUCT FUNCTION
-	================================*/
+     * RESET NEW PRODUCT FUNCTION
+    ================================*/
     const resetNewProduct = () => {
         newProduct.value = {
             name: "",

@@ -30,10 +30,6 @@ const sizeClasses = {
   <!--=============
     AVATAR IMAGE
   =================-->
-  <img 
-    :class="['rounded-full object-cover', sizeClasses[size]]" 
-    :src="src" 
-    :alt="alt"
-  >
+  <img :class="['rounded-full object-cover', sizeClasses[size]]" :src="src" :alt="alt">
 
 </template>

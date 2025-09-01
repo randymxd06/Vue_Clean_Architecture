@@ -55,13 +55,8 @@ const handleItemClick = (item: NavigationItemData, event: Event): void => {
   <nav class="mt-2">
     <SectionHeader :title="title" />
     <ul class="space-y-1 px-4">
-      <NavigationItem
-        v-for="item in items"
-        :key="item.label"
-        v-bind="item"
-        @click="handleItemClick(item, $event)"
-      />
+      <NavigationItem v-for="item in items" :key="item.label" v-bind="item" @click="handleItemClick(item, $event)" />
     </ul>
   </nav>
-  
+
 </template>

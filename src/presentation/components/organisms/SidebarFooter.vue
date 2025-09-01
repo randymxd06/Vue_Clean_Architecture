@@ -65,14 +65,8 @@ const handleUserMenuClick = (action: string): void => {
       USER PROFILE
     =================-->
     <article class="pt-4">
-      <UserProfile
-        :name="user.name"
-        :email="user.email"
-        :avatar-src="user.avatarSrc"
-        :show-dropdown="showUserDropdown"
-        @toggle-dropdown="handleUserDropdownToggle"
-        @menu-item-click="handleUserMenuClick"
-      />
+      <UserProfile :name="user.name" :email="user.email" :avatar-src="user.avatarSrc" :show-dropdown="showUserDropdown"
+        @toggle-dropdown="handleUserDropdownToggle" @menu-item-click="handleUserMenuClick" />
     </article>
 
   </section>

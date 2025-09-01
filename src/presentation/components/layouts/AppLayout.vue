@@ -16,20 +16,13 @@ const { sidebarVisible, isMobile, openSidebar, closeSidebar, toggleSidebar } = u
         <!--==========
             SIDEBAR
         ==============-->
-        <Sidebar 
-            :is-mobile="isMobile"
-            :sidebar-visible="sidebarVisible"
-            @close-sidebar="closeSidebar"
-        />
+        <Sidebar :is-mobile="isMobile" :sidebar-visible="sidebarVisible" @close-sidebar="closeSidebar" />
 
         <!--============================
             OVERLAY FOR MOBILE DRAWER
         ================================-->
-        <aside 
-            v-if="isMobile && sidebarVisible"
-            class="fixed inset-0 bg-black opacity-80 z-40"
-            @click="closeSidebar"
-        ></aside>
+        <aside v-if="isMobile && sidebarVisible" class="fixed inset-0 bg-black opacity-80 z-40" @click="closeSidebar">
+        </aside>
 
         <!--====================
             MAIN CONTENT AREA
@@ -42,17 +35,14 @@ const { sidebarVisible, isMobile, openSidebar, closeSidebar, toggleSidebar } = u
             <!--===========================
                 CONTENT CARD WITH TOPBAR
             ===============================-->
-            <article class="bg-white dark:bg-gray-900 rounded-t-xl shadow-sm flex-1 flex flex-col overflow-hidden transition-all duration-700 ease-in-out">
+            <article
+                class="bg-white dark:bg-gray-900 rounded-t-xl shadow-sm flex-1 flex flex-col overflow-hidden transition-all duration-700 ease-in-out">
 
                 <!--==========
                     TOP BAR
                 ==============-->
-                <Topbar 
-                    :is-mobile="isMobile"
-                    :sidebar-visible="sidebarVisible"
-                    @open-sidebar="openSidebar"
-                    @toggle-sidebar="toggleSidebar"
-                />
+                <Topbar :is-mobile="isMobile" :sidebar-visible="sidebarVisible" @open-sidebar="openSidebar"
+                    @toggle-sidebar="toggleSidebar" />
 
                 <!--===============
                     CONTENT AREA

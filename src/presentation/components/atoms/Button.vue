@@ -65,19 +65,14 @@ const sizeClasses = {
   <!--=================
     BUTTON COMPONENT
   =====================-->
-  <button
-    :type="type"
-    :disabled="disabled"
-    :class="[
-      'inline-flex items-center justify-center font-medium rounded-lg max-sm:focus:outline-none max-sm:focus:ring-2 max-sm:focus:ring-offset-2 max-sm:transition',
-      variantClasses[variant],
-      sizeClasses[size],
-      fullWidth ? 'w-full' : '',
-      disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
-    ]"
-    @click="handleClick"
-  >
+  <button :type="type" :disabled="disabled" :class="[
+    'inline-flex items-center justify-center font-medium rounded-lg max-sm:focus:outline-none max-sm:focus:ring-2 max-sm:focus:ring-offset-2 max-sm:transition',
+    variantClasses[variant],
+    sizeClasses[size],
+    fullWidth ? 'w-full' : '',
+    disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
+  ]" @click="handleClick">
     <slot />
   </button>
-  
+
 </template>

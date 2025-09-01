@@ -39,13 +39,8 @@ const handleToggle = (): void => {
   <!--=======================
     SIDEBAR TOGGLE BUTTON
   ===========================-->
-  <Button 
-    variant="ghost" 
-    size="sm"
-    @click="handleToggle"
-    class="transition-transform hover:scale-110"
-  >
+  <Button variant="ghost" size="sm" @click="handleToggle" class="transition-transform hover:scale-110">
     <Icon name="sidebar" size="md" />
   </Button>
-  
+
 </template>

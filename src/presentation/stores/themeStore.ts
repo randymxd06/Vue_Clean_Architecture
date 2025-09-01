@@ -1,46 +1,78 @@
 import { defineStore } from "pinia"
 import { ref, watch } from "vue"
 
-export const useThemeStore = defineStore("theme", () => {
-    const theme = ref("light")
+/**==================================
+ * THEME STORE RESOURCES INTERFACE
+=====================================*/
+interface ThemeStoreResources {
+    theme: string;
+    toggleTheme: () => void;
+}
 
-    // Aplicar el tema al documento HTML
-    const applyTheme = (newTheme: string) => {
+/**=================================
+ * USE THEME STORE
+ * @returns {ThemeStoreResources}
+====================================*/
+export const useThemeStore = defineStore("theme", (): ThemeStoreResources => {
+    
+    /**=========
+     * STATES
+    ============*/
+    const theme = ref("light");
+
+    /**===========================
+     * APPLY THEME FUNCTION
+     * @param {string} newTheme 
+     * @returns {void}
+    ==============================*/
+    const applyTheme = (newTheme: string): void => {
         if (typeof document !== 'undefined') {
             if (newTheme === 'dark') {
-                document.documentElement.classList.add('dark')
+                document.documentElement.classList.add('dark');
             } else {
-                document.documentElement.classList.remove('dark')
+                document.documentElement.classList.remove('dark');
             }
         }
     }
 
-    // Inicializar el tema desde localStorage o usar 'light' por defecto
-    const initTheme = () => {
+    /**======================
+     * INIT THEME FUNCTION
+     * @returns {void}
+    =========================*/
+    const initTheme = (): void => {
         if (typeof window !== 'undefined') {
-            const savedTheme = localStorage.getItem('theme') || 'light'
-            theme.value = savedTheme
-            applyTheme(savedTheme)
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            theme.value = savedTheme;
+            applyTheme(savedTheme);
         }
     }
 
-    const toggleTheme = () => {
-        theme.value = theme.value === "light" ? "dark" : "light"
+    /**========================
+     * TOGGLE THEME FUNCTION
+     * @returns {void}
+    ===========================*/
+    const toggleTheme = (): void => {
+        theme.value = theme.value === "light" ? "dark" : "light";
     }
 
-    // Observar cambios en el tema y aplicarlos
+    /**======================
+     * WATCH THEME CHANGES
+    =========================*/
     watch(theme, (newTheme) => {
-        applyTheme(newTheme)
+        applyTheme(newTheme);
         if (typeof window !== 'undefined') {
-            localStorage.setItem('theme', newTheme)
+            localStorage.setItem('theme', newTheme);
         }
     })
 
-    // Inicializar tema al crear el store
-    initTheme()
+    /**===================
+     * INITIALIZE THEME
+    ======================*/
+    initTheme();
 
     return {
-        theme,
+        theme: theme.value,
         toggleTheme,
     }
+    
 })

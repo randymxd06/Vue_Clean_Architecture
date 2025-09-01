@@ -56,7 +56,7 @@ const IconComponent = computed(() => {
    * FIRST TRY WITH THE EXACT NAME
   ===================================*/
   let iconName = toPascalCase(props.name);
-  
+
   /**==============================================
    * IF IT DOES NOT EXIST, TRY COMMON VARIATIONS
   =================================================*/
@@ -65,13 +65,13 @@ const IconComponent = computed(() => {
     `${iconName}Icon`,
     iconName.replace('Icon', '')
   ];
-  
+
   for (const variant of variations) {
     if (variant in LucideIcons) {
       return (LucideIcons as any)[variant];
     }
   }
-  
+
   /**==================================================
    * IF YOU CANNOT FIND THE ICON, USE A DEFAULT ICON
   =====================================================*/
@@ -87,11 +87,6 @@ const IconComponent = computed(() => {
   <!--===============
     ICON COMPONENT
   ===================-->
-  <component 
-    :is="IconComponent"
-    :size="getSize(size)"
-    :color="color"
-    :stroke-width="strokeWidth"
-  />
-  
+  <component :is="IconComponent" :size="getSize(size)" :color="color" :stroke-width="strokeWidth" />
+
 </template>

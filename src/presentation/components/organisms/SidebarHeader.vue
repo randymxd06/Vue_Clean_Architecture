@@ -26,11 +26,7 @@ withDefaults(defineProps<Props>(), {
     SIDEBAR HEADER COMPONENT
   =============================-->
   <section class="p-4">
-    <AppBrand 
-      :app-name="appName"
-      :version="version"
-      :logo-letter="logoLetter"
-    />
+    <AppBrand :app-name="appName" :version="version" :logo-letter="logoLetter" />
   </section>
-  
+
 </template>

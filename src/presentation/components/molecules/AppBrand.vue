@@ -32,5 +32,5 @@ withDefaults(defineProps<Props>(), {
       <p class="text-xs font-semibold dark:text-gray-400">{{ version }}</p>
     </article>
   </section>
-  
+
 </template>

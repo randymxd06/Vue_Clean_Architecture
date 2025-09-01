@@ -22,5 +22,5 @@ defineProps<Props>();
       {{ title }}
     </p>
   </section>
-  
+
 </template>

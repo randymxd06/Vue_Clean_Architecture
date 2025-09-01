@@ -8,9 +8,9 @@ import Button from '@/presentation/components/atoms/Button.vue';
  * MENU ITEM INTERFACE
 =========================*/
 interface MenuItem {
-  label: string;
-  icon: string;
-  action: string;
+    label: string;
+    icon: string;
+    action: string;
 }
 
 /**=========================
@@ -107,54 +107,32 @@ onUnmounted(() => {
         ==========================-->
         <article
             class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg p-2 transition-colors"
-            @click="handleToggleDropdown"
-        >
+            @click="handleToggleDropdown">
             <Avatar :src="avatarSrc" :alt="name" />
             <div class="flex-1 min-w-0">
                 <p class="text-sm font-medium truncate dark:text-white">{{ name }}</p>
                 <p class="text-xs text-gray-400 truncate">{{ email }}</p>
             </div>
-            <Button 
-                v-if="showDropdown"
-                variant="ghost"
-                size="sm"
-                class="p-1"
-                @click.stop="handleToggleDropdown"
-            >
-                <Icon 
-                    name="chevron-down" 
-                    size="sm" 
-                    :class="[
-                        'text-gray-400 transition-transform duration-200',
-                        isDropdownOpen ? 'rotate-180' : ''
-                    ]" 
-                />
+            <Button v-if="showDropdown" variant="ghost" size="sm" class="p-1" @click.stop="handleToggleDropdown">
+                <Icon name="chevron-down" size="sm" :class="[
+                    'text-gray-400 transition-transform duration-200',
+                    isDropdownOpen ? 'rotate-180' : ''
+                ]" />
             </Button>
         </article>
 
         <!--================
             DROPDOWN MENU
         ====================-->
-        <Transition
-            enter-active-class="transition ease-out duration-100"
-            enter-from-class="transform opacity-0 scale-95"
-            enter-to-class="transform opacity-100 scale-100"
-            leave-active-class="transition ease-in duration-75"
-            leave-from-class="transform opacity-100 scale-100"
-            leave-to-class="transform opacity-0 scale-95"
-        >
-            <article 
-                v-if="isDropdownOpen && showDropdown"
-                class="absolute bottom-full left-0 mb-2 w-48 bg-white dark:bg-gray-700 rounded-lg shadow-lg border border-gray-200 dark:border-gray-500 py-1 z-50"
-            >
-                <Button
-                    v-for="item in menuItems"
-                    :key="item.action"
-                    variant="ghost"
-                    size="sm"
+        <Transition enter-active-class="transition ease-out duration-100"
+            enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
+            leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100"
+            leave-to-class="transform opacity-0 scale-95">
+            <article v-if="isDropdownOpen && showDropdown"
+                class="absolute bottom-full left-0 mb-2 w-48 bg-white dark:bg-gray-700 rounded-lg shadow-lg border border-gray-200 dark:border-gray-500 py-1 z-50">
+                <Button v-for="item in menuItems" :key="item.action" variant="ghost" size="sm"
                     class="w-full justify-start space-x-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
-                    @click="handleMenuItemClick(item.action)"
-                >
+                    @click="handleMenuItemClick(item.action)">
                     <Icon :name="item.icon" size="sm" />
                     <span>{{ item.label }}</span>
                 </Button>

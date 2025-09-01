@@ -1,5 +1,8 @@
 import { ref, onMounted, onUnmounted, type Ref } from 'vue';
 
+/**==================================
+ * USE SIDEBAR RESOURCES INTERFACE
+=====================================*/
 interface UseSidebar {
     sidebarVisible: Ref<boolean, boolean>;
     isMobile: Ref<boolean, boolean>;

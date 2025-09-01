@@ -44,12 +44,7 @@ const themeStore = useThemeStore();
     <!--=============
       THEME TOGGLE
     =================-->
-    <Button 
-      v-if="showThemeToggle"
-      variant="ghost" 
-      size="md"
-      @click="$emit('toggle-theme')"
-    >
+    <Button v-if="showThemeToggle" variant="ghost" size="md" @click="$emit('toggle-theme')">
       <Icon :name="themeStore.theme === 'dark' ? 'sun' : 'moon'" size="md" />
     </Button>
 
@@ -58,27 +53,20 @@ const themeStore = useThemeStore();
     ==================-->
     <article v-if="showNotifications" class="relative">
 
-        <!--======================
+      <!--======================
             NOTIFICATION BUTTON
         ==========================-->
-        <Button 
-            variant="ghost" 
-            size="md"
-            @click="$emit('notifications-click')"
-        >
-            <Icon name="bell" size="md" />
-        </Button>
-        
-        <!--=====================
+      <Button variant="ghost" size="md" @click="$emit('notifications-click')">
+        <Icon name="bell" size="md" />
+      </Button>
+
+      <!--=====================
             NOTIFICATION BADGE
         =========================-->
-        <NotificationBadge 
-            v-if="notificationCount > 0"
-            :count="notificationCount"
-        />
+      <NotificationBadge v-if="notificationCount > 0" :count="notificationCount" />
 
     </article>
 
   </section>
-  
+
 </template>

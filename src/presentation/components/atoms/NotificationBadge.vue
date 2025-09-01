@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<Props>(), {
 ==================================*/
 const variantClasses = {
   red: 'bg-red-500',
-  blue: 'bg-blue-500', 
+  blue: 'bg-blue-500',
   green: 'bg-green-500',
   orange: 'bg-orange-500'
 };
@@ -49,19 +49,16 @@ const displayText = computed(() => {
   <!--==========================
     NOTIFICATION BADGE
   ==============================-->
-  <span 
-    v-if="showBadge"
-    :class="[
-      'absolute flex items-center justify-center text-white text-xs font-bold rounded-full',
-      variantClasses[variant],
-      showDot || count === 0
-        ? 'w-2 h-2 -top-1 -right-1'
-        : count < 10 
-          ? 'w-5 h-5 -top-2 -right-2'
-          : 'w-6 h-6 -top-2 -right-2'
-    ]"
-  >
+  <span v-if="showBadge" :class="[
+    'absolute flex items-center justify-center text-white text-xs font-bold rounded-full',
+    variantClasses[variant],
+    showDot || count === 0
+      ? 'w-2 h-2 -top-1 -right-1'
+      : count < 10
+        ? 'w-5 h-5 -top-2 -right-2'
+        : 'w-6 h-6 -top-2 -right-2'
+  ]">
     {{ displayText }}
   </span>
-  
+
 </template>

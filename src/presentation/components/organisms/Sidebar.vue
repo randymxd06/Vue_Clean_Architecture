@@ -9,8 +9,8 @@ import SidebarFooter from '@/presentation/components/organisms/SidebarFooter.vue
  * SIDEBAR PROPS
 ===================*/
 interface Props {
-    isMobile: boolean;
-    sidebarVisible: boolean;
+  isMobile: boolean;
+  sidebarVisible: boolean;
 }
 
 /**===============
@@ -154,49 +154,35 @@ const handleUserMenuClick = (action: string): void => {
     'w-64 flex flex-col bg-gray-100 dark:bg-gray-800 transform transition-all duration-700 ease-in-out z-50',
     isMobile
       ? [
-          'fixed top-0 left-0 h-full shadow-xl',
-          sidebarVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0 pointer-events-none'
-        ]
+        'fixed top-0 left-0 h-full shadow-xl',
+        sidebarVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0 pointer-events-none'
+      ]
       : [
-          'relative h-full',
-          sidebarVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0 pointer-events-none'
-        ]
+        'relative h-full',
+        sidebarVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0 pointer-events-none'
+      ]
   ]">
 
     <!--=======
       HEADER
     ===========-->
-    <SidebarHeader 
-      app-name="Mi Aplicación"
-      version="Versión 2.0"
-      logo-letter="M"
-    />
+    <SidebarHeader app-name="Mi Aplicación" version="Versión 2.0" logo-letter="M" />
 
     <!--====================
       NAVIGATION SECTIONS
     ========================-->
     <div class="flex-1 overflow-y-auto">
-      <NavigationSection
-        v-for="section in navigationSections"
-        :key="section.title"
-        :title="section.title"
-        :items="section.items"
-        @item-click="handleNavigationClick"
-      />
+      <NavigationSection v-for="section in navigationSections" :key="section.title" :title="section.title"
+        :items="section.items" @item-click="handleNavigationClick" />
     </div>
 
     <!--=======
       FOOTER
     ===========-->
-    <SidebarFooter
-      :user="user"
-      :show-user-dropdown="true"
-      @settings-click="handleSettingsClick"
-      @inbox-click="handleInboxClick"
-      @user-dropdown-toggle="handleUserDropdownToggle"
-      @user-menu-click="handleUserMenuClick"
-    />
+    <SidebarFooter :user="user" :show-user-dropdown="true" @settings-click="handleSettingsClick"
+      @inbox-click="handleInboxClick" @user-dropdown-toggle="handleUserDropdownToggle"
+      @user-menu-click="handleUserMenuClick" />
 
   </aside>
-  
+
 </template>
