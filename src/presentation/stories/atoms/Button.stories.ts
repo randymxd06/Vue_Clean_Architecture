@@ -36,7 +36,7 @@ export const Default: Story = {
     disabled: false,
     fullWidth: false,
     type: 'button',
-    default: 'Botón',
+    default: 'Button',
   },
 };
 
@@ -48,7 +48,7 @@ export const Disabled: Story = {
     variant: 'primary',
     size: 'md',
     disabled: true,
-    default: 'Deshabilitado',
+    default: 'Disabled',
   },
 };
 
