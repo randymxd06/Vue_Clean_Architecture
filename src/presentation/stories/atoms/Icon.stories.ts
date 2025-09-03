@@ -1,6 +1,9 @@
 import Icon from '@/presentation/components/atoms/Icon.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
+/**=========================
+ * ICON COMPONENT STORIES
+============================*/
 const meta: Meta<typeof Icon> = {
   title: 'Atoms/Icon',
   component: Icon,
@@ -15,10 +18,19 @@ const meta: Meta<typeof Icon> = {
   },
 };
 
+/**==================================
+ * ICON COMPONENT META INFORMATION
+=====================================*/
 export default meta;
 
+/**============================
+ * ICON COMPONENT STORY TYPE
+===============================*/
 type Story = StoryObj<typeof Icon>;
 
+/**=====================
+ * DEFAULT ICON STORY
+========================*/
 export const Default: Story = {
   args: {
     name: 'home',
@@ -28,6 +40,9 @@ export const Default: Story = {
   },
 };
 
+/**===================
+ * SIZES ICON STORY
+======================*/
 export const Sizes: Story = {
   render: (args) => ({
     components: { Icon },
@@ -48,6 +63,9 @@ export const Sizes: Story = {
   },
 };
 
+/**======================
+ * POPULAR ICONS STORY
+=========================*/
 export const PopularIcons: Story = {
   render: (args) => ({
     components: { Icon },
@@ -136,6 +154,9 @@ export const PopularIcons: Story = {
   },
 };
 
+/**====================
+ * COLORS ICON STORY
+=======================*/
 export const Colors: Story = {
   render: (args) => ({
     components: { Icon },
@@ -157,6 +178,9 @@ export const Colors: Story = {
   },
 };
 
+/**===========================
+ * STROKE WIDTHS ICON STORY
+==============================*/
 export const StrokeWidths: Story = {
   render: (args) => ({
     components: { Icon },
@@ -177,6 +201,9 @@ export const StrokeWidths: Story = {
   },
 };
 
+/**=====================
+ * INVALID ICON STORY
+========================*/
 export const InvalidIcon: Story = {
   args: {
     name: 'icon-that-does-not-exist',

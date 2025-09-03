@@ -1,6 +1,9 @@
 import Logo from '@/presentation/components/atoms/Logo.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
+/**=========================
+ * LOGO COMPONENT STORIES
+============================*/
 const meta: Meta<typeof Logo> = {
   title: 'Atoms/Logo',
   component: Logo,
@@ -10,10 +13,19 @@ const meta: Meta<typeof Logo> = {
   },
 };
 
+/**==================================
+ * LOGO COMPONENT META INFORMATION
+=====================================*/
 export default meta;
 
+/**============================
+ * LOGO COMPONENT STORY TYPE
+===============================*/
 type Story = StoryObj<typeof Logo>;
 
+/**=====================
+ * DEFAULT LOGO STORY
+========================*/
 export const Default: Story = {
   args: {
     size: 'md',
@@ -21,6 +33,9 @@ export const Default: Story = {
   },
 };
 
+/**===================
+ * SIZES LOGO STORY
+======================*/
 export const Sizes: Story = {
   render: (args) => ({
     components: { Logo },
@@ -38,6 +53,9 @@ export const Sizes: Story = {
   },
 };
 
+/**===============================
+ * DIFFERENT LETTERS LOGO STORY
+==================================*/
 export const DifferentLetters: Story = {
   render: (args) => ({
     components: { Logo },
@@ -58,6 +76,9 @@ export const DifferentLetters: Story = {
   },
 };
 
+/**======================
+ * COMPANY LOGOS STORY
+=========================*/
 export const CompanyLogos: Story = {
   render: (args) => ({
     components: { Logo },
@@ -92,6 +113,9 @@ export const CompanyLogos: Story = {
   },
 };
 
+/**=====================
+ * NUMBERS LOGO STORY
+========================*/
 export const Numbers: Story = {
   render: (args) => ({
     components: { Logo },
@@ -110,6 +134,9 @@ export const Numbers: Story = {
   },
 };
 
+/**================================
+ * SPECIAL CHARACTERS LOGO STORY
+===================================*/
 export const SpecialCharacters: Story = {
   render: (args) => ({
     components: { Logo },

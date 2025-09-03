@@ -1,6 +1,9 @@
 import NotificationBadge from '@/presentation/components/atoms/NotificationBadge.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
+/**=======================================
+ * NOTIFICATION BADGE COMPONENT STORIES
+==========================================*/
 const meta: Meta<typeof NotificationBadge> = {
   title: 'Atoms/NotificationBadge',
   component: NotificationBadge,
@@ -25,10 +28,19 @@ const meta: Meta<typeof NotificationBadge> = {
   ],
 };
 
+/**================================================
+ * NOTIFICATION BADGE COMPONENT META INFORMATION
+===================================================*/
 export default meta;
 
+/**==========================================
+ * NOTIFICATION BADGE COMPONENT STORY TYPE
+=============================================*/
 type Story = StoryObj<typeof NotificationBadge>;
 
+/**===================================
+ * DEFAULT NOTIFICATION BADGE STORY
+======================================*/
 export const Default: Story = {
   args: {
     count: 3,
@@ -37,6 +49,9 @@ export const Default: Story = {
   },
 };
 
+/**====================================
+ * DOT ONLY NOTIFICATION BADGE STORY
+=======================================*/
 export const DotOnly: Story = {
   args: {
     count: 0,
@@ -45,6 +60,9 @@ export const DotOnly: Story = {
   },
 };
 
+/**==========================================
+ * NOTIFICATION BADGE COMPONENT STORY TYPE
+=============================================*/
 export const Variants: Story = {
   render: (args) => ({
     components: { NotificationBadge },
@@ -76,6 +94,9 @@ export const Variants: Story = {
   },
 };
 
+/**===================================
+ * DEFAULT NOTIFICATION BADGE STORY
+======================================*/
 export const Numbers: Story = {
   render: (args) => ({
     components: { NotificationBadge },
@@ -107,6 +128,9 @@ export const Numbers: Story = {
   },
 };
 
+/**====================================
+ * DOT ONLY NOTIFICATION BADGE STORY
+=======================================*/
 export const DotsVariants: Story = {
   render: (args) => ({
     components: { NotificationBadge },
@@ -138,6 +162,9 @@ export const DotsVariants: Story = {
   },
 };
 
+/**========================================
+ * HIGH NUMBERS NOTIFICATION BADGE STORY
+===========================================*/
 export const HighNumbers: Story = {
   render: (args) => ({
     components: { NotificationBadge },
@@ -169,6 +196,9 @@ export const HighNumbers: Story = {
   },
 };
 
+/**==============================
+ * NO NOTIFICATION BADGE STORY
+=================================*/
 export const NoNotification: Story = {
   args: {
     count: 0,
