@@ -46,26 +46,28 @@ const handleClick = (event: Event): void => {
   <!--===============================
     NAVIGATION ITEM LINK COMPONENT
   ===================================-->
-  <li>
-    <router-link v-if="href.startsWith('/')" :to="href" :class="[
-      'flex items-center space-x-3 px-3 py-2 rounded-lg font-semibold transition-colors',
-      isActive
-        ? 'bg-gray-200'
-        : 'text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700'
-    ]" @click="handleClick">
-      <Icon :name="icon" />
-      <span>{{ label }}</span>
-      <Badge v-if="badge" :count="badge.count" :variant="badge.variant" class="ml-auto" />
-    </router-link>
-    <a v-else :href="href" :class="[
-      'flex items-center space-x-3 px-3 py-2 rounded-lg font-semibold transition-colors',
-      isActive
-        ? 'bg-gray-200'
-        : 'text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700'
-    ]" @click="handleClick">
-      <Icon :name="icon" />
-      <span>{{ label }}</span>
-      <Badge v-if="badge" :count="badge.count" :variant="badge.variant" class="ml-auto" />
-    </a>
-  </li>
+  <ul>
+    <li>
+      <router-link v-if="href.startsWith('/')" :to="href" :class="[
+        'flex items-center space-x-3 px-3 py-2 rounded-lg font-semibold transition-colors',
+        isActive
+          ? 'bg-gray-200'
+          : 'text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700'
+      ]" @click="handleClick">
+        <Icon :name="icon" />
+        <span>{{ label }}</span>
+        <Badge v-if="badge" :count="badge.count" :variant="badge.variant" class="ml-auto" />
+      </router-link>
+      <a v-else :href="href" :class="[
+        'flex items-center space-x-3 px-3 py-2 rounded-lg font-semibold transition-colors',
+        isActive
+          ? 'bg-gray-200'
+          : 'text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700'
+      ]" @click="handleClick">
+        <Icon :name="icon" />
+        <span>{{ label }}</span>
+        <Badge v-if="badge" :count="badge.count" :variant="badge.variant" class="ml-auto" />
+      </a>
+    </li>
+  </ul>
 </template>
