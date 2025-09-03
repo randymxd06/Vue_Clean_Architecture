@@ -1,7 +1,7 @@
 import { defineStore } from "pinia"
 import { ref } from "vue"
-import type { Product } from "@/domain/entities/Product"
-import { productUseCases } from "@/infrastructure/repositories"
+import type { Product } from "@/domain/entities/products/Product"
+import { productUseCases } from "@/infrastructure/repositories/products"
 
 /**=================================================
  * IMPORT THE REQUIRED USE CASES AND REPOSITORIES

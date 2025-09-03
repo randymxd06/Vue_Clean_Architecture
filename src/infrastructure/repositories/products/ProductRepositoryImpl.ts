@@ -1,6 +1,6 @@
-import type { Product } from "@/domain/entities/Product"
-import type { ProductRepository } from "@/domain/repositories/ProductRepository"
-import type { HttpClient } from "../api/HttpClient"
+import type { Product } from "@/domain/entities/products/Product"
+import type { ProductRepository } from "@/domain/repositories/products/ProductRepository"
+import type { HttpClient } from "../../api/HttpClient"
 
 export class ProductRepositoryImpl implements ProductRepository {
     private readonly baseUrl = "products"

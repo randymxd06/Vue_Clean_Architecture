@@ -31,78 +31,81 @@ This is a Vue.js project in which I am putting into practice the principles and 
 ```sh
 src/
 │
-├── domain/                             # Domain Layer (Core Business Logic)
-│   ├── entities/                       # Business entities (e.g., User.ts, Product.ts)
-│   │   └── Product.ts                  # Defines Product structure (id, name, price, stock, etc.)
-│   ├── repositories/                   # Repository interfaces (abstractions)
-│   │   └── ProductRepository.ts        # Defines CRUD operations for products (create, read, update, delete)
-│   └── use-cases/                      # Application use cases
-│       └── products/                   # Products use cases
-│            ├── CreateProduct.ts       # Manages product creatation logic
-│            ├── DeleteProduct.ts       # Manages all deletion logic.
-│            ├── GetProductById.ts      # Manages all the logic of obtaining by ID
-│            ├── GetProducts.ts         # Manages all the logic of obtaining all records
-│            └── UpdateProduct.ts       # Manages product updates
+├── domain/                                 # Domain Layer (Core Business Logic)
+│   ├── entities/                           # Business entities (e.g., User.ts, Product.ts)
+│   │   └── products/                       # Product-related entities
+│   │       └── Product.ts                  # Defines Product structure (id, name, price, stock, etc.)
+│   ├── repositories/                       # Repository interfaces (abstractions)
+│   │   └── products/                       # Product-related repository interfaces
+│   │       └── ProductRepository.ts        # Defines CRUD operations for products (create, read, update, delete)
+│   └── usecases/                           # Application use cases
+│       └── products/                       # Products use cases
+│            ├── CreateProduct.ts           # Manages product creatation logic
+│            ├── DeleteProduct.ts           # Manages all deletion logic.
+│            ├── GetProductById.ts          # Manages all the logic of obtaining by ID
+│            ├── GetProducts.ts             # Manages all the logic of obtaining all records
+│            └── UpdateProduct.ts           # Manages product updates
 │
-├── infrastructure/                     # Infrastructure Layer (implementation details)
-│   ├── api/                            # API communication
-│   │   ├── AxiosClient.ts              # Axios HTTP client setup
-│   │   └── HttpClient.ts               # Interface for all HTTP methods
-│   ├── repositories/                   # Concrete repository implementations
-│   │   ├── index.ts                    # Implements dependency injections for pinia stores
-│   │   └── ProductRepositoryImpl.ts    # Implements ProductRepository using API client
-│   ├── storage/                        # Client-side storage
-│   │   └── LocalStorage.ts             # Example: LocalStorage wrapper
-│   └── plugins/                        # Vue plugins
-│       └── i18n.ts                     # Example: Internationalization plugin
+├── infrastructure/                         # Infrastructure Layer (implementation details)
+│   ├── api/                                # API communication
+│   │   ├── AxiosClient.ts                  # Axios HTTP client setup
+│   │   └── HttpClient.ts                   # Interface for all HTTP methods
+│   ├── repositories/                       # Concrete repository implementations
+│   │   └── products/                       # Product-related repository implementations
+│   │       ├── index.ts                    # Implements dependency injections for pinia stores
+│   │       └── ProductRepositoryImpl.ts    # Implements ProductRepository using API client
+│   ├── storage/                            # Client-side storage
+│   │   └── LocalStorage.ts                 # Example: LocalStorage wrapper
+│   └── plugins/                            # Vue plugins
+│       └── i18n.ts                         # Example: Internationalization plugin
 │
-├── presentation/                       # Presentation Layer (UI)
-│   ├── components/                     # Reusable UI components
-│   │   ├── ui/                         # Base UI components (buttons, inputs)
-│   │   │   ├── ProductInput.vue        # Input field for new products
-│   │   │   ├── ProductItem.vue         # Single product item display
-│   │   │   └── ProductList.vue         # List of products
-│   │   └── shared/                     # App-specific shared components
-│   │       └── ProductFilter.vue       # Filtering controls
-│   ├── modules/                        # Feature modules
-│   │   ├── product/                    # Product module
-│   │   │   ├── pages/                  # Route-level components
-│   │   │   │   └── ProductPage.vue     # Main product page
-│   │   │   ├── stores/                 # Product stores
-│   │   │   │   └── productStore.ts     # Pinia store for product state
+├── presentation/                           # Presentation Layer (UI)
+│   ├── components/                         # Reusable UI components
+│   │   ├── ui/                             # Base UI components (buttons, inputs)
+│   │   │   ├── ProductInput.vue            # Input field for new products
+│   │   │   ├── ProductItem.vue             # Single product item display
+│   │   │   └── ProductList.vue             # List of products
+│   │   └── shared/                         # App-specific shared components
+│   │       └── ProductFilter.vue           # Filtering controls
+│   ├── modules/                            # Feature modules
+│   │   ├── product/                        # Product module
+│   │   │   ├── pages/                      # Route-level components
+│   │   │   │   └── ProductPage.vue         # Main product page
+│   │   │   ├── stores/                     # Product stores
+│   │   │   │   └── productStore.ts         # Pinia store for product state
 │   │   │   ├── router/
-│   │   │   │   └── index.ts            # Router configuration
-│   │   │   ├── composables/            # Product composables
+│   │   │   │   └── index.ts                # Router configuration
+│   │   │   ├── composables/                # Product composables
 │   │   │   ├── assets/
-│   │   │   │   ├── styles/             # CSS/Styles
-│   │   │   │   │   └── product.css     # Product-specific styles
-│   │   │   │   └── icons/              # SVG/icons
-│   │   │   └── components/             # Module-specific components
+│   │   │   │   ├── styles/                 # CSS/Styles
+│   │   │   │   │   └── product.css         # Product-specific styles
+│   │   │   │   └── icons/                  # SVG/icons
+│   │   │   └── components/                 # Module-specific components
 │   │   │       └── LoginForm.vue
-│   │   ├── dashboard/                  # Another feature module
-│   │   └── auth/                       # Another feature module
-│   ├── stores/                         # State management
-│   │   └── themeStore.ts               # Example: Pinia store for themes
-│   ├── composables/                    # Composition API utilities
-│   │   └── useProduct.ts               # Example: Product-related composable
-│   ├── router/                         # Routing configuration
-│   │   └── index.ts                    # Router setup with routes
-│   ├── assets/                         # Global assets
-│   │   ├── styles/                     # Global styles
-│   │   │   └── main.css                # Global main styles
-│   │   └── images/                     # Global images
-│   └── App.vue                         # Root Vue component
+│   │   ├── dashboard/                      # Another feature module
+│   │   └── auth/                           # Another feature module
+│   ├── stores/                             # State management
+│   │   └── themeStore.ts                   # Example: Pinia store for themes
+│   ├── composables/                        # Composition API utilities
+│   │   └── useProduct.ts                   # Example: Product-related composable
+│   ├── router/                             # Routing configuration
+│   │   └── index.ts                        # Router setup with routes
+│   ├── assets/                             # Global assets
+│   │   ├── styles/                         # Global styles
+│   │   │   └── main.css                    # Global main styles
+│   │   └── images/                         # Global images
+│   └── App.vue                             # Root Vue component
 │
-├── shared/                             # Shared utilities and types
-│   ├── utils/                          # Utility functions
-│   │   ├── formValidator.ts            # Example: Validation utilities
-│   │   └── dateFormatter.ts            # Date formatting utils
-│   ├── constants/                      # Application constants
-│   │   └── product.ts                  # Product-related constants (filter types, etc.)
-│   └── types/                          # Global TypeScript types
-│       └── product.d.ts                # Product-related TypeScript types
+├── shared/                                 # Shared utilities and types
+│   ├── utils/                              # Utility functions
+│   │   ├── formValidator.ts                # Example: Validation utilities
+│   │   └── dateFormatter.ts                # Date formatting utils
+│   ├── constants/                          # Application constants
+│   │   └── product.ts                      # Product-related constants (filter types, etc.)
+│   └── types/                              # Global TypeScript types
+│       └── product.d.ts                    # Product-related TypeScript types
 │
-└── main.ts                             # Application entry point (Vue initialization)
+└── main.ts                                 # Application entry point (Vue initialization)
 ```
 
 ## Project Setup
