@@ -1,6 +1,9 @@
 import Badge from '@/presentation/components/atoms/Badge.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
+/**==========================
+ * BADGE COMPONENT STORIES
+=============================*/
 const meta: Meta<typeof Badge> = {
   title: 'Atoms/Badge',
   component: Badge,
@@ -10,10 +13,19 @@ const meta: Meta<typeof Badge> = {
   },
 };
 
+/**===================================
+ * BADGE COMPONENT META INFORMATION
+======================================*/
 export default meta;
 
+/**===================
+ * BADGE STORY TYPE
+======================*/
 type Story = StoryObj<typeof Badge>;
 
+/**======================
+ * DEFAULT BADGE STORY
+=========================*/
 export const Default: Story = {
   args: {
     count: 5,
@@ -21,6 +33,9 @@ export const Default: Story = {
   },
 };
 
+/**=======================
+ * VARIANTS BADGE STORY
+==========================*/
 export const Variants: Story = {
   render: (args) => ({
     components: { Badge },
@@ -39,6 +54,9 @@ export const Variants: Story = {
   },
 };
 
+/**======================
+ * NUMBERS BADGE STORY
+=========================*/
 export const Numbers: Story = {
   render: (args) => ({
     components: { Badge },
@@ -57,6 +75,9 @@ export const Numbers: Story = {
   },
 };
 
+/**===================
+ * TEXT BADGE STORY
+======================*/
 export const TextBadge: Story = {
   args: {
     count: 'NEW',
@@ -64,6 +85,9 @@ export const TextBadge: Story = {
   },
 };
 
+/**===========================
+ * LARGE NUMBER BADGE STORY
+==============================*/
 export const LargeNumber: Story = {
   args: {
     count: 1000,
@@ -71,6 +95,9 @@ export const LargeNumber: Story = {
   },
 };
 
+/**===================
+ * ZERO BADGE STORY
+======================*/
 export const Zero: Story = {
   args: {
     count: 0,

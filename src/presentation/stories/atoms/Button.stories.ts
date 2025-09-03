@@ -1,6 +1,9 @@
 import Button from '@/presentation/components/atoms/Button.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
+/**===========================
+ * BUTTON COMPONENT STORIES
+==============================*/
 const meta: Meta<typeof Button> = {
   title: 'Atoms/Button',
   component: Button,
@@ -13,10 +16,19 @@ const meta: Meta<typeof Button> = {
   },
 };
 
+/**====================================
+ * BUTTON COMPONENT META INFORMATION
+=======================================*/
 export default meta;
 
+/**==============================
+ * BUTTON COMPONENT STORY TYPE
+=================================*/
 type Story = StoryObj<typeof Button>;
 
+/**=======================
+ * DEFAULT BUTTON STORY
+==========================*/
 export const Default: Story = {
   args: {
     variant: 'primary',
@@ -28,6 +40,9 @@ export const Default: Story = {
   },
 };
 
+/**========================
+ * DISABLED BUTTON STORY
+===========================*/
 export const Disabled: Story = {
   args: {
     variant: 'primary',
@@ -37,6 +52,9 @@ export const Disabled: Story = {
   },
 };
 
+/**========================
+ * VARIANTS BUTTON STORY
+===========================*/
 export const Variants: Story = {
   render: (args) => ({
     components: { Button },
@@ -57,6 +75,9 @@ export const Variants: Story = {
   },
 };
 
+/**=====================
+ * SIZES BUTTON STORY
+========================*/
 export const Sizes: Story = {
   render: (args) => ({
     components: { Button },
@@ -75,6 +96,9 @@ export const Sizes: Story = {
   },
 };
 
+/**==========================
+ * FULL WIDTH BUTTON STORY
+=============================*/
 export const FullWidth: Story = {
   args: {
     variant: 'primary',
