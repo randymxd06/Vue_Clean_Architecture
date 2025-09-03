@@ -35,9 +35,9 @@ export const Default: Story = {
   },
 };
 
-/**============================
+/**=========================
  * CUSTOM APP BRAND STORY
-===============================*/
+============================*/
 export const CustomApp: Story = {
   args: {
     appName: 'Vue Clean Architecture',
@@ -46,9 +46,9 @@ export const CustomApp: Story = {
   },
 };
 
-/**============================
+/**=============================
  * ENTERPRISE APP BRAND STORY
-===============================*/
+================================*/
 export const Enterprise: Story = {
   args: {
     appName: 'Enterprise Dashboard',
@@ -57,9 +57,9 @@ export const Enterprise: Story = {
   },
 };
 
-/**==========================
+/**=============================
  * SHORT NAME APP BRAND STORY
-=============================*/
+================================*/
 export const ShortName: Story = {
   args: {
     appName: 'App',
@@ -68,9 +68,9 @@ export const ShortName: Story = {
   },
 };
 
-/**=========================
+/**============================
  * LONG NAME APP BRAND STORY
-============================*/
+===============================*/
 export const LongName: Story = {
   args: {
     appName: 'Integrated Business Management System',

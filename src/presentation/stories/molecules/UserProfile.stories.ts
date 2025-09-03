@@ -26,9 +26,9 @@ export default meta;
 =======================================*/
 type Story = StoryObj<typeof UserProfile>;
 
-/**==============================
+/**=============================
  * DEFAULT USER PROFILE STORY
-=================================*/
+================================*/
 export const Default: Story = {
   args: {
     name: 'Juan Pérez',
@@ -43,9 +43,9 @@ export const Default: Story = {
   },
 };
 
-/**=======================================
+/**======================================
  * USER PROFILE WITHOUT DROPDOWN STORY
-==========================================*/
+=========================================*/
 export const WithoutDropdown: Story = {
   args: {
     name: 'María García',
@@ -55,9 +55,9 @@ export const WithoutDropdown: Story = {
   },
 };
 
-/**============================
+/**===========================
  * ADMIN USER PROFILE STORY
-===============================*/
+==============================*/
 export const AdminUser: Story = {
   args: {
     name: 'Admin Sistema',
@@ -75,9 +75,9 @@ export const AdminUser: Story = {
   },
 };
 
-/**===============================
+/**===========================
  * GUEST USER PROFILE STORY
-==================================*/
+==============================*/
 export const GuestUser: Story = {
   args: {
     name: 'Usuario Invitado',
@@ -92,9 +92,9 @@ export const GuestUser: Story = {
   },
 };
 
-/**================================
+/**===============================
  * LONG NAME USER PROFILE STORY
-===================================*/
+==================================*/
 export const LongName: Story = {
   args: {
     name: 'María Fernanda González Rodríguez',
@@ -104,9 +104,9 @@ export const LongName: Story = {
   },
 };
 
-/**===================================
+/**===============================
  * NO AVATAR USER PROFILE STORY
-======================================*/
+==================================*/
 export const NoAvatar: Story = {
   args: {
     name: 'Usuario Sin Avatar',
@@ -116,9 +116,9 @@ export const NoAvatar: Story = {
   },
 };
 
-/**====================================
+/**==================================
  * MINIMAL MENU USER PROFILE STORY
-=======================================*/
+=====================================*/
 export const MinimalMenu: Story = {
   args: {
     name: 'Usuario Básico',
@@ -131,9 +131,9 @@ export const MinimalMenu: Story = {
   },
 };
 
-/**====================================
+/**========================================
  * IN SIDEBAR CONTEXT USER PROFILE STORY
-=======================================*/
+===========================================*/
 export const InSidebar: Story = {
   args: {
     name: 'Ana Torres',

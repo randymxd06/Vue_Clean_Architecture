@@ -1,9 +1,9 @@
 import NavigationItem from '@/presentation/components/molecules/NavigationItem.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-/**===================================
+/**====================================
  * NAVIGATION ITEM COMPONENT STORIES
-======================================*/
+=======================================*/
 const meta: Meta<typeof NavigationItem> = {
   title: 'Molecules/NavigationItem',
   component: NavigationItem,
@@ -21,19 +21,19 @@ const meta: Meta<typeof NavigationItem> = {
   ],
 };
 
-/**============================================
+/**=============================================
  * NAVIGATION ITEM COMPONENT META INFORMATION
-===============================================*/
+================================================*/
 export default meta;
 
-/**======================================
+/**=======================================
  * NAVIGATION ITEM COMPONENT STORY TYPE
-=========================================*/
+==========================================*/
 type Story = StoryObj<typeof NavigationItem>;
 
-/**===============================
+/**================================
  * DEFAULT NAVIGATION ITEM STORY
-==================================*/
+===================================*/
 export const Default: Story = {
   args: {
     label: 'Dashboard',
@@ -43,9 +43,9 @@ export const Default: Story = {
   },
 };
 
-/**=============================
+/**===============================
  * ACTIVE NAVIGATION ITEM STORY
-================================*/
+==================================*/
 export const Active: Story = {
   args: {
     label: 'Products',
@@ -55,9 +55,9 @@ export const Active: Story = {
   },
 };
 
-/**====================================
+/**===================================
  * NAVIGATION ITEM WITH BADGE STORY
-=======================================*/
+======================================*/
 export const WithBadge: Story = {
   args: {
     label: 'Notifications',
@@ -103,9 +103,9 @@ export const WithGreenBadge: Story = {
   },
 };
 
-/**====================================
+/**======================================
  * NAVIGATION ITEM EXTERNAL LINK STORY
-=======================================*/
+=========================================*/
 export const ExternalLink: Story = {
   args: {
     label: 'Documentation',
@@ -115,9 +115,9 @@ export const ExternalLink: Story = {
   },
 };
 
-/**===============================
+/**=================================
  * SETTINGS NAVIGATION ITEM STORY
-==================================*/
+====================================*/
 export const Settings: Story = {
   args: {
     label: 'Settings',
@@ -127,9 +127,9 @@ export const Settings: Story = {
   },
 };
 
-/**============================
+/**==============================
  * USERS NAVIGATION ITEM STORY
-===============================*/
+=================================*/
 export const Users: Story = {
   args: {
     label: 'Users',
@@ -143,9 +143,9 @@ export const Users: Story = {
   },
 };
 
-/**====================================
+/**===================================
  * NAVIGATION MENU IN CONTEXT STORY
-=======================================*/
+======================================*/
 export const NavigationMenuContext: Story = {
   render: () => ({
     components: { NavigationItem },

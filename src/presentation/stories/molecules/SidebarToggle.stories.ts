@@ -1,9 +1,9 @@
 import SidebarToggle from '@/presentation/components/molecules/SidebarToggle.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-/**==================================
+/**===================================
  * SIDEBAR TOGGLE COMPONENT STORIES
-=====================================*/
+======================================*/
 const meta: Meta<typeof SidebarToggle> = {
   title: 'Molecules/SidebarToggle',
   component: SidebarToggle,
@@ -13,14 +13,14 @@ const meta: Meta<typeof SidebarToggle> = {
   },
 };
 
-/**===========================================
+/**============================================
  * SIDEBAR TOGGLE COMPONENT META INFORMATION
-==============================================*/
+===============================================*/
 export default meta;
 
-/**=====================================
+/**======================================
  * SIDEBAR TOGGLE COMPONENT STORY TYPE
-========================================*/
+=========================================*/
 type Story = StoryObj<typeof SidebarToggle>;
 
 /**===============================

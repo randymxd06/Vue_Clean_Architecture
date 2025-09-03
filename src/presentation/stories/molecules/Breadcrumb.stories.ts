@@ -22,9 +22,9 @@ export default meta;
 =====================================*/
 type Story = StoryObj<typeof Breadcrumb>;
 
-/**============================
+/**===========================
  * DEFAULT BREADCRUMB STORY
-===============================*/
+==============================*/
 export const Default: Story = {
   args: {
     items: [
@@ -47,9 +47,9 @@ export const Simple: Story = {
   },
 };
 
-/**=========================
+/**========================
  * LONG BREADCRUMB STORY
-============================*/
+===========================*/
 export const Long: Story = {
   args: {
     items: [
@@ -74,9 +74,9 @@ export const Single: Story = {
   },
 };
 
-/**==============================
+/**==================================
  * ADMINISTRATIVE BREADCRUMB STORY
-=================================*/
+=====================================*/
 export const Administrative: Story = {
   args: {
     items: [

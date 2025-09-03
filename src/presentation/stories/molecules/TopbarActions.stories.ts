@@ -2,9 +2,9 @@ import TopbarActions from '@/presentation/components/molecules/TopbarActions.vue
 import UserProfile from '@/presentation/components/molecules/UserProfile.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-/**==================================
+/**===================================
  * TOPBAR ACTIONS COMPONENT STORIES
-=====================================*/
+======================================*/
 const meta: Meta<typeof TopbarActions> = {
   title: 'Molecules/TopbarActions',
   component: TopbarActions,
@@ -15,14 +15,14 @@ const meta: Meta<typeof TopbarActions> = {
   },
 };
 
-/**===========================================
+/**============================================
  * TOPBAR ACTIONS COMPONENT META INFORMATION
-==============================================*/
+===============================================*/
 export default meta;
 
-/**=====================================
+/**======================================
  * TOPBAR ACTIONS COMPONENT STORY TYPE
-========================================*/
+=========================================*/
 type Story = StoryObj<typeof TopbarActions>;
 
 /**===============================

@@ -1,9 +1,9 @@
 import ThemeSelector from '@/presentation/components/molecules/ThemeSelector.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-/**==================================
+/**===================================
  * THEME SELECTOR COMPONENT STORIES
-=====================================*/
+======================================*/
 const meta: Meta<typeof ThemeSelector> = {
   title: 'Molecules/ThemeSelector',
   component: ThemeSelector,
@@ -17,14 +17,14 @@ const meta: Meta<typeof ThemeSelector> = {
   },
 };
 
-/**===========================================
+/**============================================
  * THEME SELECTOR COMPONENT META INFORMATION
-==============================================*/
+===============================================*/
 export default meta;
 
-/**=====================================
+/**======================================
  * THEME SELECTOR COMPONENT STORY TYPE
-========================================*/
+=========================================*/
 type Story = StoryObj<typeof ThemeSelector>;
 
 /**===============================
