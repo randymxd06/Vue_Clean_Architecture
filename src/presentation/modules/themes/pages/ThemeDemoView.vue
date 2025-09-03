@@ -2,7 +2,17 @@
   <div class="min-h-screen p-6">
     <div class="max-w-6xl mx-auto space-y-8">
       <!-- Header -->
-      <div class="text-center mb-12">
+             <div>
+              <label for="message" class="block text-sm font-medium text-text-primary mb-2">
+                Mensaje
+              </label>
+              <textarea 
+                id="message"
+                placeholder="Escribe tu mensaje aquí..."
+                rows="3"
+                class="w-full px-3 py-2 border border-border rounded-lg bg-card text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              ></textarea>
+            </div>class="text-center mb-12">
         <h1 class="text-4xl font-bold text-text-primary mb-4">
           Demostración de Temas Personalizados
         </h1>
@@ -101,20 +111,22 @@
           <h3 class="text-xl font-semibold text-text-primary mb-6">Formularios</h3>
           <div class="space-y-4">
             <div>
-              <label class="block text-sm font-medium text-text-primary mb-2">
+              <label for="username" class="block text-sm font-medium text-text-primary mb-2">
                 Nombre de usuario
               </label>
               <input 
+                id="username"
                 type="text" 
                 placeholder="Ingresa tu usuario"
                 class="w-full px-3 py-2 border border-border rounded-lg bg-card text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
             </div>
             <div>
-              <label class="block text-sm font-medium text-text-primary mb-2">
+              <label for="message" class="block text-sm font-medium text-text-primary mb-2">
                 Mensaje
               </label>
               <textarea 
+                id="message"
                 placeholder="Escribe tu mensaje aquí..."
                 rows="3"
                 class="w-full px-3 py-2 border border-border rounded-lg bg-card text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
