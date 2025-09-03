@@ -34,3 +34,6 @@ coverage
 .sonarlint
 .scannerwork/
 sonar-project.properties
+
+*storybook.log
+storybook-static
