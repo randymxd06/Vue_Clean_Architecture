@@ -10,7 +10,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - 80:80
+      - 80:8080
 
   sonarqube:
     image: sonarqube:latest
