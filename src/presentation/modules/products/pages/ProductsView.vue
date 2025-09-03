@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue"
-import type { Product } from "@/domain/entities/Product"
+import type { Product } from "@/domain/entities/products/Product"
 import { useProductStore } from "../stores/productStore"
 import Button from "@/presentation/components/atoms/Button.vue"
 import Icon from "@/presentation/components/atoms/Icon.vue"
