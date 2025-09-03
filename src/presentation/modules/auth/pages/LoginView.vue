@@ -1,24 +1,22 @@
 <script lang="ts" setup>
-import { useRouter } from 'vue-router'
+import { useRouter } from "vue-router"
 
 /**=============
  * USE ROUTER
 ================*/
-const router = useRouter();
+const router = useRouter()
 
 /**=====================
  * ON SUBMIT FUNCTION
  * @returns {void}
 ========================*/
 const onSubmit = (): void => {
+    console.log("Login form submitted")
 
-  console.log("Login form submitted");
-
-  /**========================================
+    /**========================================
    * NAVIGATE TO PRODUCTS PAGE AFTER LOGIN
   ===========================================*/
-  router.push({ name: 'products' })
-
+    router.push({ name: "products" })
 }
 </script>
 

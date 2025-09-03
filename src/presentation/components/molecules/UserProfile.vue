@@ -1,27 +1,27 @@
 <script lang="ts" setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-import Avatar from '@/presentation/components/atoms/Avatar.vue';
-import Icon from '@/presentation/components/atoms/Icon.vue';
-import Button from '@/presentation/components/atoms/Button.vue';
+import { onMounted, onUnmounted, ref } from "vue"
+import Avatar from "@/presentation/components/atoms/Avatar.vue"
+import Button from "@/presentation/components/atoms/Button.vue"
+import Icon from "@/presentation/components/atoms/Icon.vue"
 
 /**======================
  * MENU ITEM INTERFACE
 =========================*/
 interface MenuItem {
-    label: string;
-    icon: string;
-    action: string;
+    label: string
+    icon: string
+    action: string
 }
 
 /**=========================
  * USER PROFILE INTERFACE
 ============================*/
 interface Props {
-    name: string;
-    email: string;
-    avatarSrc: string;
-    showDropdown?: boolean;
-    menuItems?: MenuItem[];
+    name: string
+    email: string
+    avatarSrc: string
+    showDropdown?: boolean
+    menuItems?: MenuItem[]
 }
 
 /**=======================
@@ -30,34 +30,34 @@ interface Props {
 withDefaults(defineProps<Props>(), {
     showDropdown: true,
     menuItems: () => [
-        { label: 'Mi Perfil', icon: 'user', action: 'profile' },
-        { label: 'Configuración', icon: 'settings', action: 'settings' },
-        { label: 'Cerrar Sesión', icon: 'log-out', action: 'logout' }
-    ]
-});
+        { label: "Mi Perfil", icon: "user", action: "profile" },
+        { label: "Configuración", icon: "settings", action: "settings" },
+        { label: "Cerrar Sesión", icon: "log-out", action: "logout" },
+    ],
+})
 
 /**========
  * EMITS
 ===========*/
 const emit = defineEmits<{
-    'toggle-dropdown': [];
-    'menu-item-click': [action: string];
-}>();
+    "toggle-dropdown": []
+    "menu-item-click": [action: string]
+}>()
 
 /**=================
  * DROPDOWN STATE
 ====================*/
-const isDropdownOpen = ref(false);
-const dropdownRef = ref<HTMLElement | null>(null);
+const isDropdownOpen = ref(false)
+const dropdownRef = ref<HTMLElement | null>(null)
 
 /**===============================
  * HANDLE TOGGLE DROPDOWN EVENT
  * @returns {void}
 ==================================*/
 const handleToggleDropdown = (): void => {
-    isDropdownOpen.value = !isDropdownOpen.value;
-    emit('toggle-dropdown');
-};
+    isDropdownOpen.value = !isDropdownOpen.value
+    emit("toggle-dropdown")
+}
 
 /**===============================
  * HANDLE MENU ITEM CLICK EVENT
@@ -65,9 +65,9 @@ const handleToggleDropdown = (): void => {
  * @returns {void}
 ==================================*/
 const handleMenuItemClick = (action: string): void => {
-    emit('menu-item-click', action);
-    isDropdownOpen.value = false;
-};
+    emit("menu-item-click", action)
+    isDropdownOpen.value = false
+}
 
 /**=============================
  * HANDLE CLICK OUTSIDE EVENT
@@ -76,23 +76,23 @@ const handleMenuItemClick = (action: string): void => {
 ================================*/
 const handleClickOutside = (event: MouseEvent): void => {
     if (dropdownRef.value && !dropdownRef.value.contains(event.target as Node)) {
-        isDropdownOpen.value = false;
+        isDropdownOpen.value = false
     }
-};
+}
 
 /**=============
  * ON MOUNTED
 ================*/
 onMounted(() => {
-    document.addEventListener('click', handleClickOutside);
-});
+    document.addEventListener("click", handleClickOutside)
+})
 
 /**===============
  * ON UNMOUNTED
 ==================*/
 onUnmounted(() => {
-    document.removeEventListener('click', handleClickOutside);
-});
+    document.removeEventListener("click", handleClickOutside)
+})
 </script>
 
 <template>

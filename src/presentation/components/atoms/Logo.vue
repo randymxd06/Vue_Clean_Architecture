@@ -3,26 +3,26 @@
  * LOGO PROPS
 ================*/
 interface Props {
-  size?: 'sm' | 'md' | 'lg';
-  letter?: string;
+    size?: "sm" | "md" | "lg"
+    letter?: string
 }
 
 /**=======================
  * DEFAULT PROPS VALUES
 ==========================*/
 withDefaults(defineProps<Props>(), {
-  size: 'md',
-  letter: 'M'
-});
+    size: "md",
+    letter: "M",
+})
 
 /**===============
  * SIZE CLASSES
 ==================*/
 const sizeClasses = {
-  sm: 'w-6 h-6 text-xs',
-  md: 'w-10 h-10 text-sm',
-  lg: 'w-12 h-12 text-base'
-};
+    sm: "w-6 h-6 text-xs",
+    md: "w-10 h-10 text-sm",
+    lg: "w-12 h-12 text-base",
+}
 </script>
 
 <template>

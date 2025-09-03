@@ -1,35 +1,35 @@
 <script lang="ts" setup>
-import Icon from '@/presentation/components/atoms/Icon.vue';
-import Badge from '@/presentation/components/atoms/Badge.vue';
+import Badge from "@/presentation/components/atoms/Badge.vue"
+import Icon from "@/presentation/components/atoms/Icon.vue"
 
 /**========================
  * NAVIGATION ITEM PROPS
 ===========================*/
 interface Props {
-  label: string;
-  icon: string;
-  href?: string;
-  isActive?: boolean;
-  badge?: {
-    count: number | string;
-    variant?: 'blue' | 'red' | 'green' | 'gray';
-  };
+    label: string
+    icon: string
+    href?: string
+    isActive?: boolean
+    badge?: {
+        count: number | string
+        variant?: "blue" | "red" | "green" | "gray"
+    }
 }
 
 /**=======================
  * DEFAULT PROPS VALUES
 ==========================*/
 withDefaults(defineProps<Props>(), {
-  href: '#',
-  isActive: false
-});
+    href: "#",
+    isActive: false,
+})
 
 /**========
  * EMITS
 ===========*/
 const emit = defineEmits<{
-  click: [event: Event];
-}>();
+    click: [event: Event]
+}>()
 
 /**=======================
  * HANDLE CLICK EVENT
@@ -37,8 +37,8 @@ const emit = defineEmits<{
  * @returns {void}
 ==========================*/
 const handleClick = (event: Event): void => {
-  emit('click', event);
-};
+    emit("click", event)
+}
 </script>
 
 <template>

@@ -1,40 +1,40 @@
 <script lang="ts" setup>
-import SectionHeader from '@/presentation/components/molecules/SectionHeader.vue';
-import NavigationItem from '@/presentation/components/molecules/NavigationItem.vue';
+import NavigationItem from "@/presentation/components/molecules/NavigationItem.vue"
+import SectionHeader from "@/presentation/components/molecules/SectionHeader.vue"
 
 /**=================================
  * NAVIGATION ITEM DATA INTERFACE
 ====================================*/
 interface NavigationItemData {
-  label: string;
-  icon: string;
-  href?: string;
-  isActive?: boolean;
-  badge?: {
-    count: number | string;
-    variant?: 'blue' | 'red' | 'green' | 'gray';
-  };
+    label: string
+    icon: string
+    href?: string
+    isActive?: boolean
+    badge?: {
+        count: number | string
+        variant?: "blue" | "red" | "green" | "gray"
+    }
 }
 
 /**===========================
  * NAVIGATION SECTION PROPS
 ==============================*/
 interface Props {
-  title: string;
-  items: NavigationItemData[];
+    title: string
+    items: NavigationItemData[]
 }
 
 /**===============
  * DEFINE PROPS
 ==================*/
-defineProps<Props>();
+defineProps<Props>()
 
 /**========
  * EMITS
 ===========*/
 const emit = defineEmits<{
-  'item-click': [item: NavigationItemData, event: Event];
-}>();
+    "item-click": [item: NavigationItemData, event: Event]
+}>()
 
 /**===================================
  * HANDLE ITEM CLICK EVENT
@@ -43,8 +43,8 @@ const emit = defineEmits<{
  * @returns {void}
 ======================================*/
 const handleItemClick = (item: NavigationItemData, event: Event): void => {
-  emit('item-click', item, event);
-};
+    emit("item-click", item, event)
+}
 </script>
 
 <template>

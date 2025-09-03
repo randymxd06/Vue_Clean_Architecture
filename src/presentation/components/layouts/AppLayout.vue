@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { useSidebar } from '@/presentation/composables/useSidebar';
-import Sidebar from '../organisms/Sidebar.vue';
-import Topbar from '../organisms/Topbar.vue';
+import { useSidebar } from "@/presentation/composables/useSidebar"
+import Sidebar from "../organisms/Sidebar.vue"
+import Topbar from "../organisms/Topbar.vue"
 
-const { sidebarVisible, isMobile, openSidebar, closeSidebar, toggleSidebar } = useSidebar();
+const { sidebarVisible, isMobile, openSidebar, closeSidebar, toggleSidebar } = useSidebar()
 </script>
 
 <template>

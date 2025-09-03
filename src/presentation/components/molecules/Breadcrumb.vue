@@ -1,25 +1,25 @@
 <script lang="ts" setup>
-import { Icon } from '../index';
+import { Icon } from "../index"
 
 /**============================
  * BREADCRUMB ITEM INTERFACE
 ===============================*/
 interface BreadcrumbItem {
-  label: string;
-  active?: boolean;
+    label: string
+    active?: boolean
 }
 
 /**===================
  * BREADCRUMB PROPS
 ======================*/
 interface Props {
-  items: BreadcrumbItem[];
+    items: BreadcrumbItem[]
 }
 
 /**===============
  * DEFINE PROPS
 ==================*/
-defineProps<Props>();
+defineProps<Props>()
 </script>
 
 <template>

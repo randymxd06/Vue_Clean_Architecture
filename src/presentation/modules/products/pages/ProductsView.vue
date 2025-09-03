@@ -1,26 +1,26 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue"
 import type { Product } from "@/domain/entities/products/Product"
-import { useProductStore } from "../stores/productStore"
 import Button from "@/presentation/components/atoms/Button.vue"
 import Icon from "@/presentation/components/atoms/Icon.vue"
+import { useProductStore } from "../stores/productStore"
 
 /**===========================
  * PRODUCT MANAGEMENT STORE
 ==============================*/
-const productStore = useProductStore();
+const productStore = useProductStore()
 
 /**=========
  * STATES
 ============*/
-const isEditing = ref<boolean>(false);
-const currentProductId = ref<string | null>(null);
+const isEditing = ref<boolean>(false)
+const currentProductId = ref<string | null>(null)
 
 /**=============
  * ON MOUNTED
 ================*/
 onMounted(() => {
-  productStore.loadProducts();
+    productStore.loadProducts()
 })
 
 /**==================
@@ -28,31 +28,25 @@ onMounted(() => {
  * @returns {void}
 =====================*/
 const handleSubmit = (): void => {
-
-  /**==================================
+    /**==================================
    *  IF EDITING, UPDATE THE PRODUCT
    *  OTHERWISE, ADD A NEW PRODUCT
   =====================================*/
-  if (isEditing.value && currentProductId.value) {
+    if (isEditing.value && currentProductId.value) {
+        const product = {
+            ...productStore.newProduct,
+            id: currentProductId.value,
+        }
 
-    const product = {
-      ...productStore.newProduct,
-      id: currentProductId.value,
+        productStore.updateProductItem(product)
+    } else {
+        productStore.addProduct()
     }
 
-    productStore.updateProductItem(product);
-
-  } else {
-
-    productStore.addProduct();
-
-  }
-
-  /**=============
+    /**=============
    * RESET FORM
   ================*/
-  resetForm();
-
+    resetForm()
 }
 
 /**===========================
@@ -61,15 +55,15 @@ const handleSubmit = (): void => {
  * @returns {void}
 ==============================*/
 const editProduct = (product: Product): void => {
-  isEditing.value = true;
-  currentProductId.value = product.id;
-  productStore.newProduct = {
-    name: product.name,
-    description: product.description,
-    price: product.price,
-    stock: product.stock,
-    category: product.category,
-  }
+    isEditing.value = true
+    currentProductId.value = product.id
+    productStore.newProduct = {
+        name: product.name,
+        description: product.description,
+        price: product.price,
+        stock: product.stock,
+        category: product.category,
+    }
 }
 
 /**==================
@@ -77,9 +71,9 @@ const editProduct = (product: Product): void => {
  * @returns {void}
 =====================*/
 const resetForm = (): void => {
-  isEditing.value = false;
-  currentProductId.value = null;
-  productStore.resetNewProduct();
+    isEditing.value = false
+    currentProductId.value = null
+    productStore.resetNewProduct()
 }
 </script>
 

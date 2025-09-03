@@ -1,45 +1,45 @@
-import TopbarActions from '@/presentation/components/molecules/TopbarActions.vue';
-import UserProfile from '@/presentation/components/molecules/UserProfile.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from "@storybook/vue3"
+import TopbarActions from "@/presentation/components/molecules/TopbarActions.vue"
+import UserProfile from "@/presentation/components/molecules/UserProfile.vue"
 
 /**===================================
  * TOPBAR ACTIONS COMPONENT STORIES
 ======================================*/
 const meta: Meta<typeof TopbarActions> = {
-  title: 'Molecules/TopbarActions',
-  component: TopbarActions,
-  argTypes: {
-    showThemeToggle: { control: 'boolean' },
-    showNotifications: { control: 'boolean' },
-    notificationCount: { control: 'number' },
-  },
-};
+    title: "Molecules/TopbarActions",
+    component: TopbarActions,
+    argTypes: {
+        showThemeToggle: { control: "boolean" },
+        showNotifications: { control: "boolean" },
+        notificationCount: { control: "number" },
+    },
+}
 
 /**============================================
  * TOPBAR ACTIONS COMPONENT META INFORMATION
 ===============================================*/
-export default meta;
+export default meta
 
 /**======================================
  * TOPBAR ACTIONS COMPONENT STORY TYPE
 =========================================*/
-type Story = StoryObj<typeof TopbarActions>;
+type Story = StoryObj<typeof TopbarActions>
 
 /**===============================
  * DEFAULT TOPBAR ACTIONS STORY
 ==================================*/
 export const Default: Story = {
-  args: {
-    showThemeToggle: true,
-    showNotifications: true,
-    notificationCount: 12,
-  },
-  render: (args) => ({
-    components: { TopbarActions, UserProfile },
-    setup() {
-      return { args };
+    args: {
+        showThemeToggle: true,
+        showNotifications: true,
+        notificationCount: 12,
     },
-    template: `
+    render: args => ({
+        components: { TopbarActions, UserProfile },
+        setup() {
+            return { args }
+        },
+        template: `
       <div class="bg-background min-h-[200px]">
         <!-- Simulación de Topbar completa -->
         <header class="bg-card border-b border-border px-6 py-4">
@@ -71,5 +71,5 @@ export const Default: Story = {
         </main>
       </div>
     `,
-  }),
-};
+    }),
+}

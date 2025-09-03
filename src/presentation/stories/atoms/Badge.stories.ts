@@ -1,46 +1,48 @@
-import Badge from '@/presentation/components/atoms/Badge.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from "@storybook/vue3"
+import Badge from "@/presentation/components/atoms/Badge.vue"
 
 /**==========================
  * BADGE COMPONENT STORIES
 =============================*/
 const meta: Meta<typeof Badge> = {
-  title: 'Atoms/Badge',
-  component: Badge,
-  argTypes: {
-    count: { control: 'text' },
-    variant: { control: 'select', options: ['blue', 'red', 'green', 'gray'] },
-  },
-};
+    title: "Atoms/Badge",
+    component: Badge,
+    argTypes: {
+        count: { control: "text" },
+        variant: { control: "select", options: ["blue", "red", "green", "gray"] },
+    },
+}
 
 /**===================================
  * BADGE COMPONENT META INFORMATION
 ======================================*/
-export default meta;
+export default meta
 
 /**===================
  * BADGE STORY TYPE
 ======================*/
-type Story = StoryObj<typeof Badge>;
+type Story = StoryObj<typeof Badge>
 
 /**======================
  * DEFAULT BADGE STORY
 =========================*/
 export const Default: Story = {
-  args: {
-    count: 5,
-    variant: 'blue',
-  },
-};
+    args: {
+        count: 5,
+        variant: "blue",
+    },
+}
 
 /**=======================
  * VARIANTS BADGE STORY
 ==========================*/
 export const Variants: Story = {
-  render: (args) => ({
-    components: { Badge },
-    setup() { return { args }; },
-    template: `
+    render: args => ({
+        components: { Badge },
+        setup() {
+            return { args }
+        },
+        template: `
       <div style="display: flex; gap: 1rem; align-items: center;">
         <Badge v-bind="{ ...args, variant: 'blue' }" />
         <Badge v-bind="{ ...args, variant: 'red' }" />
@@ -48,20 +50,22 @@ export const Variants: Story = {
         <Badge v-bind="{ ...args, variant: 'gray' }" />
       </div>
     `,
-  }),
-  args: {
-    count: 5,
-  },
-};
+    }),
+    args: {
+        count: 5,
+    },
+}
 
 /**======================
  * NUMBERS BADGE STORY
 =========================*/
 export const Numbers: Story = {
-  render: (args) => ({
-    components: { Badge },
-    setup() { return { args }; },
-    template: `
+    render: args => ({
+        components: { Badge },
+        setup() {
+            return { args }
+        },
+        template: `
       <div style="display: flex; gap: 1rem; align-items: center;">
         <Badge v-bind="{ ...args, count: 1 }" />
         <Badge v-bind="{ ...args, count: 9 }" />
@@ -69,38 +73,38 @@ export const Numbers: Story = {
         <Badge v-bind="{ ...args, count: 999 }" />
       </div>
     `,
-  }),
-  args: {
-    variant: 'blue',
-  },
-};
+    }),
+    args: {
+        variant: "blue",
+    },
+}
 
 /**===================
  * TEXT BADGE STORY
 ======================*/
 export const TextBadge: Story = {
-  args: {
-    count: 'NEW',
-    variant: 'green',
-  },
-};
+    args: {
+        count: "NEW",
+        variant: "green",
+    },
+}
 
 /**===========================
  * LARGE NUMBER BADGE STORY
 ==============================*/
 export const LargeNumber: Story = {
-  args: {
-    count: 1000,
-    variant: 'red',
-  },
-};
+    args: {
+        count: 1000,
+        variant: "red",
+    },
+}
 
 /**===================
  * ZERO BADGE STORY
 ======================*/
 export const Zero: Story = {
-  args: {
-    count: 0,
-    variant: 'gray',
-  },
-};
+    args: {
+        count: 0,
+        variant: "gray",
+    },
+}

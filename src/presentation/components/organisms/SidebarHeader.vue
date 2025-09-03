@@ -1,23 +1,23 @@
 <script lang="ts" setup>
-import AppBrand from '@/presentation/components/molecules/AppBrand.vue';
+import AppBrand from "@/presentation/components/molecules/AppBrand.vue"
 
 /**=======================
  * SIDEBAR HEADER PROPS
 ==========================*/
 interface Props {
-  appName?: string;
-  version?: string;
-  logoLetter?: string;
+    appName?: string
+    version?: string
+    logoLetter?: string
 }
 
 /**=======================
  * DEFAULT PROPS VALUES
 ==========================*/
 withDefaults(defineProps<Props>(), {
-  appName: 'Mi Aplicación',
-  version: 'Versión 2.0',
-  logoLetter: 'M'
-});
+    appName: "Mi Aplicación",
+    version: "Versión 2.0",
+    logoLetter: "M",
+})
 </script>
 
 <template>

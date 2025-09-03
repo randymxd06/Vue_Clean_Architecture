@@ -1,11 +1,10 @@
 <script lang="ts" setup>
-
 /**=====================
  * ON SUBMIT FUNCTION
  * @returns {void}
 ========================*/
 const onSubmit = (): void => {
-    console.log("Register form submitted");
+    console.log("Register form submitted")
 }
 </script>
 

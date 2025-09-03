@@ -1,18 +1,18 @@
 import { defineStore } from "pinia"
-import { ref, watch, computed, type ComputedRef } from "vue"
+import { type ComputedRef, computed, ref, watch } from "vue"
 import { AVAILABLE_THEMES, type Theme, type ThemeId } from "@/presentation/types/theme"
 
 /**==================================
  * THEME STORE RESOURCES INTERFACE
 =====================================*/
 interface ThemeStoreResources {
-    theme: string;
-    currentTheme: ComputedRef<Theme>;
-    lightThemes: ComputedRef<Theme[]>;
-    darkThemes: ComputedRef<Theme[]>;
-    toggleTheme: () => void;
-    toggleMode: () => void;
-    setTheme: (themeId: ThemeId) => void;
+    theme: string
+    currentTheme: ComputedRef<Theme>
+    lightThemes: ComputedRef<Theme[]>
+    darkThemes: ComputedRef<Theme[]>
+    toggleTheme: () => void
+    toggleMode: () => void
+    setTheme: (themeId: ThemeId) => void
 }
 
 /**=================================
@@ -20,11 +20,10 @@ interface ThemeStoreResources {
  * @returns {ThemeStoreResources}
 ====================================*/
 export const useThemeStore = defineStore("theme", (): ThemeStoreResources => {
-    
     /**=========
      * STATES
     ============*/
-    const theme = ref<ThemeId>("light");
+    const theme = ref<ThemeId>("light")
 
     /**================
      * COMPUTED
@@ -34,11 +33,11 @@ export const useThemeStore = defineStore("theme", (): ThemeStoreResources => {
     })
 
     const lightThemes = computed((): Theme[] => {
-        return AVAILABLE_THEMES.filter(t => t.mode === 'light')
+        return AVAILABLE_THEMES.filter(t => t.mode === "light")
     })
 
     const darkThemes = computed((): Theme[] => {
-        return AVAILABLE_THEMES.filter(t => t.mode === 'dark')
+        return AVAILABLE_THEMES.filter(t => t.mode === "dark")
     })
 
     /**===========================
@@ -47,12 +46,12 @@ export const useThemeStore = defineStore("theme", (): ThemeStoreResources => {
      * @returns {void}
     ==============================*/
     const applyTheme = (newTheme: string): void => {
-        if (typeof document !== 'undefined') {
+        if (typeof document !== "undefined") {
             const themeObj = AVAILABLE_THEMES.find(t => t.id === newTheme)
-            if (themeObj?.mode === 'dark') {
-                document.documentElement.classList.add('dark');
+            if (themeObj?.mode === "dark") {
+                document.documentElement.classList.add("dark")
             } else {
-                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.remove("dark")
             }
         }
     }
@@ -62,12 +61,12 @@ export const useThemeStore = defineStore("theme", (): ThemeStoreResources => {
      * @returns {void}
     =========================*/
     const initTheme = (): void => {
-        if (typeof window !== 'undefined') {
-            const savedTheme = localStorage.getItem('theme') || 'light';
+        if (typeof window !== "undefined") {
+            const savedTheme = localStorage.getItem("theme") || "light"
             if (AVAILABLE_THEMES.find(t => t.id === savedTheme)) {
-                theme.value = savedTheme as ThemeId;
+                theme.value = savedTheme as ThemeId
             }
-            applyTheme(theme.value);
+            applyTheme(theme.value)
         }
     }
 
@@ -76,7 +75,7 @@ export const useThemeStore = defineStore("theme", (): ThemeStoreResources => {
      * @returns {void}
     ===========================*/
     const toggleTheme = (): void => {
-        theme.value = theme.value === "light" ? "dark" : "light";
+        theme.value = theme.value === "light" ? "dark" : "light"
     }
 
     /**========================
@@ -85,15 +84,15 @@ export const useThemeStore = defineStore("theme", (): ThemeStoreResources => {
     ===========================*/
     const toggleMode = (): void => {
         const currentMode = currentTheme.value.mode
-        if (currentMode === 'light') {
+        if (currentMode === "light") {
             // Find the first dark theme
-            const darkTheme = AVAILABLE_THEMES.find(t => t.mode === 'dark')
+            const darkTheme = AVAILABLE_THEMES.find(t => t.mode === "dark")
             if (darkTheme) {
                 theme.value = darkTheme.id as ThemeId
             }
         } else {
             // Find the first light theme
-            const lightTheme = AVAILABLE_THEMES.find(t => t.mode === 'light')
+            const lightTheme = AVAILABLE_THEMES.find(t => t.mode === "light")
             if (lightTheme) {
                 theme.value = lightTheme.id as ThemeId
             }
@@ -114,17 +113,17 @@ export const useThemeStore = defineStore("theme", (): ThemeStoreResources => {
     /**======================
      * WATCH THEME CHANGES
     =========================*/
-    watch(theme, (newTheme) => {
-        applyTheme(newTheme);
-        if (typeof window !== 'undefined') {
-            localStorage.setItem('theme', newTheme);
+    watch(theme, newTheme => {
+        applyTheme(newTheme)
+        if (typeof window !== "undefined") {
+            localStorage.setItem("theme", newTheme)
         }
     })
 
     /**===================
      * INITIALIZE THEME
     ======================*/
-    initTheme();
+    initTheme()
 
     return {
         theme: theme.value,
@@ -135,5 +134,4 @@ export const useThemeStore = defineStore("theme", (): ThemeStoreResources => {
         toggleMode,
         setTheme,
     }
-    
 })

@@ -1,15 +1,15 @@
-import type { App } from 'vue'
-import { setupPinia } from './pinia'
-import { setupRouter } from './vue-router'
-import { setupAnimXYZ } from './animxyz'
-import { useThemeStore } from '@/presentation/stores/themeStore'
+import type { App } from "vue"
+import { useThemeStore } from "@/presentation/stores/themeStore"
+import { setupAnimXYZ } from "./animxyz"
+import { setupPinia } from "./pinia"
+import { setupRouter } from "./vue-router"
 
 export function setupPlugins(app: App) {
-    setupPinia(app);
-    
+    setupPinia(app)
+
     // Inicializar el theme store después de Pinia
-    const themeStore = useThemeStore();
-    
-    setupRouter(app);
-    setupAnimXYZ(app);
+    const themeStore = useThemeStore()
+
+    setupRouter(app)
+    setupAnimXYZ(app)
 }

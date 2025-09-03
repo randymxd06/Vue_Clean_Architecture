@@ -1,42 +1,42 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
-import { SidebarToggle, Breadcrumb, TopbarActions } from '../index';
-import { useThemeStore } from '@/presentation/stores/themeStore';
+import { computed } from "vue"
+import { useThemeStore } from "@/presentation/stores/themeStore"
+import { Breadcrumb, SidebarToggle, TopbarActions } from "../index"
 
 /**===============
  * TOPBAR PROPS
 ==================*/
 interface Props {
-    isMobile: boolean;
-    sidebarVisible: boolean;
+    isMobile: boolean
+    sidebarVisible: boolean
 }
 
 /**===============
  * DEFINE PROPS
 ==================*/
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 
 /**===============
  * DEFINE EMITS
 ==================*/
 const emit = defineEmits<{
-    'open-sidebar': [];
-    'toggle-sidebar': [];
-    'notifications-click': [];
-}>();
+    "open-sidebar": []
+    "toggle-sidebar": []
+    "notifications-click": []
+}>()
 
 /**===============
  * THEME STORE
 ==================*/
-const themeStore = useThemeStore();
+const themeStore = useThemeStore()
 
 /**====================
  * BREADCRUMB ITEMS
 =======================*/
 const breadcrumbItems = computed(() => [
-    { label: 'Dashboard', active: false },
-    { label: 'Inicio', active: true }
-]);
+    { label: "Dashboard", active: false },
+    { label: "Inicio", active: true },
+])
 </script>
 
 <template>

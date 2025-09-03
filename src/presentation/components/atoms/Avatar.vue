@@ -3,26 +3,26 @@
  * AVATAR PROPS
 ==================*/
 interface Props {
-  src: string;
-  alt: string;
-  size?: 'sm' | 'md' | 'lg';
+    src: string
+    alt: string
+    size?: "sm" | "md" | "lg"
 }
 
 /**=======================
  * DEFAULT PROPS VALUES
 ==========================*/
 withDefaults(defineProps<Props>(), {
-  size: 'md'
-});
+    size: "md",
+})
 
 /**===========================
  * CLASSES FOR AVATAR SIZES
 ==============================*/
 const sizeClasses = {
-  sm: 'w-6 h-6',
-  md: 'w-8 h-8',
-  lg: 'w-12 h-12'
-};
+    sm: "w-6 h-6",
+    md: "w-8 h-8",
+    lg: "w-12 h-12",
+}
 </script>
 
 <template>

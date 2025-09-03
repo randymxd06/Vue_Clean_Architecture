@@ -160,10 +160,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { useThemeStore } from '@/presentation/stores/themeStore'
-import { Icon } from '@/presentation/components'
-import type { ThemeId } from '@/presentation/types/theme'
+import { computed, onMounted, onUnmounted, ref } from "vue"
+import { Icon } from "@/presentation/components"
+import { useThemeStore } from "@/presentation/stores/themeStore"
+import type { ThemeId } from "@/presentation/types/theme"
 
 const themeStore = useThemeStore()
 const isOpen = ref(false)
@@ -173,38 +173,38 @@ const lightThemes = computed(() => themeStore.lightThemes)
 const darkThemes = computed(() => themeStore.darkThemes)
 
 const selectTheme = (themeId: ThemeId) => {
-  themeStore.setTheme(themeId)
-  // No cerrar automáticamente para permitir comparar temas
+    themeStore.setTheme(themeId)
+    // No cerrar automáticamente para permitir comparar temas
 }
 
 // Función para obtener el color de fondo del tema seleccionado
 const getSelectedDarkThemeBackground = (theme: any) => {
-  if (currentTheme.value.id !== theme.id) return {}
-  
-  // Convertir hex a rgba con opacidad
-  const hex = theme.colors.primary.replace('#', '')
-  const r = parseInt(hex.substr(0, 2), 16)
-  const g = parseInt(hex.substr(2, 2), 16)
-  const b = parseInt(hex.substr(4, 2), 16)
-  
-  return {
-    backgroundColor: `rgba(${r}, ${g}, ${b}, 0.2)`,
-    borderColor: theme.colors.primary
-  }
+    if (currentTheme.value.id !== theme.id) return {}
+
+    // Convertir hex a rgba con opacidad
+    const hex = theme.colors.primary.replace("#", "")
+    const r = parseInt(hex.substr(0, 2), 16)
+    const g = parseInt(hex.substr(2, 2), 16)
+    const b = parseInt(hex.substr(4, 2), 16)
+
+    return {
+        backgroundColor: `rgba(${r}, ${g}, ${b}, 0.2)`,
+        borderColor: theme.colors.primary,
+    }
 }
 
 // Cerrar el panel al presionar Escape
 const handleKeydown = (event: KeyboardEvent) => {
-  if (event.key === 'Escape') {
-    isOpen.value = false
-  }
+    if (event.key === "Escape") {
+        isOpen.value = false
+    }
 }
 
 onMounted(() => {
-  document.addEventListener('keydown', handleKeydown)
+    document.addEventListener("keydown", handleKeydown)
 })
 
 onUnmounted(() => {
-  document.removeEventListener('keydown', handleKeydown)
+    document.removeEventListener("keydown", handleKeydown)
 })
 </script>

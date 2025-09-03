@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-
 /**====================
  * AUTH LAYOUT PROPS
 =======================*/
 interface Props {
-    reverse: boolean;
+    reverse: boolean
 }
 
 /**============================
@@ -12,7 +11,7 @@ interface Props {
 ===============================*/
 withDefaults(defineProps<Props>(), {
     reverse: false,
-});
+})
 </script>
 
 <template>

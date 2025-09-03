@@ -1,37 +1,37 @@
 <script lang="ts" setup>
-import { Button, Icon } from '../index';
+import { Button, Icon } from "../index"
 
 /**========================
  * SIDEBAR TOGGLE PROPS
 ===========================*/
 interface Props {
-  isMobile: boolean;
-  sidebarVisible?: boolean;
+    isMobile: boolean
+    sidebarVisible?: boolean
 }
 
 /**===============
  * DEFINE PROPS
 ==================*/
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 
 /**===============
  * DEFINE EMITS
 ==================*/
 const emit = defineEmits<{
-  'open-sidebar': [];
-  'toggle-sidebar': [];
-}>();
+    "open-sidebar": []
+    "toggle-sidebar": []
+}>()
 
 /**================================
  * HANDLE SIDEBAR TOGGLE ACTION
 ===================================*/
 const handleToggle = (): void => {
-  if (props.isMobile) {
-    emit('open-sidebar');
-  } else {
-    emit('toggle-sidebar');
-  }
-};
+    if (props.isMobile) {
+        emit("open-sidebar")
+    } else {
+        emit("toggle-sidebar")
+    }
+}
 </script>
 
 <template>

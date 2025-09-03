@@ -1,37 +1,37 @@
 <script lang="ts" setup>
-import { Button, Icon, NotificationBadge } from '../index';
-import { useThemeStore } from '@/presentation/stores/themeStore';
+import { useThemeStore } from "@/presentation/stores/themeStore"
+import { Button, Icon, NotificationBadge } from "../index"
 
 /**=======================
  * TOPBAR ACTIONS PROPS
 ==========================*/
 interface Props {
-  showThemeToggle?: boolean;
-  showNotifications?: boolean;
-  notificationCount?: number;
+    showThemeToggle?: boolean
+    showNotifications?: boolean
+    notificationCount?: number
 }
 
 /**=======================
  * DEFAULT PROPS VALUES
 ==========================*/
 withDefaults(defineProps<Props>(), {
-  showThemeToggle: true,
-  showNotifications: true,
-  notificationCount: 0
-});
+    showThemeToggle: true,
+    showNotifications: true,
+    notificationCount: 0,
+})
 
 /**===============
  * DEFINE EMITS
 ==================*/
 defineEmits<{
-  'toggle-theme': [];
-  'notifications-click': [];
-}>();
+    "toggle-theme": []
+    "notifications-click": []
+}>()
 
 /**===============
  * THEME STORE
 ==================*/
-const themeStore = useThemeStore();
+const themeStore = useThemeStore()
 </script>
 
 <template>

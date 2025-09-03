@@ -1,39 +1,40 @@
-import ThemeSelector from '@/presentation/components/molecules/ThemeSelector.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from "@storybook/vue3"
+import ThemeSelector from "@/presentation/components/molecules/ThemeSelector.vue"
 
 /**===================================
  * THEME SELECTOR COMPONENT STORIES
 ======================================*/
 const meta: Meta<typeof ThemeSelector> = {
-  title: 'Molecules/ThemeSelector',
-  component: ThemeSelector,
-  parameters: {
-    layout: 'centered',
-    docs: {
-      description: {
-        component: 'Selector de temas que permite cambiar entre diferentes esquemas de colores y modos (claro/oscuro).',
-      },
+    title: "Molecules/ThemeSelector",
+    component: ThemeSelector,
+    parameters: {
+        layout: "centered",
+        docs: {
+            description: {
+                component:
+                    "Selector de temas que permite cambiar entre diferentes esquemas de colores y modos (claro/oscuro).",
+            },
+        },
     },
-  },
-};
+}
 
 /**============================================
  * THEME SELECTOR COMPONENT META INFORMATION
 ===============================================*/
-export default meta;
+export default meta
 
 /**======================================
  * THEME SELECTOR COMPONENT STORY TYPE
 =========================================*/
-type Story = StoryObj<typeof ThemeSelector>;
+type Story = StoryObj<typeof ThemeSelector>
 
 /**===============================
  * DEFAULT THEME SELECTOR STORY
 ==================================*/
 export const Default: Story = {
-  render: () => ({
-    components: { ThemeSelector },
-    template: `
+    render: () => ({
+        components: { ThemeSelector },
+        template: `
       <div class="p-8 bg-background min-h-[400px]">
         <div class="flex justify-end">
           <ThemeSelector />
@@ -51,5 +52,5 @@ export const Default: Story = {
         </div>
       </div>
     `,
-  }),
-};
+    }),
+}

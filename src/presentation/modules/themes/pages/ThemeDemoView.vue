@@ -192,9 +192,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useThemeStore } from '@/presentation/stores/themeStore'
-import { Icon } from '@/presentation/components'
+import { computed } from "vue"
+import { Icon } from "@/presentation/components"
+import { useThemeStore } from "@/presentation/stores/themeStore"
 
 const themeStore = useThemeStore()
 

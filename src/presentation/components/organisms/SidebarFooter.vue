@@ -1,47 +1,47 @@
 <script lang="ts" setup>
-import UserProfile from '@/presentation/components/molecules/UserProfile.vue';
+import UserProfile from "@/presentation/components/molecules/UserProfile.vue"
 
 /**=================
  * USER INTERFACE
 ====================*/
 interface User {
-  name: string;
-  email: string;
-  avatarSrc: string;
+    name: string
+    email: string
+    avatarSrc: string
 }
 
 /**=======================
  * SIDEBAR FOOTER PROPS 
 ==========================*/
 interface Props {
-  user: User;
-  showUserDropdown?: boolean;
+    user: User
+    showUserDropdown?: boolean
 }
 
 /**=======================
  * DEFAULT PROPS VALUES
 ==========================*/
 withDefaults(defineProps<Props>(), {
-  showUserDropdown: true
-});
+    showUserDropdown: true,
+})
 
 /**========
  * EMITS
 ===========*/
 const emit = defineEmits<{
-  'settings-click': [event: Event];
-  'inbox-click': [event: Event];
-  'user-dropdown-toggle': [];
-  'user-menu-click': [action: string];
-}>();
+    "settings-click": [event: Event]
+    "inbox-click": [event: Event]
+    "user-dropdown-toggle": []
+    "user-menu-click": [action: string]
+}>()
 
 /**====================================
  * HANDLE USER DROPDOWN TOGGLE EVENT
  * @returns {void}
 =======================================*/
 const handleUserDropdownToggle = (): void => {
-  emit('user-dropdown-toggle');
-};
+    emit("user-dropdown-toggle")
+}
 
 /**===============================
  * HANDLE USER MENU CLICK EVENT
@@ -49,9 +49,9 @@ const handleUserDropdownToggle = (): void => {
  * @returns {void}
 ==================================*/
 const handleUserMenuClick = (action: string): void => {
-  emit('user-menu-click', action);
-  console.log('User menu action:', action);
-};
+    emit("user-menu-click", action)
+    console.log("User menu action:", action)
+}
 </script>
 
 <template>

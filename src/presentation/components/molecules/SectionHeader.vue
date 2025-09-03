@@ -3,13 +3,13 @@
  * SECTION HEADER PROPS
 ==========================*/
 interface Props {
-  title: string;
+    title: string
 }
 
 /**===============
  * DEFINE PROPS
 ==================*/
-defineProps<Props>();
+defineProps<Props>()
 </script>
 
 <template>

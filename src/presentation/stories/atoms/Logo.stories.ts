@@ -1,66 +1,70 @@
-import Logo from '@/presentation/components/atoms/Logo.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from "@storybook/vue3"
+import Logo from "@/presentation/components/atoms/Logo.vue"
 
 /**=========================
  * LOGO COMPONENT STORIES
 ============================*/
 const meta: Meta<typeof Logo> = {
-  title: 'Atoms/Logo',
-  component: Logo,
-  argTypes: {
-    size: { control: 'select', options: ['sm', 'md', 'lg'] },
-    letter: { control: 'text' },
-  },
-};
+    title: "Atoms/Logo",
+    component: Logo,
+    argTypes: {
+        size: { control: "select", options: ["sm", "md", "lg"] },
+        letter: { control: "text" },
+    },
+}
 
 /**==================================
  * LOGO COMPONENT META INFORMATION
 =====================================*/
-export default meta;
+export default meta
 
 /**============================
  * LOGO COMPONENT STORY TYPE
 ===============================*/
-type Story = StoryObj<typeof Logo>;
+type Story = StoryObj<typeof Logo>
 
 /**=====================
  * DEFAULT LOGO STORY
 ========================*/
 export const Default: Story = {
-  args: {
-    size: 'md',
-    letter: 'M',
-  },
-};
+    args: {
+        size: "md",
+        letter: "M",
+    },
+}
 
 /**===================
  * SIZES LOGO STORY
 ======================*/
 export const Sizes: Story = {
-  render: (args) => ({
-    components: { Logo },
-    setup() { return { args }; },
-    template: `
+    render: args => ({
+        components: { Logo },
+        setup() {
+            return { args }
+        },
+        template: `
       <div style="display: flex; gap: 1rem; align-items: center;">
         <Logo v-bind="{ ...args, size: 'sm' }" />
         <Logo v-bind="{ ...args, size: 'md' }" />
         <Logo v-bind="{ ...args, size: 'lg' }" />
       </div>
     `,
-  }),
-  args: {
-    letter: 'L',
-  },
-};
+    }),
+    args: {
+        letter: "L",
+    },
+}
 
 /**===============================
  * DIFFERENT LETTERS LOGO STORY
 ==================================*/
 export const DifferentLetters: Story = {
-  render: (args) => ({
-    components: { Logo },
-    setup() { return { args }; },
-    template: `
+    render: args => ({
+        components: { Logo },
+        setup() {
+            return { args }
+        },
+        template: `
       <div style="display: flex; gap: 1rem; align-items: center;">
         <Logo v-bind="{ ...args, letter: 'A' }" />
         <Logo v-bind="{ ...args, letter: 'B' }" />
@@ -70,20 +74,22 @@ export const DifferentLetters: Story = {
         <Logo v-bind="{ ...args, letter: 'Z' }" />
       </div>
     `,
-  }),
-  args: {
-    size: 'md',
-  },
-};
+    }),
+    args: {
+        size: "md",
+    },
+}
 
 /**======================
  * COMPANY LOGOS STORY
 =========================*/
 export const CompanyLogos: Story = {
-  render: (args) => ({
-    components: { Logo },
-    setup() { return { args }; },
-    template: `
+    render: args => ({
+        components: { Logo },
+        setup() {
+            return { args }
+        },
+        template: `
       <div style="display: flex; gap: 1rem; align-items: center;">
         <div style="text-align: center;">
           <Logo v-bind="{ ...args, letter: 'G' }" />
@@ -107,20 +113,22 @@ export const CompanyLogos: Story = {
         </div>
       </div>
     `,
-  }),
-  args: {
-    size: 'lg',
-  },
-};
+    }),
+    args: {
+        size: "lg",
+    },
+}
 
 /**=====================
  * NUMBERS LOGO STORY
 ========================*/
 export const Numbers: Story = {
-  render: (args) => ({
-    components: { Logo },
-    setup() { return { args }; },
-    template: `
+    render: args => ({
+        components: { Logo },
+        setup() {
+            return { args }
+        },
+        template: `
       <div style="display: flex; gap: 1rem; align-items: center;">
         <Logo v-bind="{ ...args, letter: '1' }" />
         <Logo v-bind="{ ...args, letter: '2' }" />
@@ -128,20 +136,22 @@ export const Numbers: Story = {
         <Logo v-bind="{ ...args, letter: '9' }" />
       </div>
     `,
-  }),
-  args: {
-    size: 'md',
-  },
-};
+    }),
+    args: {
+        size: "md",
+    },
+}
 
 /**================================
  * SPECIAL CHARACTERS LOGO STORY
 ===================================*/
 export const SpecialCharacters: Story = {
-  render: (args) => ({
-    components: { Logo },
-    setup() { return { args }; },
-    template: `
+    render: args => ({
+        components: { Logo },
+        setup() {
+            return { args }
+        },
+        template: `
       <div style="display: flex; gap: 1rem; align-items: center;">
         <Logo v-bind="{ ...args, letter: '@' }" />
         <Logo v-bind="{ ...args, letter: '#' }" />
@@ -149,8 +159,8 @@ export const SpecialCharacters: Story = {
         <Logo v-bind="{ ...args, letter: '&' }" />
       </div>
     `,
-  }),
-  args: {
-    size: 'md',
-  },
-};
+    }),
+    args: {
+        size: "md",
+    },
+}

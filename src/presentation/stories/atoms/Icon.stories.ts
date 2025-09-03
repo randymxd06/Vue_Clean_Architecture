@@ -1,53 +1,55 @@
-import Icon from '@/presentation/components/atoms/Icon.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from "@storybook/vue3"
+import Icon from "@/presentation/components/atoms/Icon.vue"
 
 /**=========================
  * ICON COMPONENT STORIES
 ============================*/
 const meta: Meta<typeof Icon> = {
-  title: 'Atoms/Icon',
-  component: Icon,
-  argTypes: {
-    name: { control: 'text' },
-    size: { 
-      control: 'select', 
-      options: ['sm', 'md', 'lg', 16, 20, 24, 32, 48, 64] 
+    title: "Atoms/Icon",
+    component: Icon,
+    argTypes: {
+        name: { control: "text" },
+        size: {
+            control: "select",
+            options: ["sm", "md", "lg", 16, 20, 24, 32, 48, 64],
+        },
+        color: { control: "color" },
+        strokeWidth: { control: "number", min: 1, max: 4, step: 0.5 },
     },
-    color: { control: 'color' },
-    strokeWidth: { control: 'number', min: 1, max: 4, step: 0.5 },
-  },
-};
+}
 
 /**==================================
  * ICON COMPONENT META INFORMATION
 =====================================*/
-export default meta;
+export default meta
 
 /**============================
  * ICON COMPONENT STORY TYPE
 ===============================*/
-type Story = StoryObj<typeof Icon>;
+type Story = StoryObj<typeof Icon>
 
 /**=====================
  * DEFAULT ICON STORY
 ========================*/
 export const Default: Story = {
-  args: {
-    name: 'home',
-    size: 'md',
-    color: undefined,
-    strokeWidth: 2,
-  },
-};
+    args: {
+        name: "home",
+        size: "md",
+        color: undefined,
+        strokeWidth: 2,
+    },
+}
 
 /**===================
  * SIZES ICON STORY
 ======================*/
 export const Sizes: Story = {
-  render: (args) => ({
-    components: { Icon },
-    setup() { return { args }; },
-    template: `
+    render: args => ({
+        components: { Icon },
+        setup() {
+            return { args }
+        },
+        template: `
       <div style="display: flex; gap: 1rem; align-items: center;">
         <Icon v-bind="{ ...args, size: 'sm' }" />
         <Icon v-bind="{ ...args, size: 'md' }" />
@@ -56,21 +58,23 @@ export const Sizes: Story = {
         <Icon v-bind="{ ...args, size: 48 }" />
       </div>
     `,
-  }),
-  args: {
-    name: 'star',
-    color: '#3b82f6',
-  },
-};
+    }),
+    args: {
+        name: "star",
+        color: "#3b82f6",
+    },
+}
 
 /**======================
  * POPULAR ICONS STORY
 =========================*/
 export const PopularIcons: Story = {
-  render: (args) => ({
-    components: { Icon },
-    setup() { return { args }; },
-    template: `
+    render: args => ({
+        components: { Icon },
+        setup() {
+            return { args }
+        },
+        template: `
       <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; padding: 1rem;">
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60px;">
           <div style="display: flex; align-items: center; justify-content: center; height: 24px; margin-bottom: 8px;">
@@ -146,22 +150,24 @@ export const PopularIcons: Story = {
         </div>
       </div>
     `,
-  }),
-  args: {
-    size: 'md',
-    color: '#6b7280',
-    strokeWidth: 2,
-  },
-};
+    }),
+    args: {
+        size: "md",
+        color: "#6b7280",
+        strokeWidth: 2,
+    },
+}
 
 /**====================
  * COLORS ICON STORY
 =======================*/
 export const Colors: Story = {
-  render: (args) => ({
-    components: { Icon },
-    setup() { return { args }; },
-    template: `
+    render: args => ({
+        components: { Icon },
+        setup() {
+            return { args }
+        },
+        template: `
       <div style="display: flex; gap: 1rem; align-items: center;">
         <Icon v-bind="{ ...args, color: '#ef4444' }" />
         <Icon v-bind="{ ...args, color: '#3b82f6' }" />
@@ -171,21 +177,23 @@ export const Colors: Story = {
         <Icon v-bind="{ ...args, color: '#6b7280' }" />
       </div>
     `,
-  }),
-  args: {
-    name: 'heart',
-    size: 'lg',
-  },
-};
+    }),
+    args: {
+        name: "heart",
+        size: "lg",
+    },
+}
 
 /**===========================
  * STROKE WIDTHS ICON STORY
 ==============================*/
 export const StrokeWidths: Story = {
-  render: (args) => ({
-    components: { Icon },
-    setup() { return { args }; },
-    template: `
+    render: args => ({
+        components: { Icon },
+        setup() {
+            return { args }
+        },
+        template: `
       <div style="display: flex; gap: 1rem; align-items: center;">
         <Icon v-bind="{ ...args, strokeWidth: 1 }" />
         <Icon v-bind="{ ...args, strokeWidth: 2 }" />
@@ -193,21 +201,21 @@ export const StrokeWidths: Story = {
         <Icon v-bind="{ ...args, strokeWidth: 4 }" />
       </div>
     `,
-  }),
-  args: {
-    name: 'circle',
-    size: 'lg',
-    color: '#3b82f6',
-  },
-};
+    }),
+    args: {
+        name: "circle",
+        size: "lg",
+        color: "#3b82f6",
+    },
+}
 
 /**=====================
  * INVALID ICON STORY
 ========================*/
 export const InvalidIcon: Story = {
-  args: {
-    name: 'icon-that-does-not-exist',
-    size: 'md',
-    color: '#ef4444',
-  },
-};
+    args: {
+        name: "icon-that-does-not-exist",
+        size: "md",
+        color: "#ef4444",
+    },
+}
