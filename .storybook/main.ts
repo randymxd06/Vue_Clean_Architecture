@@ -8,10 +8,10 @@ const config: StorybookConfig = {
         options: {},
     },
     // Configuration for GitHub Pages deployment
-    viteFinal: (config) => {
+    viteFinal: config => {
         // Set base URL for GitHub Pages if building for production
-        if (process.env.NODE_ENV === 'production') {
-            config.base = '/Vue_Clean_Architecture/'
+        if (process.env.NODE_ENV === "production") {
+            config.base = "/Vue_Clean_Architecture/"
         }
         return config
     },
