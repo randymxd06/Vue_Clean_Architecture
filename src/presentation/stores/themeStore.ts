@@ -62,9 +62,9 @@ export const useThemeStore = defineStore("theme", (): ThemeStoreResources => {
     =========================*/
     const initTheme = (): void => {
         if (typeof window !== "undefined") {
-            const savedTheme = localStorage.getItem("theme") || "light"
+            const savedTheme = localStorage.getItem("theme") ?? "light"
             if (AVAILABLE_THEMES.find(t => t.id === savedTheme)) {
-                theme.value = savedTheme as ThemeId
+                theme.value = savedTheme
             }
             applyTheme(theme.value)
         }
@@ -88,13 +88,13 @@ export const useThemeStore = defineStore("theme", (): ThemeStoreResources => {
             // Find the first dark theme
             const darkTheme = AVAILABLE_THEMES.find(t => t.mode === "dark")
             if (darkTheme) {
-                theme.value = darkTheme.id as ThemeId
+                theme.value = darkTheme.id
             }
         } else {
             // Find the first light theme
             const lightTheme = AVAILABLE_THEMES.find(t => t.mode === "light")
             if (lightTheme) {
-                theme.value = lightTheme.id as ThemeId
+                theme.value = lightTheme.id
             }
         }
     }
