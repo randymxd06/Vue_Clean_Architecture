@@ -17,7 +17,8 @@
         "check": "biome check",
         "check:fix": "biome check --write && pnpm run type-check",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "deploy-storybook": "bun run build-storybook && gh-pages -d storybook-static"
     },
     "dependencies": {
         "@animxyz/vue3": "^0.6.7",
@@ -47,6 +48,7 @@
         "typescript": "~5.8.0",
         "vite": "npm:rolldown-vite@latest",
         "vitest": "^3.2.4",
-        "vue-tsc": "^2.2.10"
+        "vue-tsc": "^2.2.10",
+        "gh-pages": "^6.2.0"
     }
 }
