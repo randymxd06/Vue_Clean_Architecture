@@ -5,8 +5,8 @@ import { setupPinia } from "./pinia"
 import { setupRouter } from "./vue-router"
 
 export function setupPlugins(app: App) {
-    setupPinia(app);
-    useThemeStore();
-    setupRouter(app);
-    setupAnimXYZ(app);
+    setupPinia(app)
+    useThemeStore()
+    setupRouter(app)
+    setupAnimXYZ(app)
 }
