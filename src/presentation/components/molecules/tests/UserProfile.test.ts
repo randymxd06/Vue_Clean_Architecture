@@ -371,4 +371,149 @@ describe("UserProfile", () => {
 
         expect(menuButtons).toHaveLength(3)
     })
+
+    /**=======================================================
+     * CLOSES DROPDOWN WHEN CLICKING ON MENU ITEM DIRECTLY
+     =========================================================*/
+    it("closes dropdown when clicking on menu item directly", async () => {
+        const wrapper = mount(UserProfile, {
+            props: {
+                ...defaultProps,
+                showDropdown: true,
+                menuItems: defaultMenuItems,
+            },
+        })
+
+        /**================
+         * OPEN DROPDOWN
+        ===================*/
+        const article = wrapper.find("article")
+        await article.trigger("click")
+        await nextTick()
+
+        /**====================================
+         * VERIFY DROPDOWN IS INITIALLY OPEN
+        =======================================*/
+        const vm = wrapper.vm as any
+        expect(vm.isDropdownOpen).toBe(true)
+
+        /**==================================
+         * CALL handleMenuItemClick DIRECTLY
+        =====================================*/
+        vm.handleMenuItemClick("profile")
+        await nextTick()
+
+        /**===================================================
+         * VERIFY DROPDOWN IS CLOSED AFTER MENU ITEM CLICK
+        ======================================================*/
+        expect(vm.isDropdownOpen).toBe(false)
+        expect(wrapper.emitted("menu-item-click")).toBeTruthy()
+        expect(wrapper.emitted("menu-item-click")?.[0]).toEqual(["profile"])
+    })
+
+    /**================================================
+     * CLOSES DROPDOWN WHEN CLICKING OUTSIDE ELEMENT
+     ==================================================*/
+    it("closes dropdown when clicking outside element", async () => {
+        const wrapper = mount(UserProfile, {
+            props: {
+                ...defaultProps,
+                showDropdown: true,
+            },
+        })
+
+        /**================
+         * OPEN DROPDOWN
+        ===================*/
+        const article = wrapper.find("article")
+        await article.trigger("click")
+        await nextTick()
+
+        /**====================================
+         * VERIFY DROPDOWN IS INITIALLY OPEN
+        =======================================*/
+        const vm = wrapper.vm as any
+        expect(vm.isDropdownOpen).toBe(true)
+
+        /**===================================
+         * CREATE A MOCK CLICK EVENT OUTSIDE
+        ======================================*/
+        const outsideElement = document.createElement("div")
+        document.body.appendChild(outsideElement)
+
+        const mockEvent = new MouseEvent("click", {
+            bubbles: true,
+            cancelable: true,
+        })
+        Object.defineProperty(mockEvent, "target", {
+            value: outsideElement,
+            writable: false,
+        })
+
+        /**===================================
+         * CALL handleClickOutside DIRECTLY
+        ======================================*/
+        vm.handleClickOutside(mockEvent)
+        await nextTick()
+
+        /**===============================================
+         * VERIFY DROPDOWN IS CLOSED AFTER OUTSIDE CLICK
+        ==================================================*/
+        expect(vm.isDropdownOpen).toBe(false)
+
+        /**=========
+         * CLEANUP
+        ============*/
+        document.body.removeChild(outsideElement)
+    })
+
+    /**==============================================================
+     * DOES NOT CLOSE DROPDOWN WHEN CLICKING INSIDE DROPDOWN AREA
+     ================================================================*/
+    it("does not close dropdown when clicking inside dropdown area", async () => {
+        const wrapper = mount(UserProfile, {
+            props: {
+                ...defaultProps,
+                showDropdown: true,
+            },
+        })
+
+        /**================
+         * OPEN DROPDOWN
+        ===================*/
+        const article = wrapper.find("article")
+        await article.trigger("click")
+        await nextTick()
+
+        /**====================================
+         * VERIFY DROPDOWN IS INITIALLY OPEN
+        =======================================*/
+        const vm = wrapper.vm as any
+        expect(vm.isDropdownOpen).toBe(true)
+
+        /**=========================================
+         * CREATE A MOCK CLICK EVENT INSIDE ELEMENT
+        ============================================*/
+        const insideElement = wrapper.find("section").element
+
+        const mockEvent = new MouseEvent("click", {
+            bubbles: true,
+            cancelable: true,
+        })
+        Object.defineProperty(mockEvent, "target", {
+            value: insideElement,
+            writable: false,
+        })
+
+        /**===================================
+         * CALL handleClickOutside DIRECTLY
+        ======================================*/
+        vm.handleClickOutside(mockEvent)
+        await nextTick()
+
+        /**==================================================
+         * VERIFY DROPDOWN REMAINS OPEN AFTER INSIDE CLICK
+        =====================================================*/
+        expect(vm.isDropdownOpen).toBe(true)
+    })
 })
