@@ -16,8 +16,9 @@ dist
 .gitattributes
 
 # Environment variables and secrets
-.env
-.env.*
+# .env  # Comentado para permitir que se copie durante el build
+.env.local
+.env.*.local
 !.env.template
 
 # Development and testing

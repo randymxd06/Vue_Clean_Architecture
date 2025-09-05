@@ -9,6 +9,11 @@ RUN npm install
 
 FROM node:20-alpine AS builder
 WORKDIR /app
+
+# Define build arguments for environment variables
+ARG VITE_API_BASE_URL
+ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
+
 COPY --from=dev-deps /app/node_modules ./node_modules
 
 # Copy only necessary files for building
@@ -18,6 +23,7 @@ COPY vite.config.ts vitest.config.ts ./
 COPY biome.json ./
 COPY index.html ./
 COPY env.d.ts shims-vue.d.ts ./
+COPY .env ./
 
 # Copy source code and public assets
 COPY src/ ./src/
