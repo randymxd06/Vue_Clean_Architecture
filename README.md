@@ -141,3 +141,28 @@ npm run build
 ```sh
 npm run test:unit
 ```
+
+### Generate Coverage Report
+
+```sh
+npm run test:coverage
+```
+
+### Generate Coverage Report with Watch Mode
+
+```sh
+npm run test:coverage:watch
+```
+
+### Generate Coverage Report and Open in Browser
+
+```sh
+npm run test:coverage:open
+```
+
+> [!NOTE]
+> The coverage reports are generated in the `coverage/` directory with multiple formats:
+> - **HTML Report**: `coverage/index.html` - Interactive web interface
+> - **Text Report**: Displayed in terminal during execution
+> - **LCOV Report**: `coverage/lcov.info` - For CI/CD integration
+> - **JSON Report**: `coverage/coverage-final.json` - Machine-readable format
