@@ -1,18 +1,21 @@
-import { describe, it, expect, vi } from "vitest"
-import { createPinia } from "pinia"
-import { setupPinia } from "../pinia"
+import { describe, it, expect, vi } from "vitest";
+import { createPinia } from "pinia";
+import { setupPinia } from "../pinia";
 
-// Mock de Pinia
+/**=============
+ * PINIA MOCK
+================*/
 vi.mock("pinia", () => ({
     createPinia: vi.fn(() => ({
         install: vi.fn(),
     })),
-}))
+}));
 
 describe("setupPinia", () => {
-    /**====================================
-     * CREATES AND INSTALLS PINIA STORE
-     =======================================*/
+
+    /**======================================================
+     * SHOULD CREATE PINIA STORE AND INSTALL IT IN THE APP
+    =========================================================*/
     it("should create pinia store and install it in the app", () => {
         const app = {
             use: vi.fn(),
@@ -20,18 +23,15 @@ describe("setupPinia", () => {
         const mockPinia = {
             install: vi.fn(),
         }
-        
-        vi.mocked(createPinia).mockReturnValue(mockPinia as any)
-        
-        setupPinia(app as any)
-        
-        expect(createPinia).toHaveBeenCalledOnce()
-        expect(app.use).toHaveBeenCalledWith(mockPinia)
-    })
+        vi.mocked(createPinia).mockReturnValue(mockPinia as any);
+        setupPinia(app as any);
+        expect(createPinia).toHaveBeenCalledOnce();
+        expect(app.use).toHaveBeenCalledWith(mockPinia);
+    });
 
-    /**====================================
-     * CALLS CREATEPINIA FUNCTION
-     =======================================*/
+    /**===================================
+     * SHOULD CALL CREATEPINIA FUNCTION
+    ======================================*/
     it("should call createPinia function", () => {
         const app = {
             use: vi.fn(),
@@ -39,24 +39,20 @@ describe("setupPinia", () => {
         const mockPinia = {
             install: vi.fn(),
         }
-        
-        vi.mocked(createPinia).mockReturnValue(mockPinia as any)
-        
-        setupPinia(app as any)
-        
-        expect(createPinia).toHaveBeenCalled()
-    })
+        vi.mocked(createPinia).mockReturnValue(mockPinia as any);
+        setupPinia(app as any);
+        expect(createPinia).toHaveBeenCalled();
+    });
 
-    /**====================================
-     * REGISTERS PLUGIN WITH APP
-     =======================================*/
+    /**=====================================================
+     * SHOULD REGISTER PINIA PLUGIN WITH THE APP INSTANCE
+    ========================================================*/
     it("should register pinia plugin with the app instance", () => {
         const app = {
             use: vi.fn(),
         }
-        
-        setupPinia(app as any)
-        
-        expect(app.use).toHaveBeenCalledTimes(1)
-    })
-})
+        setupPinia(app as any);
+        expect(app.use).toHaveBeenCalledTimes(1);
+    });
+
+});

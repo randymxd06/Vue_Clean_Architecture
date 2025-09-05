@@ -1,118 +1,112 @@
 import { describe, it, expect, vi, beforeEach } from "vitest"
 import { setupPlugins } from "../index"
 
-/**
- * Mock de todos los plugins
- */
+/**======================
+ * MOCK OF ALL PLUGINS
+=========================*/
 vi.mock("../pinia", () => ({
     setupPinia: vi.fn(),
-}))
+}));
 
 vi.mock("../vue-router", () => ({
     setupRouter: vi.fn(),
-}))
+}));
 
 vi.mock("../animxyz", () => ({
     setupAnimXYZ: vi.fn(),
-}))
+}));
 
 vi.mock("@/presentation/stores/themeStore", () => ({
     useThemeStore: vi.fn(),
-}))
+}));
 
-import { setupPinia } from "../pinia"
-import { setupRouter } from "../vue-router"
-import { setupAnimXYZ } from "../animxyz"
-import { useThemeStore } from "@/presentation/stores/themeStore"
+import { setupPinia } from "../pinia";
+import { setupRouter } from "../vue-router";
+import { setupAnimXYZ } from "../animxyz";
+import { useThemeStore } from "@/presentation/stores/themeStore";
 
 describe("setupPlugins", () => {
-    let app: any
+
+    let app: any;
 
     beforeEach(() => {
-        // Mock de la instancia de app de Vue
+        /**===============================
+         * MOCK OF THE VUE APP INSTANCE
+        ==================================*/
         app = {
             use: vi.fn(),
             mount: vi.fn(),
             unmount: vi.fn(),
         }
-        vi.clearAllMocks()
-    })
+        vi.clearAllMocks();
+    });
 
-    /**====================================
-     * CALLS ALL PLUGIN SETUP FUNCTIONS
-     =======================================*/
+    /**=========================================
+     * SHOULD CALL ALL PLUGIN SETUP FUNCTIONS
+    ============================================*/
     it("should call all plugin setup functions", () => {
-        setupPlugins(app)
+        setupPlugins(app);
+        expect(setupPinia).toHaveBeenCalledWith(app);
+        expect(setupRouter).toHaveBeenCalledWith(app);
+        expect(setupAnimXYZ).toHaveBeenCalledWith(app);
+        expect(useThemeStore).toHaveBeenCalled();
+    });
 
-        expect(setupPinia).toHaveBeenCalledWith(app)
-        expect(setupRouter).toHaveBeenCalledWith(app)
-        expect(setupAnimXYZ).toHaveBeenCalledWith(app)
-        expect(useThemeStore).toHaveBeenCalled()
-    })
-
-    /**====================================
-     * CALLS PLUGINS IN CORRECT ORDER
-     =======================================*/
+    /**===========================================
+     * SHOULD CALL PLUGINS IN THE CORRECT ORDER
+    ==============================================*/
     it("should call plugins in the correct order", () => {
-        const callOrder: string[] = []
-
+        const callOrder: string[] = [];
         vi.mocked(setupPinia).mockImplementation(() => {
-            callOrder.push("pinia")
-        })
-
+            callOrder.push("pinia");
+        });
         vi.mocked(useThemeStore).mockImplementation(() => {
-            callOrder.push("themeStore")
-        })
-
+            callOrder.push("themeStore");
+        });
         vi.mocked(setupRouter).mockImplementation(() => {
-            callOrder.push("router")
-        })
-
+            callOrder.push("router");
+        });
         vi.mocked(setupAnimXYZ).mockImplementation(() => {
-            callOrder.push("animxyz")
-        })
+            callOrder.push("animxyz");
+        });
+        setupPlugins(app);
+        expect(callOrder).toEqual(["pinia", "themeStore", "router", "animxyz"]);
+    });
 
-        setupPlugins(app)
-
-        expect(callOrder).toEqual(["pinia", "themeStore", "router", "animxyz"])
-    })
-
-    /**====================================
-     * PASSES APP INSTANCE TO PLUGINS
-     =======================================*/
+    /**=========================================================
+     * SHOULD PASS APP INSTANCE TO ALL PLUGIN SETUP FUNCTIONS
+     ===========================================================*/
     it("should pass app instance to all plugin setup functions", () => {
-        setupPlugins(app)
-
-        expect(setupPinia).toHaveBeenCalledWith(app)
-        expect(setupRouter).toHaveBeenCalledWith(app)
-        expect(setupAnimXYZ).toHaveBeenCalledWith(app)
-    })
+        setupPlugins(app);
+        expect(setupPinia).toHaveBeenCalledWith(app);
+        expect(setupRouter).toHaveBeenCalledWith(app);
+        expect(setupAnimXYZ).toHaveBeenCalledWith(app);
+    });
 
     /**====================================
-     * INITIALIZES THEME STORE
-     =======================================*/
+     * SHOULD INITIALIZE THE THEME STORE
+    =======================================*/
     it("should initialize theme store", () => {
-        setupPlugins(app)
+        setupPlugins(app);
+        expect(useThemeStore).toHaveBeenCalledTimes(1);
+    });
 
-        expect(useThemeStore).toHaveBeenCalledTimes(1)
-    })
-
-    /**====================================
-     * EXECUTES WITHOUT ERRORS
-     =======================================*/
+    /**=========================================
+     * SHOULD EXECUTE WITHOUT THROWING ERRORS
+     ===========================================*/
     it("should execute without throwing errors", () => {
-        expect(() => setupPlugins(app)).not.toThrow()
-    })
+        expect(() => setupPlugins(app)).not.toThrow();
+    });
 
-    /**====================================
-     * CALLS EACH PLUGIN SETUP ONCE
-     =======================================*/
+    /**======================================================
+     * SHOULD CALL EACH PLUGIN SETUP FUNCTION EXACTLY ONCE
+     ========================================================*/
     it("should call each plugin setup function exactly once", () => {
-        setupPlugins(app)
+        setupPlugins(app);
+        expect(setupPinia).toHaveBeenCalledTimes(1);
+        expect(setupRouter).toHaveBeenCalledTimes(1);
+        expect(setupAnimXYZ).toHaveBeenCalledTimes(1);
+        expect(useThemeStore).toHaveBeenCalledTimes(1);
+    });
 
-        expect(setupPinia).toHaveBeenCalledTimes(1)
-        expect(setupRouter).toHaveBeenCalledTimes(1)
-        expect(setupAnimXYZ).toHaveBeenCalledTimes(1)
-        expect(useThemeStore).toHaveBeenCalledTimes(1)
-    })
-})
+});
