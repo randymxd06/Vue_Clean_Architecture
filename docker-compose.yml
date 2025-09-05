@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
 
   app:
@@ -7,10 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: vue-clean-architecture
-    volumes:
-      - .:/app
     ports:
-      - 80:8080
+      - "8080:8080"
 
   sonarqube:
     image: sonarqube:latest
