@@ -16,7 +16,6 @@ vi.mock("@animxyz/vue3", () => ({
 vi.mock("@animxyz/core", () => ({}))
 
 describe("setupAnimXYZ", () => {
-
     /**===========================================
      * SHOULD INSTALL ANIMXYZ PLUGIN IN THE APP
     ==============================================*/
@@ -24,9 +23,9 @@ describe("setupAnimXYZ", () => {
         const app = {
             use: vi.fn(),
         }
-        setupAnimXYZ(app as any);
-        expect(app.use).toHaveBeenCalledTimes(1);
-    });
+        setupAnimXYZ(app as any)
+        expect(app.use).toHaveBeenCalledTimes(1)
+    })
 
     /**==========================================
      * SHOULD CALL APP.USE WITH ANIMXYZ PLUGIN
@@ -35,17 +34,17 @@ describe("setupAnimXYZ", () => {
         const app = {
             use: vi.fn(),
         }
-        setupAnimXYZ(app as any);
+        setupAnimXYZ(app as any)
         /**=================================
          * VERIFY THAT APP.USE WAS CALLED
         ====================================*/
-        expect(app.use).toHaveBeenCalled();
+        expect(app.use).toHaveBeenCalled()
         /**=================================================
          * VERIFY THAT THE ARGUMENT IS THE ANIMXYZ PLUGIN
         ====================================================*/
-        const pluginArg = app.use.mock.calls[0][0];
-        expect(pluginArg).toBeDefined();
-    });
+        const pluginArg = app.use.mock.calls[0][0]
+        expect(pluginArg).toBeDefined()
+    })
 
     /**================================================
      * SHOULD REGISTER ANIMXYZ PLUGIN WITHOUT ERRORS
@@ -54,9 +53,9 @@ describe("setupAnimXYZ", () => {
         const app = {
             use: vi.fn(),
         }
-        expect(() => setupAnimXYZ(app as any)).not.toThrow();
-        expect(app.use).toHaveBeenCalledTimes(1);
-    });
+        expect(() => setupAnimXYZ(app as any)).not.toThrow()
+        expect(app.use).toHaveBeenCalledTimes(1)
+    })
 
     /**=================================
      * SHOULD IMPORT ANIMXYZ CORE CSS
@@ -67,7 +66,6 @@ describe("setupAnimXYZ", () => {
         ==============================================================*/
         expect(() => {
             require("@animxyz/core")
-        }).not.toThrow();
-    });
-
-});
+        }).not.toThrow()
+    })
+})

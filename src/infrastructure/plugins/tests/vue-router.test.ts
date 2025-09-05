@@ -1,5 +1,5 @@
-import { describe, it, expect, vi } from "vitest";
-import { setupRouter } from "../vue-router";
+import { describe, it, expect, vi } from "vitest"
+import { setupRouter } from "../vue-router"
 
 /**==============
  * ROUTER MOCK
@@ -11,10 +11,9 @@ vi.mock("../../presentation/router", () => ({
         replace: vi.fn(),
         resolve: vi.fn(),
     },
-}));
+}))
 
 describe("setupRouter", () => {
-
     /**===================================
      * SHOULD INSTALL ROUTER IN THE APP
     ======================================*/
@@ -22,9 +21,9 @@ describe("setupRouter", () => {
         const app = {
             use: vi.fn(),
         }
-        setupRouter(app as any);
-        expect(app.use).toHaveBeenCalledTimes(1);
-    });
+        setupRouter(app as any)
+        expect(app.use).toHaveBeenCalledTimes(1)
+    })
 
     /**===========================================
      * SHOULD CALL APP.USE WITH ROUTER INSTANCE
@@ -33,15 +32,15 @@ describe("setupRouter", () => {
         const app = {
             use: vi.fn(),
         }
-        setupRouter(app as any);
-        expect(app.use).toHaveBeenCalled();
+        setupRouter(app as any)
+        expect(app.use).toHaveBeenCalled()
         /**=======================================================
          * VERIFY THAT THE ARGUMENT PASSED IS THE MOCKED ROUTER
         ==========================================================*/
-        const routerArg = app.use.mock.calls[0][0];
-        expect(routerArg).toBeDefined();
-        expect(typeof routerArg).toBe("object");
-    });
+        const routerArg = app.use.mock.calls[0][0]
+        expect(routerArg).toBeDefined()
+        expect(typeof routerArg).toBe("object")
+    })
 
     /**=============================================
      * SHOULD REGISTER ROUTER PLUGIN SUCCESSFULLY
@@ -50,8 +49,7 @@ describe("setupRouter", () => {
         const app = {
             use: vi.fn(),
         }
-        expect(() => setupRouter(app as any)).not.toThrow();
-        expect(app.use).toHaveBeenCalledTimes(1);
-    });
-
-});
+        expect(() => setupRouter(app as any)).not.toThrow()
+        expect(app.use).toHaveBeenCalledTimes(1)
+    })
+})

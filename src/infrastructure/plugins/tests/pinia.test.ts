@@ -1,6 +1,6 @@
-import { describe, it, expect, vi } from "vitest";
-import { createPinia } from "pinia";
-import { setupPinia } from "../pinia";
+import { describe, it, expect, vi } from "vitest"
+import { createPinia } from "pinia"
+import { setupPinia } from "../pinia"
 
 /**=============
  * PINIA MOCK
@@ -9,10 +9,9 @@ vi.mock("pinia", () => ({
     createPinia: vi.fn(() => ({
         install: vi.fn(),
     })),
-}));
+}))
 
 describe("setupPinia", () => {
-
     /**======================================================
      * SHOULD CREATE PINIA STORE AND INSTALL IT IN THE APP
     =========================================================*/
@@ -23,11 +22,11 @@ describe("setupPinia", () => {
         const mockPinia = {
             install: vi.fn(),
         }
-        vi.mocked(createPinia).mockReturnValue(mockPinia as any);
-        setupPinia(app as any);
-        expect(createPinia).toHaveBeenCalledOnce();
-        expect(app.use).toHaveBeenCalledWith(mockPinia);
-    });
+        vi.mocked(createPinia).mockReturnValue(mockPinia as any)
+        setupPinia(app as any)
+        expect(createPinia).toHaveBeenCalledOnce()
+        expect(app.use).toHaveBeenCalledWith(mockPinia)
+    })
 
     /**===================================
      * SHOULD CALL CREATEPINIA FUNCTION
@@ -39,10 +38,10 @@ describe("setupPinia", () => {
         const mockPinia = {
             install: vi.fn(),
         }
-        vi.mocked(createPinia).mockReturnValue(mockPinia as any);
-        setupPinia(app as any);
-        expect(createPinia).toHaveBeenCalled();
-    });
+        vi.mocked(createPinia).mockReturnValue(mockPinia as any)
+        setupPinia(app as any)
+        expect(createPinia).toHaveBeenCalled()
+    })
 
     /**=====================================================
      * SHOULD REGISTER PINIA PLUGIN WITH THE APP INSTANCE
@@ -51,8 +50,7 @@ describe("setupPinia", () => {
         const app = {
             use: vi.fn(),
         }
-        setupPinia(app as any);
-        expect(app.use).toHaveBeenCalledTimes(1);
-    });
-
-});
+        setupPinia(app as any)
+        expect(app.use).toHaveBeenCalledTimes(1)
+    })
+})
