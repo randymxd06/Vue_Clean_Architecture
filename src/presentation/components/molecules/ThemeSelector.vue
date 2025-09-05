@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <!-- Botón del selector -->
+    <!-- Selector button -->
     <button
       @click="isOpen = !isOpen"
       class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-200 hover:bg-hover-medium focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 cursor-pointer"
@@ -9,7 +9,7 @@
           ? 'text-text-primary hover:bg-primary-100' 
           : 'text-text-primary hover:bg-primary-100'
       ]"
-      aria-label="Selector de tema"
+      aria-label="Theme selector"
     >
       <Icon 
         :name="currentTheme.mode === 'dark' ? 'moon' : 'sun'" 
@@ -17,7 +17,7 @@
       />
     </button>
 
-    <!-- Panel del selector -->
+    <!-- Selector panel -->
     <div
       v-if="isOpen"
       class="absolute right-0 top-12 w-80 bg-card border border-border rounded-lg shadow-lg z-50 p-4 transform transition-all duration-700 ease-in-out"
@@ -25,7 +25,7 @@
     >
       <!-- Header -->
       <div class="flex items-center justify-between mb-4">
-        <h3 class="text-lg font-semibold text-text-primary">Seleccionar Tema</h3>
+        <h3 class="text-lg font-semibold text-text-primary">Select Theme</h3>
         <button
           @click="isOpen = false"
           class="text-text-muted hover:text-text-primary transition-colors cursor-pointer"
@@ -34,9 +34,9 @@
         </button>
       </div>
 
-      <!-- Toggle rápido de modo -->
+      <!-- Quick mode toggle -->
       <div class="flex items-center justify-between mb-4 p-3 bg-surface-50 rounded-lg transform transition-all duration-700 ease-in-out">
-        <span class="text-sm font-medium text-text-primary">Modo {{ currentTheme.mode === 'dark' ? 'Oscuro' : 'Claro' }}</span>
+        <span class="text-sm font-medium text-text-primary">{{ currentTheme.mode === 'dark' ? 'Dark' : 'Light' }} Mode</span>
         <button
           @click="themeStore.toggleMode()"
           class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 cursor-pointer"
@@ -49,11 +49,11 @@
         </button>
       </div>
 
-      <!-- Lista de temas por modo -->
+      <!-- Theme list by mode -->
       <div class="space-y-4">
-        <!-- Temas claros -->
+        <!-- Light themes -->
         <div>
-          <h4 class="text-sm font-medium text-text-secondary mb-2">Temas Claros</h4>
+          <h4 class="text-sm font-medium text-text-secondary mb-2">Light Themes</h4>
           <div class="grid grid-cols-2 gap-2">
             <button
               v-for="theme in lightThemes"
@@ -66,7 +66,7 @@
                   : 'border-border hover:border-primary-300'
               ]"
             >
-              <!-- Preview del tema -->
+              <!-- Theme preview -->
               <div class="flex space-x-1 mb-2">
                 <div
                   class="w-4 h-4 rounded-full border border-surface-300"
@@ -82,13 +82,13 @@
                 />
               </div>
               
-              <!-- Nombre del tema -->
+              <!-- Theme name -->
               <div class="text-left">
                 <p class="text-sm font-medium text-text-primary truncate">{{ theme.name }}</p>
                 <p class="text-xs text-text-muted truncate">{{ theme.description }}</p>
               </div>
 
-              <!-- Indicador de tema activo -->
+              <!-- Active theme indicator -->
               <div
                 v-if="currentTheme.id === theme.id"
                 class="absolute top-2 right-2 w-4 h-4 bg-primary-500 rounded-full flex items-center justify-center"
@@ -99,9 +99,9 @@
           </div>
         </div>
 
-        <!-- Temas oscuros -->
+        <!-- Dark themes -->
         <div>
-          <h4 class="text-sm font-medium text-text-secondary mb-2">Temas Oscuros</h4>
+          <h4 class="text-sm font-medium text-text-secondary mb-2">Dark Themes</h4>
           <div class="grid grid-cols-2 gap-2">
             <button
               v-for="theme in darkThemes"
@@ -115,7 +115,7 @@
               ]"
               :style="getSelectedDarkThemeBackground(theme)"
             >
-              <!-- Preview del tema -->
+              <!-- Theme preview -->
               <div class="flex space-x-1 mb-2">
                 <div
                   class="w-4 h-4 rounded-full border border-surface-300"
@@ -131,13 +131,13 @@
                 />
               </div>
               
-              <!-- Nombre del tema -->
+              <!-- Theme name -->
               <div class="text-left">
                 <p class="text-sm font-medium truncate" :class="currentTheme.id === theme.id ? 'text-white' : 'text-text-primary'">{{ theme.name }}</p>
                 <p class="text-xs truncate" :class="currentTheme.id === theme.id ? 'text-gray-300' : 'text-text-muted'">{{ theme.description }}</p>
               </div>
 
-              <!-- Indicador de tema activo -->
+              <!-- Active theme indicator -->
               <div
                 v-if="currentTheme.id === theme.id"
                 class="absolute top-2 right-2 w-4 h-4 bg-primary-500 rounded-full flex items-center justify-center"
@@ -150,7 +150,7 @@
       </div>
     </div>
 
-    <!-- Overlay para cerrar el panel -->
+    <!-- Overlay to close panel -->
     <div
       v-if="isOpen"
       class="fixed inset-0 z-40"
@@ -174,14 +174,14 @@ const darkThemes = computed(() => themeStore.darkThemes)
 
 const selectTheme = (themeId: ThemeId) => {
     themeStore.setTheme(themeId)
-    // No cerrar automáticamente para permitir comparar temas
+    // Don't close automatically to allow theme comparison
 }
 
-// Función para obtener el color de fondo del tema seleccionado
+// Function to get the background color of the selected theme
 const getSelectedDarkThemeBackground = (theme: any) => {
     if (currentTheme.value.id !== theme.id) return {}
 
-    // Convertir hex a rgba con opacidad
+    // Convert hex to rgba with opacity
     const hex = theme.colors.primary.replace("#", "")
     const r = parseInt(hex.substr(0, 2), 16)
     const g = parseInt(hex.substr(2, 2), 16)
@@ -193,7 +193,7 @@ const getSelectedDarkThemeBackground = (theme: any) => {
     }
 }
 
-// Cerrar el panel al presionar Escape
+// Close panel when pressing Escape key
 const handleKeydown = (event: KeyboardEvent) => {
     if (event.key === "Escape") {
         isOpen.value = false

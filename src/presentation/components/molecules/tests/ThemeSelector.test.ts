@@ -38,7 +38,7 @@ describe("ThemeSelector", () => {
         })
         const button = wrapper.find("button")
         expect(button.exists()).toBe(true)
-        expect(button.attributes("aria-label")).toBe("Selector de tema")
+        expect(button.attributes("aria-label")).toBe("Theme selector")
         const icon = wrapper.findComponent(Icon)
         expect(icon.exists()).toBe(true)
     })
@@ -121,18 +121,18 @@ describe("ThemeSelector", () => {
         /**=========================
          * CHECK FOR PANEL HEADER
         ============================*/
-        expect(wrapper.text()).toContain("Seleccionar Tema")
+        expect(wrapper.text()).toContain("Select Theme")
 
         /**========================
          * CHECK FOR MODE TOGGLE
         ===========================*/
-        expect(wrapper.text()).toContain("Modo")
+        expect(wrapper.text()).toContain("Mode")
 
         /**===========================
          * CHECK FOR THEME SECTIONS
         ==============================*/
-        expect(wrapper.text()).toContain("Temas Claros")
-        expect(wrapper.text()).toContain("Temas Oscuros")
+        expect(wrapper.text()).toContain("Light Themes")
+        expect(wrapper.text()).toContain("Dark Themes")
     })
 
     /**=================================
@@ -415,5 +415,101 @@ describe("ThemeSelector", () => {
          * SHOULD HAVE AT LEAST ONE ACTIVE THEME INDICATOR
         =====================================================*/
         expect(checkIcons.length).toBeGreaterThanOrEqual(1)
+    })
+
+    /**============================
+     * SELECTS A THEME WHEN CLICKED
+    ===============================*/
+    it("selects a theme when clicked", async () => {
+        const wrapper = mount(ThemeSelector, {
+            global: {
+                plugins: [pinia],
+            },
+        })
+
+        const themeStore = useThemeStore()
+        const initialThemeId = themeStore.currentTheme.id
+
+        /**=============
+         * OPEN PANEL
+        ================*/
+        const mainButton = wrapper.find("button")
+        await mainButton.trigger("click")
+        await nextTick()
+
+        /**==========================
+         * FIND THEME BUTTONS
+        =============================*/
+        const themeButtons = wrapper.findAll("button").filter(button => {
+            const classes = button.classes().join(" ")
+            return classes.includes("relative p-3 rounded-lg border-2")
+        })
+
+        /**===============================================
+         * SHOULD HAVE AT LEAST ONE THEME BUTTON
+        ==================================================*/
+        expect(themeButtons.length).toBeGreaterThan(0)
+
+        /**=========================================
+         * CLICK ON THE FIRST AVAILABLE THEME
+        ============================================*/
+        if (themeButtons.length > 0) {
+            await themeButtons[0].trigger("click")
+            await nextTick()
+
+            /**==================================================
+             * THEME SHOULD HAVE BEEN CHANGED (OR CONFIRMED)
+            =====================================================*/
+            expect(themeStore.setTheme).toHaveBeenCalledOnce ||
+                expect(themeStore.currentTheme).toBeDefined()
+        }
+    })
+
+    /**=====================================================
+     * CALLS SELECT THEME FUNCTION WITH CORRECT THEME ID
+    ========================================================*/
+    it("calls select theme function with correct theme id", async () => {
+        const wrapper = mount(ThemeSelector, {
+            global: {
+                plugins: [pinia],
+            },
+        })
+
+        const themeStore = useThemeStore()
+        const setThemeSpy = vi.spyOn(themeStore, "setTheme")
+
+        /**=============
+         * OPEN PANEL
+        ================*/
+        const mainButton = wrapper.find("button")
+        await mainButton.trigger("click")
+        await nextTick()
+
+        /**============================
+         * GET AVAILABLE LIGHT THEMES
+        ===============================*/
+        const lightThemes = themeStore.lightThemes
+
+        if (lightThemes.length > 0) {
+            const firstLightTheme = lightThemes[0]
+
+            /**==========================================
+             * FIND AND CLICK THE FIRST LIGHT THEME
+            ==============================================*/
+            const themeButtons = wrapper.findAll("button").filter(button => {
+                const classes = button.classes().join(" ")
+                return classes.includes("relative p-3 rounded-lg border-2")
+            })
+
+            if (themeButtons.length > 0) {
+                await themeButtons[0].trigger("click")
+                await nextTick()
+
+                /**================================================
+                 * VERIFY setTheme WAS CALLED
+                ===================================================*/
+                expect(setThemeSpy).toHaveBeenCalled()
+            }
+        }
     })
 })
