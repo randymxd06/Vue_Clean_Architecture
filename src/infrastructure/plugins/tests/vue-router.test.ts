@@ -1,7 +1,9 @@
 import { describe, it, expect, vi } from "vitest"
 import { setupRouter } from "../vue-router"
 
-// Mock del router
+/**==============
+ * ROUTER MOCK
+=================*/
 vi.mock("../../presentation/router", () => ({
     default: {
         install: vi.fn(),
@@ -12,50 +14,42 @@ vi.mock("../../presentation/router", () => ({
 }))
 
 describe("setupRouter", () => {
-    /**====================================
-     * INSTALLS ROUTER IN THE APP
-     =======================================*/
+    /**===================================
+     * SHOULD INSTALL ROUTER IN THE APP
+    ======================================*/
     it("should install router in the app", () => {
         const app = {
             use: vi.fn(),
         }
-        
         setupRouter(app as any)
-        
         expect(app.use).toHaveBeenCalledTimes(1)
     })
 
-    /**====================================
-     * CALLS APP.USE WITH ROUTER INSTANCE
-     =======================================*/
+    /**===========================================
+     * SHOULD CALL APP.USE WITH ROUTER INSTANCE
+    ==============================================*/
     it("should call app.use with router instance", async () => {
         const app = {
             use: vi.fn(),
         }
-        
         setupRouter(app as any)
-        
-        // Verificar que se llamó app.use
         expect(app.use).toHaveBeenCalled()
-        
-        // Verificar que el argumento pasado es el router mockeado
+        /**=======================================================
+         * VERIFY THAT THE ARGUMENT PASSED IS THE MOCKED ROUTER
+        ==========================================================*/
         const routerArg = app.use.mock.calls[0][0]
         expect(routerArg).toBeDefined()
         expect(typeof routerArg).toBe("object")
     })
 
-    /**====================================
-     * REGISTERS ROUTER PLUGIN
-     =======================================*/
+    /**=============================================
+     * SHOULD REGISTER ROUTER PLUGIN SUCCESSFULLY
+     ===============================================*/
     it("should register router plugin successfully", () => {
         const app = {
             use: vi.fn(),
         }
-        
-        // Ejecutar la función
         expect(() => setupRouter(app as any)).not.toThrow()
-        
-        // Verificar que se registró el plugin
         expect(app.use).toHaveBeenCalledTimes(1)
     })
 })

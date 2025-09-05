@@ -1,9 +1,9 @@
 import { describe, it, expect, vi, beforeEach } from "vitest"
 import { setupPlugins } from "../index"
 
-/**
- * Mock de todos los plugins
- */
+/**======================
+ * MOCK OF ALL PLUGINS
+=========================*/
 vi.mock("../pinia", () => ({
     setupPinia: vi.fn(),
 }))
@@ -29,7 +29,9 @@ describe("setupPlugins", () => {
     let app: any
 
     beforeEach(() => {
-        // Mock de la instancia de app de Vue
+        /**===============================
+         * MOCK OF THE VUE APP INSTANCE
+        ==================================*/
         app = {
             use: vi.fn(),
             mount: vi.fn(),
@@ -38,80 +40,70 @@ describe("setupPlugins", () => {
         vi.clearAllMocks()
     })
 
-    /**====================================
-     * CALLS ALL PLUGIN SETUP FUNCTIONS
-     =======================================*/
+    /**=========================================
+     * SHOULD CALL ALL PLUGIN SETUP FUNCTIONS
+    ============================================*/
     it("should call all plugin setup functions", () => {
         setupPlugins(app)
-
         expect(setupPinia).toHaveBeenCalledWith(app)
         expect(setupRouter).toHaveBeenCalledWith(app)
         expect(setupAnimXYZ).toHaveBeenCalledWith(app)
         expect(useThemeStore).toHaveBeenCalled()
     })
 
-    /**====================================
-     * CALLS PLUGINS IN CORRECT ORDER
-     =======================================*/
+    /**===========================================
+     * SHOULD CALL PLUGINS IN THE CORRECT ORDER
+    ==============================================*/
     it("should call plugins in the correct order", () => {
         const callOrder: string[] = []
-
         vi.mocked(setupPinia).mockImplementation(() => {
             callOrder.push("pinia")
         })
-
         vi.mocked(useThemeStore).mockImplementation(() => {
             callOrder.push("themeStore")
             // Return a minimal mock that satisfies the store interface
             return {} as any
         })
-
         vi.mocked(setupRouter).mockImplementation(() => {
             callOrder.push("router")
         })
-
         vi.mocked(setupAnimXYZ).mockImplementation(() => {
             callOrder.push("animxyz")
         })
-
         setupPlugins(app)
-
         expect(callOrder).toEqual(["pinia", "themeStore", "router", "animxyz"])
     })
 
-    /**====================================
-     * PASSES APP INSTANCE TO PLUGINS
-     =======================================*/
+    /**=========================================================
+     * SHOULD PASS APP INSTANCE TO ALL PLUGIN SETUP FUNCTIONS
+     ===========================================================*/
     it("should pass app instance to all plugin setup functions", () => {
         setupPlugins(app)
-
         expect(setupPinia).toHaveBeenCalledWith(app)
         expect(setupRouter).toHaveBeenCalledWith(app)
         expect(setupAnimXYZ).toHaveBeenCalledWith(app)
     })
 
     /**====================================
-     * INITIALIZES THEME STORE
-     =======================================*/
+     * SHOULD INITIALIZE THE THEME STORE
+    =======================================*/
     it("should initialize theme store", () => {
         setupPlugins(app)
-
         expect(useThemeStore).toHaveBeenCalledTimes(1)
     })
 
-    /**====================================
-     * EXECUTES WITHOUT ERRORS
-     =======================================*/
+    /**=========================================
+     * SHOULD EXECUTE WITHOUT THROWING ERRORS
+     ===========================================*/
     it("should execute without throwing errors", () => {
         expect(() => setupPlugins(app)).not.toThrow()
     })
 
-    /**====================================
-     * CALLS EACH PLUGIN SETUP ONCE
-     =======================================*/
+    /**======================================================
+     * SHOULD CALL EACH PLUGIN SETUP FUNCTION EXACTLY ONCE
+     ========================================================*/
     it("should call each plugin setup function exactly once", () => {
         setupPlugins(app)
-
         expect(setupPinia).toHaveBeenCalledTimes(1)
         expect(setupRouter).toHaveBeenCalledTimes(1)
         expect(setupAnimXYZ).toHaveBeenCalledTimes(1)
