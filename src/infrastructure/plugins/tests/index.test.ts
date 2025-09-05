@@ -62,6 +62,8 @@ describe("setupPlugins", () => {
 
         vi.mocked(useThemeStore).mockImplementation(() => {
             callOrder.push("themeStore")
+            // Return a minimal mock that satisfies the store interface
+            return {} as any
         })
 
         vi.mocked(setupRouter).mockImplementation(() => {
