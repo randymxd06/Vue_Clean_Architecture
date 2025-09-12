@@ -30,7 +30,6 @@ This is a Vue.js project in which I am putting into practice the principles and 
 
 ```sh
 src/                                            # Source code
-│
 ├── domain/                                     # Domain Layer (Core Business Logic)
 │   ├── entities/                               # Business entities
 │   │   └── products/                           # Product-related entities
