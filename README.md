@@ -26,86 +26,181 @@ This is a Vue.js project in which I am putting into practice the principles and 
 >
 > The flow is cyclical: the view triggers events, the BLoC executes use cases, the domain obtains data from the repository, and the API responds, updating the status reflected by the view. This ensures a maintainable, scalable, and framework-agnostic architecture, with the business core completely isolated.
 
-## Directory Structure with Clean Architecture Proposal
+## Current Project Structure
 
 ```sh
-src/
+Vue_Clean_Architecture/
 │
-├── domain/                                 # Domain Layer (Core Business Logic)
-│   ├── entities/                           # Business entities (e.g., User.ts, Product.ts)
-│   │   └── products/                       # Product-related entities
-│   │       └── Product.ts                  # Defines Product structure (id, name, price, stock, etc.)
-│   ├── repositories/                       # Repository interfaces (abstractions)
-│   │   └── products/                       # Product-related repository interfaces
-│   │       └── ProductRepository.ts        # Defines CRUD operations for products (create, read, update, delete)
-│   └── usecases/                           # Application use cases
-│       └── products/                       # Products use cases
-│            ├── CreateProduct.ts           # Manages product creatation logic
-│            ├── DeleteProduct.ts           # Manages all deletion logic.
-│            ├── GetProductById.ts          # Manages all the logic of obtaining by ID
-│            ├── GetProducts.ts             # Manages all the logic of obtaining all records
-│            └── UpdateProduct.ts           # Manages product updates
+├── .github/                                        # GitHub configuration
+│   └── workflows/                                  # GitHub Actions workflows
+│       ├── deploy-storybook.yml                    # Storybook deployment
+│       ├── format.yml                              # Code formatting checks
+│       ├── lint.yml                                # Linting checks
+│       ├── test.yml                                # Testing pipeline
+│       └── typecheck.yml                           # TypeScript checks
 │
-├── infrastructure/                         # Infrastructure Layer (implementation details)
-│   ├── api/                                # API communication
-│   │   ├── AxiosClient.ts                  # Axios HTTP client setup
-│   │   └── HttpClient.ts                   # Interface for all HTTP methods
-│   ├── repositories/                       # Concrete repository implementations
-│   │   └── products/                       # Product-related repository implementations
-│   │       ├── index.ts                    # Implements dependency injections for pinia stores
-│   │       └── ProductRepositoryImpl.ts    # Implements ProductRepository using API client
-│   ├── storage/                            # Client-side storage
-│   │   └── LocalStorage.ts                 # Example: LocalStorage wrapper
-│   └── plugins/                            # Vue plugins
-│       └── i18n.ts                         # Example: Internationalization plugin
+├── .storybook/                                     # Storybook configuration
+│   ├── main.ts                                     # Main Storybook config
+│   └── preview.ts                                  # Preview configuration
 │
-├── presentation/                           # Presentation Layer (UI)
-│   ├── components/                         # Reusable UI components
-│   │   ├── ui/                             # Base UI components (buttons, inputs)
-│   │   │   ├── ProductInput.vue            # Input field for new products
-│   │   │   ├── ProductItem.vue             # Single product item display
-│   │   │   └── ProductList.vue             # List of products
-│   │   └── shared/                         # App-specific shared components
-│   │       └── ProductFilter.vue           # Filtering controls
-│   ├── modules/                            # Feature modules
-│   │   ├── product/                        # Product module
-│   │   │   ├── pages/                      # Route-level components
-│   │   │   │   └── ProductPage.vue         # Main product page
-│   │   │   ├── stores/                     # Product stores
-│   │   │   │   └── productStore.ts         # Pinia store for product state
-│   │   │   ├── router/
-│   │   │   │   └── index.ts                # Router configuration
-│   │   │   ├── composables/                # Product composables
-│   │   │   ├── assets/
-│   │   │   │   ├── styles/                 # CSS/Styles
-│   │   │   │   │   └── product.css         # Product-specific styles
-│   │   │   │   └── icons/                  # SVG/icons
-│   │   │   └── components/                 # Module-specific components
-│   │   │       └── LoginForm.vue
-│   │   ├── dashboard/                      # Another feature module
-│   │   └── auth/                           # Another feature module
-│   ├── stores/                             # State management
-│   │   └── themeStore.ts                   # Example: Pinia store for themes
-│   ├── composables/                        # Composition API utilities
-│   │   └── useProduct.ts                   # Example: Product-related composable
-│   ├── router/                             # Routing configuration
-│   │   └── index.ts                        # Router setup with routes
-│   ├── assets/                             # Global assets
-│   │   ├── styles/                         # Global styles
-│   │   │   └── main.css                    # Global main styles
-│   │   └── images/                         # Global images
-│   └── App.vue                             # Root Vue component
+├── .vscode/                                        # VS Code configuration
+│   └── extensions.json                             # Recommended extensions
 │
-├── shared/                                 # Shared utilities and types
-│   ├── utils/                              # Utility functions
-│   │   ├── formValidator.ts                # Example: Validation utilities
-│   │   └── dateFormatter.ts                # Date formatting utils
-│   ├── constants/                          # Application constants
-│   │   └── product.ts                      # Product-related constants (filter types, etc.)
-│   └── types/                              # Global TypeScript types
-│       └── product.d.ts                    # Product-related TypeScript types
+├── nginx/                                          # Nginx configuration
+│   └── nginx.conf                                  # Nginx config file
 │
-└── main.ts                                 # Application entry point (Vue initialization)
+├── public/                                         # Public static assets
+│   └── favicon.ico                                 # Application favicon
+│
+├── src/                                            # Source code
+│   │
+│   ├── domain/                                     # Domain Layer (Core Business Logic)
+│   │   ├── entities/                               # Business entities
+│   │   │   └── products/                           # Product-related entities
+│   │   │       └── Product.ts                      # Product entity definition
+│   │   ├── repositories/                           # Repository interfaces (abstractions)
+│   │   │   └── products/                           # Product repository interfaces
+│   │   │       └── ProductRepository.ts            # Product repository contract
+│   │   └── usecases/                               # Application use cases
+│   │       └── products/                           # Product use cases
+│   │           ├── CreateProduct.ts                # Create product use case
+│   │           ├── DeleteProduct.ts                # Delete product use case
+│   │           ├── GetProductById.ts               # Get product by ID use case
+│   │           ├── GetProducts.ts                  # Get all products use case
+│   │           ├── UpdateProduct.ts                # Update product use case
+│   │           └── tests/                          # Use case tests
+│   │               ├── CreateProduct.test.ts
+│   │               ├── DeleteProduct.test.ts
+│   │               ├── GetProductById.test.ts
+│   │               ├── GetProducts.test.ts
+│   │               └── UpdateProduct.test.ts
+│   │
+│   ├── infrastructure/                             # Infrastructure Layer
+│   │   ├── api/                                    # API communication
+│   │   │   ├── AxiosClient.ts                      # Axios HTTP client setup
+│   │   │   └── HttpClient.ts                       # HTTP client interface
+│   │   ├── plugins/                                # Vue plugins
+│   │   │   ├── animxyz.ts                          # AnimXYZ plugin configuration
+│   │   │   ├── index.ts                            # Plugins entry point
+│   │   │   ├── pinia.ts                            # Pinia store plugin
+│   │   │   ├── vue-router.ts                       # Vue Router plugin
+│   │   │   └── tests/                              # Plugin tests
+│   │   │       ├── animxyz.test.ts
+│   │   │       ├── index.test.ts
+│   │   │       ├── pinia.test.ts
+│   │   │       └── vue-router.test.ts
+│   │   └── repositories/                           # Repository implementations
+│   │       └── products/                           # Product repository implementations
+│   │           ├── index.ts                        # Dependency injection setup
+│   │           └── ProductRepositoryImpl.ts        # Product repository implementation
+│   │
+│   ├── presentation/                               # Presentation Layer (UI)
+│   │   ├── App.vue                                 # Root Vue component
+│   │   ├── assets/                                 # Presentation assets
+│   │   │   └── css/                                # Stylesheets
+│   │   │       ├── main.css                        # Main styles
+│   │   │       └── themes.css                      # Theme styles
+│   │   ├── components/                             # UI Components (Atomic Design)
+│   │   │   ├── index.ts                            # Components barrel export
+│   │   │   ├── atoms/                              # Basic UI elements
+│   │   │   │   ├── Avatar.vue
+│   │   │   │   ├── Badge.vue
+│   │   │   │   ├── Button.vue
+│   │   │   │   ├── Icon.vue
+│   │   │   │   ├── Logo.vue
+│   │   │   │   ├── NotificationBadge.vue
+│   │   │   │   └── tests/                          # Atom component tests
+│   │   │   │       ├── Avatar.test.ts
+│   │   │   │       ├── Badge.test.ts
+│   │   │   │       ├── Button.test.ts
+│   │   │   │       ├── Icon.test.ts
+│   │   │   │       ├── Logo.test.ts
+│   │   │   │       └── NotificationBadge.test.ts
+│   │   │   ├── layouts/                            # Layout components
+│   │   │   │   ├── AppLayout.vue                   # Main application layout
+│   │   │   │   └── AuthLayout.vue                  # Authentication layout
+│   │   │   ├── molecules/                          # Composite UI elements
+│   │   │   │   ├── AppBrand.vue
+│   │   │   │   ├── Breadcrumb.vue
+│   │   │   │   ├── NavigationItem.vue
+│   │   │   │   ├── SectionHeader.vue
+│   │   │   │   ├── SidebarToggle.vue
+│   │   │   │   ├── ThemeSelector.vue
+│   │   │   │   ├── TopbarActions.vue
+│   │   │   │   ├── UserProfile.vue
+│   │   │   │   └── tests/                          # Molecule component tests
+│   │   │   │       ├── AppBrand.test.ts
+│   │   │   │       ├── Breadcrumb.test.ts
+│   │   │   │       ├── NavigationItem.test.ts
+│   │   │   │       ├── SectionHeader.test.ts
+│   │   │   │       ├── SidebarToggle.test.ts
+│   │   │   │       ├── ThemeSelector.test.ts
+│   │   │   │       ├── TopbarActions.test.ts
+│   │   │   │       └── UserProfile.test.ts
+│   │   │   └── organisms/                          # Complex UI sections
+│   │   │       ├── NavigationSection.vue
+│   │   │       ├── Sidebar.vue
+│   │   │       ├── SidebarFooter.vue
+│   │   │       ├── SidebarHeader.vue
+│   │   │       └── Topbar.vue
+│   │   ├── composables/                            # Vue Composition API utilities
+│   │   │   └── useSidebar.ts                       # Sidebar state management
+│   │   ├── modules/                                # Feature modules
+│   │   │   ├── auth/                               # Authentication module
+│   │   │   │   └── pages/                          # Auth pages
+│   │   │   │       ├── LoginView.vue               # Login page
+│   │   │   │       └── RegisterView.vue            # Registration page
+│   │   │   └── products/                           # Products module
+│   │   │       ├── pages/                          # Product pages
+│   │   │       │   └── ProductsView.vue            # Products view page
+│   │   │       └── stores/                         # Product stores
+│   │   │           └── productStore.ts             # Product state management
+│   │   ├── router/                                 # Routing configuration
+│   │   │   └── index.ts                            # Router setup
+│   │   ├── stores/                                 # Global state management
+│   │   │   └── themeStore.ts                       # Theme state management
+│   │   ├── stories/                                # Storybook stories
+│   │   │   ├── atoms/                              # Atom component stories
+│   │   │   │   ├── Avatar.stories.ts
+│   │   │   │   ├── Badge.stories.ts
+│   │   │   │   ├── Button.stories.ts
+│   │   │   │   ├── Icon.stories.ts
+│   │   │   │   ├── Logo.stories.ts
+│   │   │   │   └── NotificationBadge.stories.ts
+│   │   │   └── molecules/                          # Molecule component stories
+│   │   │       ├── AppBrand.stories.ts
+│   │   │       ├── Breadcrumb.stories.ts
+│   │   │       ├── NavigationItem.stories.ts
+│   │   │       ├── SectionHeader.stories.ts
+│   │   │       ├── SidebarToggle.stories.ts
+│   │   │       ├── ThemeSelector.stories.ts
+│   │   │       ├── TopbarActions.stories.ts
+│   │   │       └── UserProfile.stories.ts
+│   │   └── types/                                  # TypeScript type definitions
+│   │       └── theme.ts                            # Theme-related types
+│   │
+│   └── main.ts                                     # Application entry point
+│
+├── Configuration Files
+├── .dockerignore                                   # Docker ignore rules
+├── .env.template                                   # Environment variables template
+├── .gitattributes                                  # Git attributes configuration
+├── .gitignore                                      # Git ignore rules
+├── biome.json                                      # Biome linter/formatter config
+├── bun.lock                                        # Bun package lock file
+├── docker-compose.yml                              # Docker Compose configuration
+├── Dockerfile                                      # Docker container definition
+├── env.d.ts                                        # Environment types declaration
+├── index.html                                      # HTML entry point
+├── package.json                                    # Node.js dependencies and scripts
+├── shims-vue.d.ts                                  # Vue TypeScript shims
+├── sonar-project.properties                        # SonarQube configuration
+├── tsconfig.app.json                               # TypeScript config for app
+├── tsconfig.json                                   # Main TypeScript configuration
+├── tsconfig.node.json                              # TypeScript config for Node.js
+├── tsconfig.vitest.json                            # TypeScript config for Vitest
+├── vite.config.ts                                  # Vite build configuration
+└── vitest.config.ts                                # Vitest test configuration
 ```
 
 ## Project Setup
