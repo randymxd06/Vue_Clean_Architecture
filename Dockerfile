@@ -33,10 +33,6 @@ RUN npm run build
 
 FROM nginx:1.23.3 AS prod
 
-# Create a non-root user for nginx
-RUN addgroup -g 1001 -S nginx && \
-    adduser -S -D -H -u 1001 -h /var/cache/nginx -s /sbin/nologin -G nginx -g nginx nginx
-
 # Copy built application
 COPY --from=builder /app/dist /usr/share/nginx/html
 
